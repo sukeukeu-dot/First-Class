@@ -10,20 +10,6 @@
     <link rel="stylesheet" href="css/sulbing.css">
 
     <title>설빙 로그인</title>
-    <style>
-        .sns_list > a:first-child {
-            background-image: url(img/kakao.svg);
-        }
-        .sns_list > a:nth-child(2) {
-            background-image: url(img/naver.svg);
-        }
-        .sns_list > a:nth-child(3) {
-            background-image: url(img/apple_logo_icon_147318\ 1.svg);
-        }
-        .sns_list > a:last-child {
-            background-image: url(img/samsung.svg);
-        }
-    </style>
 </head>
 <body>
     <div id="wrap">
@@ -34,8 +20,9 @@
         </header>
 
         <main>
-            <div class="brand_logo">
-                <img src="img/SuLBING-LOGO.svg" alt="설빙">
+            <div class="brand_area">
+                <img class="brand_logo_en" src="img/SULBING1.svg" alt="SULBING">
+                <img class="brand_logo" src="img/SuLBING-LOGO.svg" alt="설빙">
             </div>
 
             <section class="login_content">
@@ -65,11 +52,11 @@
                                     aria-label="비밀번호"
                                 >
                                 <div class="password_actions">
-                                    <button type="button" class="delete_btn">
-                                        <span class="sr-only">입력 삭제</span>
+                                    <button type="button" class="delete_btn" aria-label="비밀번호 입력 삭제">
+                                        <img src="img/delete.svg" alt="">
                                     </button>
-                                    <button type="button" class="eye_btn">
-                                        <span class="sr-only">비밀번호 보기</span>
+                                    <button type="button" class="eye_btn" aria-label="비밀번호 보기">
+                                        <img src="img/eye.svg" alt="">
                                     </button>
                                 </div>
                             </div>
@@ -114,12 +101,18 @@
                 </div>
 
                 <div class="sns_list">
-                    <div class="sns_list">
-                        <a href="#"><span class="sr-only">카카오로그인</span></a>
-                        <a href="#"><span class="sr-only">네이버로그인</span></a>
-                        <a href="#"><span class="sr-only">애플로그인</span></a>
-                        <a href="#"><span class="sr-only">삼성카드로그인</span></a>
-                    </div>
+                    <a href="#" class="sns_btn" aria-label="카카오톡 로그인">
+                        <img src="img/kakao.svg" alt="">
+                    </a>
+                    <a href="#" class="sns_btn" aria-label="네이버 로그인">
+                        <img src="img/naver.svg" alt="">
+                    </a>
+                    <a href="#" class="sns_btn" aria-label="애플 로그인">
+                        <img src="img/apple_logo_icon_147318 1.svg" alt="">
+                    </a>
+                    <a href="#" class="sns_btn" aria-label="삼성카드 로그인">
+                        <img src="img/samsung.svg" alt="">
+                    </a>
                 </div>
             </section>
         </main>
