@@ -124,6 +124,9 @@ main {
 
 .password_box > input {
     padding-right: 70px;
+}
+
+.password_box > input:focus {
     border-color: var(--sulbing-brown);
 }
 
