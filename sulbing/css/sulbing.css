@@ -1,0 +1,361 @@
+@charset "UTF-8";
+
+:root {
+    --sulbing-orange: #F36F2C;
+    --sulbing-cream: #FFF0D7;
+    --sulbing-brown: #873635;
+    --sulbing-dark: #42120E;
+    --sulbing-text: #333333;
+    --sulbing-white: #FEFEF2;
+
+    --font-pre: "Pretendard Variable", sans-serif;
+    --font-noto: "Noto Sans KR", sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: var(--font-pre);
+    font-size: 1.6rem;
+    color: var(--sulbing-brown);
+    background-color: var(--sulbing-cream);
+}
+
+#wrap {
+    width: 100%;
+    max-width: 1024px;
+    min-width: 360px;
+    min-height: 100dvh;
+    margin: 0 auto;
+    background-color: var(--sulbing-cream);
+}
+
+.login_header {
+    position: relative;
+    height: 128px;
+}
+
+.back_btn {
+    position: absolute;
+    top: 80px;
+    left: 3px;
+    width: 48px;
+    height: 48px;
+}
+
+.back_btn::before,
+.back_btn::after {
+    content: "";
+    position: absolute;
+    left: 17px;
+    width: 15px;
+    height: 2px;
+    background-color: var(--sulbing-brown);
+}
+
+.back_btn::before {
+    top: 19px;
+    transform: rotate(-45deg);
+}
+
+.back_btn::after {
+    top: 29px;
+    transform: rotate(45deg);
+}
+
+main {
+    padding-bottom: 60px;
+}
+
+.brand_logo {
+    width: 112px;
+    height: 112px;
+    margin: 25px auto 24px;
+}
+
+.brand_logo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.login_content {
+    width: calc(100% - 40px);
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.input_group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input_group label {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.input_group input {
+    width: 100%;
+    height: 50px;
+    padding: 0 20px;
+    border: 1px solid var(--sulbing-cream);
+    border-radius: 10px;
+    background-color: #fff;
+    font-family: var(--font-pre);
+    font-size: 1.6rem;
+    color: var(--sulbing-dark);
+}
+
+.input_group input::placeholder {
+    color: rgba(135, 54, 53, 0.5);
+}
+
+.input_group input:focus {
+    border-color: var(--sulbing-brown);
+}
+
+.password_box {
+    position: relative;
+}
+
+.password_box > input {
+    padding-right: 70px;
+    border-color: var(--sulbing-brown);
+}
+
+.password_actions {
+    position: absolute;
+    top: 0;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 50px;
+}
+
+.delete_btn,
+.eye_btn {
+    position: relative;
+    width: 20px;
+    height: 26px;
+}
+
+.delete_btn::before,
+.delete_btn::after {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 2px;
+    width: 16px;
+    height: 1.5px;
+    background-color: var(--sulbing-brown);
+}
+
+.delete_btn::before {
+    transform: rotate(45deg);
+}
+
+.delete_btn::after {
+    transform: rotate(-45deg);
+}
+
+.eye_btn {
+    width: 26px;
+}
+
+.eye_btn::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 3px;
+    width: 20px;
+    height: 13px;
+    border: 1.5px solid var(--sulbing-brown);
+    border-radius: 50% / 65%;
+}
+
+.eye_btn::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: var(--sulbing-brown);
+}
+
+.login_actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.option_list {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    height: 30px;
+}
+
+.check_item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.check_item input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.check_box {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: var(--sulbing-white);
+}
+
+.check_item input:checked + .check_box {
+    background-color: var(--sulbing-orange);
+}
+
+.check_item input:checked + .check_box::after {
+    content: "";
+    position: absolute;
+    top: 7px;
+    left: 10px;
+    width: 7px;
+    height: 12px;
+    border-right: 2px solid var(--sulbing-white);
+    border-bottom: 2px solid var(--sulbing-white);
+    transform: rotate(45deg);
+}
+
+.login_btn {
+    width: 350px;
+    max-width: 100%;
+    height: 44px;
+    border-radius: 6px;
+    background-color: var(--sulbing-orange);
+    font-family: var(--font-pre);
+    font-size: 1.6rem;
+    color: var(--sulbing-white);
+}
+
+.login_btn:disabled {
+    cursor: default;
+    opacity: 0.2;
+}
+
+.account_links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--sulbing-brown);
+    font-size: 1.2rem;
+    letter-spacing: -0.012em;
+}
+
+.account_links a {
+    white-space: nowrap;
+}
+
+.link_line {
+    width: 1px;
+    height: 12px;
+    background-color: currentColor;
+    opacity: 0.7;
+}
+
+.sns_login {
+    width: calc(100% - 40px);
+    max-width: 350px;
+    margin: 90px auto 0;
+}
+
+.sns_title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.sns_line {
+    flex: 1;
+    height: 1px;
+    background-color: var(--sulbing-brown);
+    opacity: 0.25;
+}
+
+.sns_title p {
+    flex: 0 0 auto;
+    font-size: 1.3rem;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+}
+
+.sns_list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.sns_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-family: var(--font-pre);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--sulbing-white);
+}
+
+.sns_btn.kakao {
+    background-color: #3C1E1E;
+}
+
+.sns_btn.naver {
+    background-color: #03C75A;
+}
+
+.sns_btn.apple {
+    background-color: #000;
+}
+
+.sns_btn.samsung {
+    background-color: var(--sulbing-brown);
+}
+
+@media (max-width: 390px) {
+    .login_content,
+    .sns_login {
+        width: calc(100% - 40px);
+    }
+
+    .option_list {
+        gap: 18px;
+    }
+
+    .account_links {
+        gap: 8px;
+    }
+}
