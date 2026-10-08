@@ -49,19 +49,19 @@ body {
 .back_btn::after {
     content: "";
     position: absolute;
-    left: 17px;
+    left: 20px;
     width: 15px;
     height: 2px;
     background-color: var(--sulbing-brown);
 }
 
 .back_btn::before {
-    top: 19px;
+    top: 20px;
     transform: rotate(-45deg);
 }
 
 .back_btn::after {
-    top: 29px;
+    top: 30px;
     transform: rotate(45deg);
 }
 
@@ -145,7 +145,7 @@ main {
     right: 12px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
     height: 50px;
 }
 
@@ -159,6 +159,7 @@ main {
 }
 
 .delete_btn img {
+    display: block;
     width: 20px;
     height: 20px;
 }
@@ -168,6 +169,7 @@ main {
 }
 
 .eye_btn img {
+    display: block;
     width: 24px;
     height: 20px;
 }
