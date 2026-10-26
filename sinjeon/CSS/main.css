@@ -31,50 +31,44 @@ body {
     background-color: #f4f4f4;
 }
 
-/* Pagination은 Figma 시안에 없어 숨김 */
-.visual-controls .swiper-pagination {
-    display: none;
-}
-
-/* 이전/다음 버튼 기본 스타일 초기화 */
-.visual-controls .swiper-button-prev,
-.visual-controls .swiper-button-next {
+/* 이전/다음 버튼: Swiper 기본 화살표 클래스와 분리해 중복 방지 */
+.visual-controls .visual-arrow {
     position: absolute;
     top: 50%;
-    left: auto;
-    right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 28px;
     height: 40px;
-    margin: 0;
-    color: #008657;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
     transform: translateY(-50%);
 }
 
-.visual-controls .swiper-button-prev {
+.visual-controls .visual-arrow-prev {
     left: 17.5%;
 }
 
-.visual-controls .swiper-button-next {
+.visual-controls .visual-arrow-next {
     right: 10.5%;
 }
 
-/* Swiper 기본 화살표를 그린 꺾쇠로 변경 */
-.visual-controls .swiper-button-prev::after,
-.visual-controls .swiper-button-next::after {
+.visual-controls .visual-arrow::before {
     content: "";
     display: block;
     width: 14px;
     height: 14px;
     border-top: 5px solid #008657;
     border-right: 5px solid #008657;
-    font-size: 0;
 }
 
-.visual-controls .swiper-button-prev::after {
+.visual-controls .visual-arrow-prev::before {
     transform: rotate(-135deg);
 }
 
-.visual-controls .swiper-button-next::after {
+.visual-controls .visual-arrow-next::before {
     transform: rotate(45deg);
 }
 
@@ -125,11 +119,11 @@ body {
         height: 76px;
     }
 
-    .visual-controls .swiper-button-prev {
+    .visual-controls .visual-arrow-prev {
         left: 8%;
     }
 
-    .visual-controls .swiper-button-next {
+    .visual-controls .visual-arrow-next {
         right: 8%;
     }
 
@@ -137,8 +131,7 @@ body {
         width: 42%;
     }
 
-    .visual-controls .swiper-button-prev::after,
-    .visual-controls .swiper-button-next::after {
+    .visual-controls .visual-arrow::before {
         width: 12px;
         height: 12px;
         border-width: 4px;
