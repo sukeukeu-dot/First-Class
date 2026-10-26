@@ -12,7 +12,7 @@ body {
     height: 600px;
 }
 /* 높이를 고정하고 싶은 경우는 피엑스 값 적용 */
-/* 반응형에 따라 높이 값이 점점 줄어들길 바라면 높이 값 주지 않기 
+/* 반응형에 따라 높이 값이 점점 줄어들길 바라면 높이 값 주지 않기
 max height 정도 가능 */
 
 .hero-sec .swiper img {
@@ -21,10 +21,77 @@ max height 정도 가능 */
     object-fit: cover;
 }
 
+/* Figma 기준 슬라이더 컨트롤 영역 */
+.visual-controls {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 96px;
+    background-color: #f4f4f4;
+}
+
+.visual-controls .swiper-pagination {
+    display: none;
+}
+
+.visual-controls .swiper-button-prev,
+.visual-controls .swiper-button-next {
+    position: absolute;
+    top: 50%;
+    width: 28px;
+    height: 40px;
+    margin-top: 0;
+    color: #008657;
+    transform: translateY(-50%);
+}
+
+.visual-controls .swiper-button-prev {
+    left: 17.5%;
+}
+
+.visual-controls .swiper-button-next {
+    right: 10.5%;
+}
+
+.visual-controls .swiper-button-prev::after,
+.visual-controls .swiper-button-next::after {
+    content: "";
+    width: 15px;
+    height: 15px;
+    border-top: 5px solid #008657;
+    border-right: 5px solid #008657;
+    font-size: 0;
+}
+
+.visual-controls .swiper-button-prev::after {
+    transform: rotate(-135deg);
+}
+
+.visual-controls .swiper-button-next::after {
+    transform: rotate(45deg);
+}
+
+.visual-controls .swiper-scrollbar {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    width: min(330px, 36%);
+    height: 4px;
+    border-radius: 0;
+    background-color: #d8d8d8;
+}
+
+.visual-controls .swiper-scrollbar-drag {
+    border-radius: 0;
+    background-color: #008657;
+}
+
 @media (max-width: 1024px) {
     .pc {
         display: none;
-    }    
+    }
     .mo {
         display: block;
     }
@@ -37,5 +104,38 @@ max height 정도 가능 */
     }
     .hero-sec .swiper {
         height: 96dvb;
+    }
+
+    .visual-controls {
+        height: 76px;
+    }
+
+    .visual-controls .swiper-button-prev {
+        left: 8%;
+    }
+
+    .visual-controls .swiper-button-next {
+        right: 8%;
+    }
+
+    .visual-controls .swiper-scrollbar {
+        width: 42%;
+    }
+
+    .visual-controls .swiper-button-prev::after,
+    .visual-controls .swiper-button-next::after {
+        width: 12px;
+        height: 12px;
+        border-width: 4px;
+    }
+}
+
+@media (max-width: 480px) {
+    .visual-controls {
+        height: 64px;
+    }
+
+    .visual-controls .swiper-scrollbar {
+        width: 38%;
     }
 }
