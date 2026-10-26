@@ -8,6 +8,27 @@
     <link rel="stylesheet" href="../npm/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="../css/pretendardvariable.css">
     <link rel="stylesheet" href="CSS/main.css">
+    <style>
+        /* 컨트롤을 배너 위에 겹치고 배경은 투명하게 처리 */
+        .hero-sec {
+            position: relative;
+        }
+
+        .hero-sec .visual-controls {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 5;
+            background: transparent;
+        }
+
+        /* 진행 막대 뒤에 회색 바탕이 보이지 않도록 처리 */
+        .hero-sec .visual-controls .swiper-scrollbar {
+            background: transparent;
+            box-shadow: none;
+        }
+    </style>
     <script src="../npm/swiper/swiper-bundle.min.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
