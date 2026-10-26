@@ -23,10 +23,26 @@
             background: transparent;
         }
 
-        /* 진행 막대 뒤에 회색 바탕이 보이지 않도록 처리 */
         .hero-sec .visual-controls .swiper-scrollbar {
             background: transparent;
             box-shadow: none;
+        }
+
+        /* 업로드한 Vector.svg 화살표 사용: CSS로 그린 기존 화살표는 숨김 */
+        .hero-sec .visual-controls .visual-arrow::before {
+            content: none;
+            display: none;
+        }
+
+        .hero-sec .visual-controls .visual-arrow img {
+            display: block;
+            width: 15px;
+            height: 25px;
+            object-fit: contain;
+        }
+
+        .hero-sec .visual-controls .visual-arrow-next img {
+            transform: rotate(180deg);
         }
     </style>
     <script src="../npm/swiper/swiper-bundle.min.js" defer></script>
@@ -66,9 +82,13 @@
                 </div>
 
                 <div class="visual-controls" aria-label="배너 슬라이더 조작">
-                    <button type="button" class="visual-arrow visual-arrow-prev" aria-label="이전 배너"></button>
+                    <button type="button" class="visual-arrow visual-arrow-prev" aria-label="이전 배너">
+                        <img src="img/Vector.svg" alt="">
+                    </button>
                     <div class="swiper-scrollbar" aria-label="배너 진행 상태"></div>
-                    <button type="button" class="visual-arrow visual-arrow-next" aria-label="다음 배너"></button>
+                    <button type="button" class="visual-arrow visual-arrow-next" aria-label="다음 배너">
+                        <img src="img/Vector.svg" alt="">
+                    </button>
                 </div>
             </section>
         </main>
