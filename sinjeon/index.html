@@ -11,12 +11,12 @@
     <script src="../npm/swiper/swiper-bundle.min.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const swiperHero = new Swiper('.hero-sec > .swiper', {
+            new Swiper('.hero-sec > .swiper', {
                 direction: 'horizontal',
                 loop: true,
                 navigation: {
-                    nextEl: '.visual-controls .swiper-button-next',
-                    prevEl: '.visual-controls .swiper-button-prev',
+                    nextEl: '.visual-controls .visual-arrow-next',
+                    prevEl: '.visual-controls .visual-arrow-prev',
                 },
                 scrollbar: {
                     el: '.visual-controls .swiper-scrollbar',
@@ -45,9 +45,9 @@
                 </div>
 
                 <div class="visual-controls" aria-label="배너 슬라이더 조작">
-                    <button type="button" class="swiper-button-prev" aria-label="이전 배너"></button>
+                    <button type="button" class="visual-arrow visual-arrow-prev" aria-label="이전 배너"></button>
                     <div class="swiper-scrollbar" aria-label="배너 진행 상태"></div>
-                    <button type="button" class="swiper-button-next" aria-label="다음 배너"></button>
+                    <button type="button" class="visual-arrow visual-arrow-next" aria-label="다음 배너"></button>
                 </div>
             </section>
         </main>
