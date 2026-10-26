@@ -1,70 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>신전떡볶이리뉴얼포트폴리오</title>
+    <title>신전떡볶이 리뉴얼 포트폴리오</title>
     <link rel="stylesheet" href="../css/default.css">
     <link rel="stylesheet" href="../npm/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="../css/pretendardvariable.css">
     <link rel="stylesheet" href="CSS/main.css">
-    <script src="../npm/swiper/swiper-bundle.min.js"></script>
+    <script src="../npm/swiper/swiper-bundle.min.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const swiperHero = new Swiper('.hero-sec > .swiper', {
+                direction: 'horizontal',
+                loop: true,
+                navigation: {
+                    nextEl: '.visual-controls .swiper-button-next',
+                    prevEl: '.visual-controls .swiper-button-prev',
+                },
+                scrollbar: {
+                    el: '.visual-controls .swiper-scrollbar',
+                    draggable: true,
+                },
+            });
+        });
+    </script>
 </head>
 <body>
     <div id="wrap">
         <header>제목공간</header>
         <main>
-            <div class="hero-sec">
-                <!-- Slider main container -->
+            <section class="hero-sec" aria-label="메인 배너">
                 <div class="swiper visual">
-                    <!-- Additional required wrapper -->
                     <div class="swiper-wrapper">
-                        <!-- Slides -->
                         <div class="swiper-slide">
-                            <img src="img/SINJEON.png" alt="배너" class="pc">
-                            <img src="img/kimari.png" alt="모바일" class="mo">
+                            <img src="img/SINJEON.png" alt="신전떡볶이 메인 배너" class="pc">
+                            <img src="img/kimari.png" alt="신전떡볶이 모바일 배너" class="mo">
                         </div>
                         <div class="swiper-slide">
-                            <img src="img/pckimari.png" alt="신전" class="pc">
-                            <img src="img/SINJEONmoba.png" alt="모바일신전건물" class="mo">
+                            <img src="img/pckimari.png" alt="신전떡볶이 배너" class="pc">
+                            <img src="img/SINJEONmoba.png" alt="신전떡볶이 건물 모바일 배너" class="mo">
                         </div>
                     </div>
-                    <!-- If we need pagination -->
-                    <div class="swiper-pagination"></div>
-
-                    <!-- If we need navigation buttons -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-
-                    <!-- If we need scrollbar -->
-                    <div class="swiper-scrollbar"></div>
                 </div>
-            </div>
+
+                <div class="visual-controls" aria-label="배너 슬라이더 조작">
+                    <button type="button" class="swiper-button-prev" aria-label="이전 배너"></button>
+                    <div class="swiper-scrollbar" aria-label="배너 진행 상태"></div>
+                    <button type="button" class="swiper-button-next" aria-label="다음 배너"></button>
+                </div>
+            </section>
         </main>
         <footer>&copy;</footer>
     </div>
-    <script>
-        const swiperHero = new Swiper('.hero-sec > .swiper', {
-            // Optional parameters
-            direction: 'horizontal',
-            loop: true,
-
-            // If we need pagination
-            pagination: {
-                el: '.visual .swiper-pagination',
-            },
-
-            // Navigation arrows
-            navigation: {
-                nextEl: '.visual .swiper-button-next',
-                prevEl: '.visual .swiper-button-prev',
-            },
-
-            // And if we need scrollbar
-            scrollbar: {
-                el: '.visual .swiper-scrollbar',
-            },
-        });
-    </script>
 </body>
 </html>
