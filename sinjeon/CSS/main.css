@@ -169,3 +169,57 @@ body {
         width: 38%;
     }
 }
+
+
+.b-slider img {
+    width: 100%;
+}
+
+.hero-sec {
+    width: 100%;
+    height: 1050px;
+    overflow: hidden;
+}
+
+.visual {
+    width: 100%;
+    height: 100%;
+}
+
+.hero-video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* PC 화면 */
+.pc {
+    display: block !important;
+}
+
+.mo {
+    display: none !important;
+}
+
+/* 모바일 화면 */
+@media screen and (max-width: 768px) {
+    .hero-sec {
+        height: auto;
+    }
+
+    .hero-video {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .pc {
+        display: none !important;
+    }
+
+    .mo {
+        display: block !important;
+        width: 100%;
+    }
+}
