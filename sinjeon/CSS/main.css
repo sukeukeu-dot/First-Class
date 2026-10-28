@@ -7,14 +7,13 @@
     --color-brand-red: #d23023;
     --color-text-primary: #252525;
     --color-text-secondary: #6b6867;
+    --color-text-charcoal: #333333;
     --color-background-page: #fffdfc;
     --color-border-light: #e5e2e0;
     --content-max-width: 1600px;
 }
 
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html {
     width: 100%;
@@ -39,20 +38,20 @@ body {
     overflow: clip;
 }
 
-/* 로고와 메뉴가 메인 비주얼 상단에 겹쳐 보이도록 배치 */
+/* 헤더: 로고 왼쪽, 메뉴 오른쪽. 두 영역 사이에 충분한 여백을 둠 */
 .site-header {
     position: absolute;
     inset: 0 0 auto;
     z-index: 20;
     width: 100%;
-    min-height: 64px;
+    min-height: 72px;
     padding: 0 clamp(24px, 5.5vw, 88px);
     display: flex;
     align-items: center;
     background: linear-gradient(
         180deg,
-        rgba(255, 255, 255, 0.92) 0%,
-        rgba(255, 255, 255, 0.72) 72%,
+        rgba(255, 255, 255, 0.96) 0%,
+        rgba(255, 255, 255, 0.78) 72%,
         rgba(255, 255, 255, 0) 100%
     );
 }
@@ -64,7 +63,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 32px;
+    gap: clamp(48px, 7vw, 120px);
 }
 
 .site-header .brand-logo {
@@ -91,7 +90,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: clamp(20px, 3.1vw, 56px);
+    gap: clamp(24px, 3.2vw, 58px);
     margin: 0;
     padding: 0;
     list-style: none;
@@ -101,7 +100,7 @@ body {
     display: inline-flex;
     align-items: center;
     min-height: 44px;
-    color: #222222;
+    color: var(--color-text-charcoal);
     font-family: "Pretendard Variable", Pretendard, sans-serif;
     font-size: 20px;
     font-weight: 500;
@@ -155,19 +154,19 @@ body {
     font-size: 12px;
 }
 
-/* 태블릿 */
+/* 태블릿: 메뉴와 로고가 겹치지 않도록 크기와 간격 조정 */
 @media (max-width: 1100px) {
     .site-header {
-        min-height: 58px;
+        min-height: 62px;
         padding-inline: 28px;
     }
 
-    .site-header .brand-logo img {
-        width: 108px;
+    .site-header .header-inner {
+        gap: 40px;
     }
 
-    .site-header .header-inner {
-        gap: 22px;
+    .site-header .brand-logo img {
+        width: 104px;
     }
 
     .site-header .gnb {
@@ -184,25 +183,25 @@ body {
     }
 }
 
-/* 모바일 */
+/* 모바일: 영상 높이를 낮춰 한 화면을 과하게 차지하지 않게 함 */
 @media (max-width: 700px) {
     .site-header {
-        min-height: 58px;
+        min-height: 56px;
         padding-inline: 16px;
-        background: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.94);
     }
 
     .site-header .header-inner {
-        gap: 14px;
+        gap: 18px;
     }
 
     .site-header .brand-logo img {
-        width: 92px;
-        max-height: 36px;
+        width: 84px;
+        max-height: 32px;
     }
 
     .site-header .gnb {
-        gap: 12px;
+        gap: 14px;
         overflow-x: auto;
         scrollbar-width: none;
     }
@@ -212,13 +211,14 @@ body {
     }
 
     .site-header .gnb a {
-        min-height: 40px;
+        min-height: 38px;
         font-size: 13px;
     }
 
     .hero-sec .visual {
-        height: min(72svh, 760px);
-        min-height: 440px;
+        height: 52svh;
+        min-height: 280px;
+        max-height: 440px;
         aspect-ratio: auto;
     }
 
@@ -239,11 +239,15 @@ body {
     }
 
     .site-header .brand-logo img {
-        width: 78px;
+        width: 72px;
+    }
+
+    .site-header .header-inner {
+        gap: 12px;
     }
 
     .site-header .gnb {
-        gap: 9px;
+        gap: 10px;
     }
 
     .site-header .gnb a {
@@ -251,13 +255,11 @@ body {
     }
 
     .hero-sec .visual {
-        min-height: 400px;
-        height: 68svh;
+        height: 48svh;
+        min-height: 260px;
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .site-header .gnb a {
-        transition: none;
-    }
+    .site-header .gnb a { transition: none; }
 }
