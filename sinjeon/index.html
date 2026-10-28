@@ -1,68 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>신전떡볶이리뉴얼포트폴리오</title>
+    <meta name="theme-color" content="#ffffff">
+    <title>신전떡볶이 리뉴얼 포트폴리오</title>
+
     <link rel="stylesheet" href="../css/default.css">
-    <link rel="stylesheet" href="../npm/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="../css/pretendardvariable.css">
     <link rel="stylesheet" href="CSS/main.css">
-    <script src="../npm/swiper/swiper-bundle.min.js"></script>
 </head>
 <body>
     <div id="wrap">
-        <header>제목공간</header>
+        <header class="site-header">
+            <!-- 추후 로고 및 GNB 적용 -->
+        </header>
+
         <main>
-            <div class="hero-sec">
-                    <div class="visual">
-                        <video class="hero-video" autoplay muted loop playsinline>
-                            <source src="video/videosinjeon.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                <!-- Slider main container -->
-                <div class="swiper visual">
-                    <!-- Additional required wrapper -->
-                    <div class="swiper-wrapper">
-                        <!-- Slides -->
-                        <div class="swiper-slide">
-                    </div>
-                    <!-- If we need pagination -->
-                    <div class="swiper-pagination"></div>
-
-                    <!-- If we need navigation buttons -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-
-                    <!-- If we need scrollbar -->
-                    <div class="swiper-scrollbar"></div>
+            <section class="hero-sec" aria-label="신전떡볶이 메인 영상">
+                <div class="visual">
+                    <video
+                        class="hero-video"
+                        autoplay
+                        muted
+                        loop
+                        playsinline
+                        preload="metadata"
+                        aria-label="신전떡볶이 브랜드 영상"
+                    >
+                        <source src="video/videosinjeon.mp4" type="video/mp4">
+                        현재 브라우저에서는 동영상을 재생할 수 없습니다.
+                    </video>
                 </div>
-            </div>
+            </section>
         </main>
-        <footer>&copy;</footer>
+
+        <footer class="site-footer">
+            <small>&copy; 신전떡볶이 리뉴얼 포트폴리오</small>
+        </footer>
     </div>
-    <script>
-        const swiperHero = new Swiper('.hero-sec > .swiper', {
-            // Optional parameters
-            direction: 'horizontal',
-            loop: true,
-
-            // If we need pagination
-            pagination: {
-                el: '.visual .swiper-pagination',
-            },
-
-            // Navigation arrows
-            navigation: {
-                nextEl: '.visual .swiper-button-next',
-                prevEl: '.visual .swiper-button-prev',
-            },
-
-            // And if we need scrollbar
-            scrollbar: {
-                el: '.visual .swiper-scrollbar',
-            },
-        });
-    </script>
 </body>
 </html>
