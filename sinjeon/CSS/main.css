@@ -1,6 +1,28 @@
+/* 신전떡볶이 디자인 토큰 - Figma Variables */
+:root {
+    --color-brand-pink: #f6878b;
+    --color-brand-green: #008657;
+    --color-brand-red: #d23023;
+
+    --color-text-primary: #252525;
+    --color-text-secondary: #6b6867;
+    --color-text-inverse: #ffffff;
+    --color-text-brand: var(--color-brand-red);
+
+    --color-background-page: #fffdfc;
+    --color-background-subtle: #ffffff;
+    --color-surface-warm: #fffdfc;
+
+    --color-border-light: #e5e2e0;
+    --color-action-secondary: var(--color-brand-green);
+    --color-accent-promo: var(--color-brand-pink);
+}
+
 body {
-    background-color: yellow;
-    font-family: "Pretendard Variable", sans-serif;
+    background-color: var(--color-background-page);
+    color: var(--color-text-primary);
+    font-family: "Pretendard Variable", Pretendard, sans-serif;
+    font-weight: 400;
 }
 
 .mo {
@@ -28,10 +50,10 @@ body {
     justify-content: center;
     width: 100%;
     height: 96px;
-    background-color: #f4f4f4;
+    background-color: var(--color-background-subtle);
 }
 
-/* 이전/다음 버튼: Swiper 기본 화살표 클래스와 분리해 중복 방지 */
+/* 이전/다음 버튼 */
 .visual-controls .visual-arrow {
     position: absolute;
     top: 50%;
@@ -60,8 +82,8 @@ body {
     display: block;
     width: 14px;
     height: 14px;
-    border-top: 5px solid #008657;
-    border-right: 5px solid #008657;
+    border-top: 5px solid var(--color-action-secondary);
+    border-right: 5px solid var(--color-action-secondary);
 }
 
 .visual-controls .visual-arrow-prev::before {
@@ -81,12 +103,12 @@ body {
     width: 35%;
     height: 4px;
     border-radius: 0;
-    background-color: #d8d8d8;
+    background-color: var(--color-border-light);
 }
 
 .visual-controls .swiper-scrollbar-drag {
     border-radius: 0;
-    background-color: #008657;
+    background-color: var(--color-action-secondary);
     cursor: grab;
 }
 
@@ -107,7 +129,7 @@ body {
         z-index: 10;
         width: 100%;
         height: 60px;
-        background-color: wheat;
+        background-color: var(--color-background-subtle);
     }
 
     .hero-sec .swiper {
