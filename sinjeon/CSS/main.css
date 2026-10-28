@@ -1,4 +1,7 @@
-/* 신전떡볶이 디자인 토큰 - Figma Variables */
+/* ========================================
+   신전떡볶이 리뉴얼 - Design Tokens
+   Figma 브랜드 컬러
+======================================== */
 :root {
     --color-brand-pink: #f6878b;
     --color-brand-green: #008657;
@@ -16,174 +19,55 @@
     --color-border-light: #e5e2e0;
     --color-action-secondary: var(--color-brand-green);
     --color-accent-promo: var(--color-brand-pink);
+
+    --content-max-width: 1600px;
+}
+
+/* 기본 레이아웃 */
+html {
+    width: 100%;
+    min-width: 320px;
+    background: var(--color-background-page);
 }
 
 body {
-    background-color: var(--color-background-page);
+    width: 100%;
+    min-width: 320px;
+    margin: 0;
     color: var(--color-text-primary);
+    background: var(--color-background-page);
     font-family: "Pretendard Variable", Pretendard, sans-serif;
     font-weight: 400;
 }
 
-.mo {
-    display: none;
-}
-
-/* 메인 배너 */
-.hero-sec .swiper {
+#wrap {
     width: 100%;
-    height: 600px;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow: clip;
 }
 
-.hero-sec .swiper img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Figma 슬라이더 컨트롤 영역 */
-.visual-controls {
+.site-header {
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    z-index: 10;
     width: 100%;
-    height: 96px;
-    background-color: var(--color-background-subtle);
+    background: var(--color-background-subtle);
 }
 
-/* 이전/다음 버튼 */
-.visual-controls .visual-arrow {
-    position: absolute;
-    top: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 40px;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    cursor: pointer;
-    transform: translateY(-50%);
-}
-
-.visual-controls .visual-arrow-prev {
-    left: 17.5%;
-}
-
-.visual-controls .visual-arrow-next {
-    right: 10.5%;
-}
-
-.visual-controls .visual-arrow::before {
-    content: "";
-    display: block;
-    width: 14px;
-    height: 14px;
-    border-top: 5px solid var(--color-action-secondary);
-    border-right: 5px solid var(--color-action-secondary);
-}
-
-.visual-controls .visual-arrow-prev::before {
-    transform: rotate(-135deg);
-}
-
-.visual-controls .visual-arrow-next::before {
-    transform: rotate(45deg);
-}
-
-/* 중앙 진행 막대 */
-.visual-controls .swiper-scrollbar {
-    position: relative;
-    top: auto;
-    bottom: auto;
-    left: auto;
-    width: 35%;
-    height: 4px;
-    border-radius: 0;
-    background-color: var(--color-border-light);
-}
-
-.visual-controls .swiper-scrollbar-drag {
-    border-radius: 0;
-    background-color: var(--color-action-secondary);
-    cursor: grab;
-}
-
-/* 태블릿 및 모바일 */
-@media screen and (max-width: 1024px) {
-    .pc {
-        display: none;
-    }
-
-    .mo {
-        display: block;
-    }
-
-    header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 10;
-        width: 100%;
-        height: 60px;
-        background-color: var(--color-background-subtle);
-    }
-
-    .hero-sec .swiper {
-        height: calc(100vh - 60px);
-        height: calc(100dvh - 60px);
-    }
-
-    .visual-controls {
-        height: 76px;
-    }
-
-    .visual-controls .visual-arrow-prev {
-        left: 8%;
-    }
-
-    .visual-controls .visual-arrow-next {
-        right: 8%;
-    }
-
-    .visual-controls .swiper-scrollbar {
-        width: 42%;
-    }
-
-    .visual-controls .visual-arrow::before {
-        width: 12px;
-        height: 12px;
-        border-width: 4px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .visual-controls {
-        height: 64px;
-    }
-
-    .visual-controls .swiper-scrollbar {
-        width: 38%;
-    }
-}
-
-
-.b-slider img {
-    width: 100%;
-}
-
+/* 메인 비주얼: 영상 비율을 유지해 PC/모바일에서 왜곡 방지 */
 .hero-sec {
+    position: relative;
     width: 100%;
-    height: 1050px;
     overflow: hidden;
+    background: #21150f;
 }
 
-.visual {
+.hero-sec .visual {
     width: 100%;
-    height: 100%;
+    aspect-ratio: 16 / 9;
+    max-height: 900px;
+    margin-inline: auto;
+    overflow: hidden;
 }
 
 .hero-video {
@@ -191,35 +75,64 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
 }
 
-/* PC 화면 */
-.pc {
-    display: block !important;
+/* 페이지 하단 */
+.site-footer {
+    padding: 20px 16px;
+    color: var(--color-text-secondary);
+    background: var(--color-background-subtle);
+    border-top: 1px solid var(--color-border-light);
+    text-align: center;
+    font-size: 12px;
 }
 
-.mo {
-    display: none !important;
+/* 작은 노트북 및 태블릿 */
+@media (max-width: 1024px) {
+    .hero-sec .visual {
+        aspect-ratio: 4 / 3;
+        max-height: none;
+    }
+
+    .hero-video {
+        object-position: center;
+    }
 }
 
-/* 모바일 화면 */
-@media screen and (max-width: 768px) {
-    .hero-sec {
-        height: auto;
+/* 모바일 */
+@media (max-width: 600px) {
+    .hero-sec .visual {
+        /* 세로 화면에서는 배너를 세로로 넉넉하게 보여줌 */
+        height: min(72svh, 760px);
+        min-height: 440px;
+        aspect-ratio: auto;
     }
 
     .hero-video {
         width: 100%;
-        height: auto;
-        object-fit: contain;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
     }
 
-    .pc {
-        display: none !important;
+    .site-footer {
+        padding: 16px 12px;
+        font-size: 11px;
     }
+}
 
-    .mo {
-        display: block !important;
-        width: 100%;
+/* 아주 작은 모바일 */
+@media (max-width: 360px) {
+    .hero-sec .visual {
+        min-height: 400px;
+        height: 68svh;
+    }
+}
+
+/* 사용자가 모션 감소를 설정한 경우 자동 재생 움직임을 줄이기 위한 보완 */
+@media (prefers-reduced-motion: reduce) {
+    .hero-video {
+        animation: none;
     }
 }
