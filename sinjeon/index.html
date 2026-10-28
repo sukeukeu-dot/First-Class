@@ -109,7 +109,7 @@
                     megaMenu.hidden = false;
                     button.setAttribute("aria-expanded", "true");
                     menuColumns.forEach((column) => {
-                        column.hidden = column.dataset.column !== button.dataset.menu;
+                        column.hidden = false;
                     });
                 }
             });
