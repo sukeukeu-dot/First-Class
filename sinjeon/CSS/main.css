@@ -10,7 +10,7 @@
     --color-text-charcoal: #333333;
     --color-background-page: #fffdfc;
     --color-border-light: #e5e2e0;
-    --content-max-width: 1720px;
+    --content-max-width: 1200px;
 }
 
 * { box-sizing: border-box; }
@@ -38,7 +38,7 @@ body {
     overflow: clip;
 }
 
-/* 헤더 */
+/* 헤더와 드롭다운이 메인 영상 위에 흰색 패널로 겹쳐지는 구조 */
 .site-header {
     position: absolute;
     inset: 0 0 auto;
@@ -48,15 +48,16 @@ body {
 }
 
 .site-header .header-inner {
-    width: calc(100% - 40px);
+    width: calc(100% - 80px);
     max-width: var(--content-max-width);
-    min-height: 90px;
+    min-height: 62px;
     margin-inline: auto;
-    padding: 10px 0;
+    padding: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: clamp(40px, 6vw, 120px);
+    gap: clamp(36px, 5vw, 80px);
+    border-bottom: 1px solid var(--color-brand-green);
 }
 
 .site-header .brand-logo {
@@ -68,8 +69,8 @@ body {
 
 .site-header .brand-logo img {
     display: block;
-    width: 223px;
-    max-height: 60px;
+    width: 154px;
+    max-height: 42px;
     height: auto;
     object-fit: contain;
     object-position: left center;
@@ -81,7 +82,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: clamp(20px, 2.6vw, 50px);
+    gap: clamp(22px, 3.5vw, 58px);
     margin: 0;
     padding: 0;
     list-style: none;
@@ -91,12 +92,12 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 44px;
+    min-height: 60px;
     padding: 0;
     border: 0;
     background: transparent;
     color: var(--color-text-charcoal);
-    font: 600 18px/1.5 "Pretendard Variable", Pretendard, sans-serif;
+    font: 600 14px/1.5 "Pretendard Variable", Pretendard, sans-serif;
     white-space: nowrap;
     cursor: pointer;
     transition: color 160ms ease;
@@ -115,26 +116,24 @@ body {
     outline-offset: 4px;
 }
 
-/* 클릭하면 헤더 아래 펼쳐지는 전체 메뉴 */
+/* 전체 메뉴 패널: 하단의 초록색 선부터 메뉴가 펼쳐짐 */
 .mega-menu {
     width: 100%;
     background: #ffffff;
-    border-top: 1px solid #eeeeee;
-    border-bottom: 1px solid #e8e8e8;
-    box-shadow: 0 8px 18px rgba(37, 37, 37, 0.06);
+    border: 0;
+    box-shadow: none;
 }
 
 .mega-menu[hidden] { display: none; }
 
 .mega-menu-inner {
-    width: calc(100% - 40px);
-    max-width: var(--content-max-width);
-    min-height: 224px;
-    margin-inline: auto;
-    padding: 30px 0;
+    width: min(56%, 680px);
+    min-height: 152px;
+    margin: 0 max(calc((100% - var(--content-max-width)) / 2), 40px) 0 auto;
+    padding: 18px 0 20px;
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
-    column-gap: clamp(18px, 3vw, 56px);
+    column-gap: clamp(12px, 1.5vw, 24px);
     align-items: start;
 }
 
@@ -142,20 +141,20 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: 5px;
 }
 
 .mega-menu-column h2 {
     margin: 0 0 2px;
     color: var(--color-brand-green);
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 11px;
+    font-weight: 500;
     line-height: 1.5;
 }
 
 .mega-menu-column a {
     color: #252525;
-    font-size: 16px;
+    font-size: 11px;
     font-weight: 400;
     line-height: 1.5;
     text-decoration: none;
@@ -164,7 +163,7 @@ body {
 
 .mega-menu-column a:hover { color: var(--color-brand-green); }
 
-/* 메인 영상: PC에서는 영상의 원본 비율을 유지해 잘리지 않게 표시 */
+/* PC 메인 영상: cover로 확대하지 않고 원본 비율대로 전체 표시 */
 .hero-sec {
     position: relative;
     width: 100%;
@@ -196,23 +195,25 @@ body {
     font-size: 12px;
 }
 
-/* 태블릿 */
-@media (max-width: 1200px) {
+/* 작은 PC 및 태블릿 */
+@media (max-width: 1100px) {
     .site-header .header-inner {
-        min-height: 76px;
-        gap: 28px;
+        width: calc(100% - 48px);
+        min-height: 62px;
+        gap: 24px;
     }
 
-    .site-header .brand-logo img { width: 170px; }
+    .site-header .brand-logo img { width: 130px; }
 
-    .site-header .gnb { gap: clamp(12px, 1.8vw, 24px); }
+    .site-header .gnb { gap: clamp(12px, 1.8vw, 22px); }
 
-    .site-header .gnb-trigger { font-size: 16px; }
+    .site-header .gnb-trigger { font-size: 13px; }
 
-    .mega-menu-inner { column-gap: 18px; }
-
-    .mega-menu-column h2,
-    .mega-menu-column a { font-size: 14px; }
+    .mega-menu-inner {
+        width: 62%;
+        margin-right: 24px;
+        column-gap: 12px;
+    }
 }
 
 /* 모바일 */
@@ -220,7 +221,7 @@ body {
     .site-header .header-inner {
         width: calc(100% - 32px);
         min-height: 60px;
-        gap: 18px;
+        gap: 16px;
     }
 
     .site-header .brand-logo img {
@@ -242,24 +243,24 @@ body {
     }
 
     .site-header .gnb-trigger {
-        min-height: 40px;
-        font-size: 13px;
+        min-height: 58px;
+        font-size: 12px;
     }
 
     .mega-menu-inner {
         width: calc(100% - 32px);
         min-height: auto;
-        padding: 20px 0;
+        margin-inline: auto;
+        padding: 18px 0;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 22px 14px;
+        gap: 18px 12px;
     }
 
-    .mega-menu-column { gap: 8px; }
+    .mega-menu-column { gap: 6px; }
 
     .mega-menu-column h2,
-    .mega-menu-column a { font-size: 13px; }
+    .mega-menu-column a { font-size: 12px; }
 
-    /* 모바일 영상 영역은 낮게 유지하되 영상 전체가 보이도록 contain 사용 */
     .hero-sec .visual {
         height: 52svh;
         min-height: 260px;
@@ -294,7 +295,7 @@ body {
 
     .site-header .gnb { gap: 10px; }
 
-    .site-header .gnb-trigger { font-size: 12px; }
+    .site-header .gnb-trigger { font-size: 11px; }
 
     .mega-menu-inner { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
