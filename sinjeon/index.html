@@ -89,6 +89,49 @@
             <small>&copy; 신전떡볶이 리뉴얼 포트폴리오</small>
         </footer>
     </div>
-    <script src="JS/main.js"></script>
+
+    <script>
+        const menuButtons = document.querySelectorAll(".gnb-trigger");
+        const megaMenu = document.querySelector("#mega-menu");
+        const menuColumns = document.querySelectorAll(".mega-menu-column");
+
+        function closeMegaMenu() {
+            megaMenu.hidden = true;
+            menuButtons.forEach((button) => button.setAttribute("aria-expanded", "false"));
+        }
+
+        menuButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                const wasOpen = button.getAttribute("aria-expanded") === "true";
+                closeMegaMenu();
+
+                if (!wasOpen) {
+                    megaMenu.hidden = false;
+                    button.setAttribute("aria-expanded", "true");
+                    menuColumns.forEach((column) => {
+                        column.hidden = column.dataset.column !== button.dataset.menu;
+                    });
+                }
+            });
+        });
+
+        document.addEventListener("click", (event) => {
+            if (!event.target.closest(".site-header")) {
+                closeMegaMenu();
+            }
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                closeMegaMenu();
+            }
+        });
+
+        megaMenu.addEventListener("click", (event) => {
+            if (event.target.closest("a")) {
+                closeMegaMenu();
+            }
+        });
+    </script>
 </body>
 </html>
