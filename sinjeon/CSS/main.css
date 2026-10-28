@@ -1,29 +1,27 @@
 /* ========================================
    신전떡볶이 리뉴얼 - Design Tokens
-   Figma 브랜드 컬러
 ======================================== */
 :root {
     --color-brand-pink: #f6878b;
     --color-brand-green: #008657;
     --color-brand-red: #d23023;
-
     --color-text-primary: #252525;
     --color-text-secondary: #6b6867;
     --color-text-inverse: #ffffff;
     --color-text-brand: var(--color-brand-red);
-
     --color-background-page: #fffdfc;
     --color-background-subtle: #ffffff;
     --color-surface-warm: #fffdfc;
-
     --color-border-light: #e5e2e0;
     --color-action-secondary: var(--color-brand-green);
     --color-accent-promo: var(--color-brand-pink);
-
     --content-max-width: 1600px;
 }
 
-/* 기본 레이아웃 */
+* {
+    box-sizing: border-box;
+}
+
 html {
     width: 100%;
     min-width: 320px;
@@ -47,14 +45,75 @@ body {
     overflow: clip;
 }
 
+/* 헤더를 메인 비주얼 위에 겹치는 투명 레이어로 배치 */
 .site-header {
-    position: relative;
-    z-index: 10;
+    position: absolute;
+    inset: 0 0 auto;
+    z-index: 20;
     width: 100%;
-    background: var(--color-background-subtle);
+    min-height: 92px;
+    padding: 0 clamp(20px, 5.2vw, 100px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--color-text-inverse);
+    background: transparent;
+    border: 0;
 }
 
-/* 메인 비주얼: 영상 비율을 유지해 PC/모바일에서 왜곡 방지 */
+/* 추후 로고/GNB를 넣어도 투명 헤더 위에 정렬되도록 기본 레이아웃 제공 */
+.site-header .header-inner {
+    width: 100%;
+    max-width: var(--content-max-width);
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.site-header .brand-logo {
+    flex: 0 0 auto;
+    color: inherit;
+    font-size: clamp(20px, 1.6vw, 30px);
+    font-weight: 800;
+    letter-spacing: -0.06em;
+    text-decoration: none;
+}
+
+.site-header .gnb {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: clamp(18px, 2.8vw, 52px);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.site-header .gnb a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity 160ms ease;
+}
+
+.site-header .gnb a:hover,
+.site-header .gnb a:focus-visible {
+    opacity: 0.72;
+}
+
+.site-header a:focus-visible {
+    outline: 2px solid var(--color-brand-pink);
+    outline-offset: 4px;
+}
+
+/* 메인 비주얼 */
 .hero-sec {
     position: relative;
     width: 100%;
@@ -88,22 +147,52 @@ body {
     font-size: 12px;
 }
 
-/* 작은 노트북 및 태블릿 */
+/* 태블릿 */
 @media (max-width: 1024px) {
+    .site-header {
+        min-height: 76px;
+        padding-inline: 24px;
+    }
+
+    .site-header .gnb {
+        gap: 18px;
+    }
+
+    .site-header .gnb a {
+        font-size: 14px;
+    }
+
     .hero-sec .visual {
         aspect-ratio: 4 / 3;
         max-height: none;
     }
-
-    .hero-video {
-        object-position: center;
-    }
 }
 
-/* 모바일 */
+/* 모바일: 헤더가 영상 위에 유지되며 메뉴 간격과 크기를 축소 */
 @media (max-width: 600px) {
+    .site-header {
+        min-height: 64px;
+        padding-inline: 18px;
+    }
+
+    .site-header .header-inner {
+        gap: 12px;
+    }
+
+    .site-header .brand-logo {
+        font-size: 21px;
+    }
+
+    .site-header .gnb {
+        gap: 12px;
+    }
+
+    .site-header .gnb a {
+        min-height: 40px;
+        font-size: 12px;
+    }
+
     .hero-sec .visual {
-        /* 세로 화면에서는 배너를 세로로 넉넉하게 보여줌 */
         height: min(72svh, 760px);
         min-height: 440px;
         aspect-ratio: auto;
@@ -123,16 +212,27 @@ body {
 }
 
 /* 아주 작은 모바일 */
-@media (max-width: 360px) {
+@media (max-width: 380px) {
+    .site-header {
+        padding-inline: 12px;
+    }
+
+    .site-header .gnb {
+        gap: 8px;
+    }
+
+    .site-header .gnb a {
+        font-size: 11px;
+    }
+
     .hero-sec .visual {
         min-height: 400px;
         height: 68svh;
     }
 }
 
-/* 사용자가 모션 감소를 설정한 경우 자동 재생 움직임을 줄이기 위한 보완 */
 @media (prefers-reduced-motion: reduce) {
-    .hero-video {
-        animation: none;
+    .site-header .gnb a {
+        transition: none;
     }
 }
