@@ -1,102 +1,70 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>신전떡볶이 리뉴얼 포트폴리오</title>
+    <title>신전떡볶이리뉴얼포트폴리오</title>
     <link rel="stylesheet" href="../css/default.css">
     <link rel="stylesheet" href="../npm/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="../css/pretendardvariable.css">
     <link rel="stylesheet" href="CSS/main.css">
-    <style>
-        /* 컨트롤을 배너 위에 겹치고 배경은 투명하게 처리 */
-        .hero-sec {
-            position: relative;
-        }
-
-        .hero-sec .visual-controls {
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            z-index: 5;
-            background: transparent;
-        }
-
-        .hero-sec .visual-controls .swiper-scrollbar {
-            background: transparent;
-            box-shadow: none;
-        }
-
-        /* 제공된 Vector.svg 모양을 인라인 SVG로 사용 */
-        .hero-sec .visual-controls .visual-arrow::before {
-            content: none;
-            display: none;
-        }
-
-        .hero-sec .visual-controls .visual-arrow svg {
-            display: block;
-            width: 15px;
-            height: 25px;
-            flex-shrink: 0;
-        }
-
-        .hero-sec .visual-controls .visual-arrow-next svg {
-            transform: rotate(180deg);
-        }
-    </style>
-    <script src="../npm/swiper/swiper-bundle.min.js" defer></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            new Swiper('.hero-sec > .swiper', {
-                direction: 'horizontal',
-                loop: true,
-                navigation: {
-                    nextEl: '.visual-controls .visual-arrow-next',
-                    prevEl: '.visual-controls .visual-arrow-prev',
-                },
-                scrollbar: {
-                    el: '.visual-controls .swiper-scrollbar',
-                    draggable: true,
-                },
-            });
-        });
-    </script>
+    <script src="../npm/swiper/swiper-bundle.min.js"></script>
 </head>
 <body>
     <div id="wrap">
         <header>제목공간</header>
         <main>
-            <section class="hero-sec" aria-label="메인 배너">
-                <div class="swiper visual">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="img/SINJEON.png" alt="신전떡볶이 메인 배너" class="pc">
-                            <img src="img/kimari.png" alt="신전떡볶이 모바일 배너" class="mo">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="img/pckimari.png" alt="신전떡볶이 배너" class="pc">
-                            <img src="img/SINJEONmoba.png" alt="신전떡볶이 건물 모바일 배너" class="mo">
-                        </div>
+            <div class="hero-sec">
+                <div class="hero-sec">
+                    <div class="visual">
+                        <video class="hero-video" autoplay muted loop playsinline>
+                            <source src="video/videosinjeon.mp4" type="video/mp4">
+                        </video>
                     </div>
                 </div>
+                <!-- Slider main container -->
+                <div class="swiper visual">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide">
+                    </div>
+                    <!-- If we need pagination -->
+                    <div class="swiper-pagination"></div>
 
-                <div class="visual-controls" aria-label="배너 슬라이더 조작">
-                    <button type="button" class="visual-arrow visual-arrow-prev" aria-label="이전 배너">
-                        <svg viewBox="0 0 15 25" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path d="M14.3337 24.3423C15.2221 23.4691 15.2221 22.0586 14.3337 21.1855L5.49544 12.4986L14.3337 3.81171C15.2221 2.93854 15.2221 1.52804 14.3337 0.654875C13.4453 -0.21829 12.0102 -0.21829 11.1219 0.654875L0.666286 10.9314C-0.222097 11.8045 -0.222097 13.215 0.666286 14.0882L11.1219 24.3647C11.9875 25.2155 13.4453 25.2155 14.3337 24.3423Z" fill="#008657"/>
-                        </svg>
-                    </button>
-                    <div class="swiper-scrollbar" aria-label="배너 진행 상태"></div>
-                    <button type="button" class="visual-arrow visual-arrow-next" aria-label="다음 배너">
-                        <svg viewBox="0 0 15 25" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path d="M14.3337 24.3423C15.2221 23.4691 15.2221 22.0586 14.3337 21.1855L5.49544 12.4986L14.3337 3.81171C15.2221 2.93854 15.2221 1.52804 14.3337 0.654875C13.4453 -0.21829 12.0102 -0.21829 11.1219 0.654875L0.666286 10.9314C-0.222097 11.8045 -0.222097 13.215 0.666286 14.0882L11.1219 24.3647C11.9875 25.2155 13.4453 25.2155 14.3337 24.3423Z" fill="#008657"/>
-                        </svg>
-                    </button>
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+
+                    <!-- If we need scrollbar -->
+                    <div class="swiper-scrollbar"></div>
                 </div>
-            </section>
+            </div>
         </main>
         <footer>&copy;</footer>
     </div>
+    <script>
+        const swiperHero = new Swiper('.hero-sec > .swiper', {
+            // Optional parameters
+            direction: 'horizontal',
+            loop: true,
+
+            // If we need pagination
+            pagination: {
+                el: '.visual .swiper-pagination',
+            },
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.visual .swiper-button-next',
+                prevEl: '.visual .swiper-button-prev',
+            },
+
+            // And if we need scrollbar
+            scrollbar: {
+                el: '.visual .swiper-scrollbar',
+            },
+        });
+    </script>
 </body>
 </html>
