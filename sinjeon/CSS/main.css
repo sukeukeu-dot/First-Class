@@ -96,7 +96,7 @@ body {
     border: 0;
     background: transparent;
     color: var(--color-text-charcoal);
-    font: 600 20px/1.5 "Pretendard Variable", Pretendard, sans-serif;
+    font: 600 18px/1.5 "Pretendard Variable", Pretendard, sans-serif;
     white-space: nowrap;
     cursor: pointer;
     transition: color 160ms ease;
