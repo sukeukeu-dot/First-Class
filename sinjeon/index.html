@@ -20,14 +20,57 @@
 
                 <nav aria-label="주요 메뉴">
                     <ul class="gnb">
-                        <li><a href="#menu">메뉴</a></li>
-                        <li><a href="#store">매장 찾기</a></li>
-                        <li><a href="#brand">브랜드</a></li>
-                        <li><a href="#app">신전 APP</a></li>
-                        <li><a href="#news">소식</a></li>
-                        <li><a href="#customer">고객센터</a></li>
+                        <li><button type="button" class="gnb-trigger" aria-expanded="false" aria-controls="mega-menu" data-menu="menu">메뉴</button></li>
+                        <li><button type="button" class="gnb-trigger" aria-expanded="false" aria-controls="mega-menu" data-menu="store">매장 찾기</button></li>
+                        <li><button type="button" class="gnb-trigger" aria-expanded="false" aria-controls="mega-menu" data-menu="brand">브랜드</button></li>
+                        <li><button type="button" class="gnb-trigger" aria-expanded="false" aria-controls="mega-menu" data-menu="app">신전 APP</button></li>
+                        <li><button type="button" class="gnb-trigger" aria-expanded="false" aria-controls="mega-menu" data-menu="news">소식</button></li>
+                        <li><button type="button" class="gnb-trigger" aria-expanded="false" aria-controls="mega-menu" data-menu="customer">고객센터</button></li>
                     </ul>
                 </nav>
+            </div>
+
+            <div class="mega-menu" id="mega-menu" hidden>
+                <div class="mega-menu-inner">
+                    <div class="mega-menu-column" data-column="menu">
+                        <h2>메뉴</h2>
+                        <a href="#menu">전체메뉴</a>
+                        <a href="#set-menu">세트메뉴</a>
+                        <a href="#new-menu">신메뉴</a>
+                        <a href="#side-menu">사이드</a>
+                    </div>
+                    <div class="mega-menu-column" data-column="store">
+                        <h2>매장 찾기</h2>
+                        <a href="#store">국내 매장</a>
+                        <a href="#overseas-store">해외 매장</a>
+                    </div>
+                    <div class="mega-menu-column" data-column="brand">
+                        <h2>브랜드</h2>
+                        <a href="#brand">신전 소개</a>
+                        <a href="#features">신전의 특징</a>
+                        <a href="#history">회사 연혁</a>
+                        <a href="#font">신전 떡볶이체</a>
+                        <a href="#character">신전 캐릭터</a>
+                        <a href="#quality">품질 안전</a>
+                    </div>
+                    <div class="mega-menu-column" data-column="app">
+                        <h2>신전 APP</h2>
+                        <a href="#app">APP 소개</a>
+                        <a href="#benefits">혜택</a>
+                        <a href="#app-download">APP 다운로드</a>
+                    </div>
+                    <div class="mega-menu-column" data-column="news">
+                        <h2>소식</h2>
+                        <a href="#sns">SNS</a>
+                        <a href="#events">이벤트</a>
+                        <a href="#notice">공지사항</a>
+                    </div>
+                    <div class="mega-menu-column" data-column="customer">
+                        <h2>고객센터</h2>
+                        <a href="#voice">고객의 소리</a>
+                        <a href="#questions">질문</a>
+                    </div>
+                </div>
             </div>
         </header>
 
@@ -46,5 +89,6 @@
             <small>&copy; 신전떡볶이 리뉴얼 포트폴리오</small>
         </footer>
     </div>
+    <script src="JS/main.js"></script>
 </body>
 </html>
