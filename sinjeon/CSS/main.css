@@ -223,7 +223,7 @@ button { font-family: inherit; }
     min-height: 53px;
     display: flex-end;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 30px;
     margin-bottom: 32px;
 }
