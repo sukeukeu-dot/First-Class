@@ -65,7 +65,7 @@ button { font-family: inherit; }
     align-items: center;
     justify-content: space-between;
     gap: clamp(36px, 5vw, 80px);
-    border-bottom: 1px solid rgba(246, 135, 139, 0.5);
+    border-bottom: 1px solid rgba(#008657);
 }
 
 .site-header .brand-logo {
