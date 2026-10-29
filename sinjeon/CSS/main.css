@@ -71,7 +71,12 @@ button { font-family: inherit; }
     align-items: center;
     justify-content: space-between;
     gap: clamp(36px, 5vw, 80px);
-    border-bottom: 1px solid var(--color-brand-green);
+    border-bottom: 1px solid transparent;
+}
+
+/* 상단 메뉴를 클릭해 하위 메뉴가 열렸을 때만 구분선 표시 */
+.site-header:has(.mega-menu:not([hidden])) .header-content {
+    border-bottom-color: var(--color-brand-green);
 }
 
 .site-header .brand-logo {
