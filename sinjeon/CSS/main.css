@@ -221,7 +221,7 @@ button { font-family: inherit; }
 
 .menu-tabs {
     min-height: 53px;
-    display: flex;
+    display: flex-end;
     align-items: center;
     justify-content: center;
     gap: 30px;
