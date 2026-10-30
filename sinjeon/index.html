@@ -32,22 +32,22 @@
             <div class="mega-menu" id="mega-menu" hidden>
                 <div class="mega-menu-inner">
                     <div class="mega-menu-column" data-column="menu">
-                        <h2>메뉴</h2><a href="#main-menu">전체메뉴</a><a href="#main-menu">세트메뉴</a><a href="#main-menu">신메뉴</a><a href="#main-menu">사이드</a>
+                        <a href="#main-menu">전체메뉴</a><a href="#main-menu">세트메뉴</a><a href="#main-menu">신메뉴</a><a href="#main-menu">사이드</a>
                     </div>
                     <div class="mega-menu-column" data-column="store">
-                        <h2>매장 찾기</h2><a href="#news">국내 매장</a><a href="#news">해외 매장</a>
+                        <a href="#news">국내 매장</a><a href="#news">해외 매장</a>
                     </div>
                     <div class="mega-menu-column" data-column="brand">
-                        <h2>브랜드</h2><a href="#brand-story">신전 소개</a><a href="#brand-story">신전의 특징</a><a href="#brand-story">회사 연혁</a><a href="#brand-story">신전 떡볶이체</a><a href="#brand-story">신전 캐릭터</a><a href="#brand-story">품질 안전</a>
+                        <a href="#brand-story">신전 소개</a><a href="#brand-story">신전의 특징</a><a href="#brand-story">회사 연혁</a><a href="#brand-story">신전 떡볶이체</a><a href="#brand-story">신전 캐릭터</a><a href="#brand-story">품질 안전</a>
                     </div>
                     <div class="mega-menu-column" data-column="app">
-                        <h2>신전 APP</h2><a href="#instagram">APP 소개</a><a href="#instagram">혜택</a><a href="#instagram">APP 다운로드</a>
+                        <a href="#instagram">APP 소개</a><a href="#instagram">혜택</a><a href="#instagram">APP 다운로드</a>
                     </div>
                     <div class="mega-menu-column" data-column="news">
-                        <h2>소식</h2><a href="#news">SNS</a><a href="#news">이벤트</a><a href="#news">공지사항</a>
+                        <a href="#news">SNS</a><a href="#news">이벤트</a><a href="#news">공지사항</a>
                     </div>
                     <div class="mega-menu-column" data-column="customer">
-                        <h2>고객센터</h2><a href="#footer">고객의 소리</a><a href="#footer">질문</a>
+                        <a href="#footer">고객의 소리</a><a href="#footer">질문</a>
                     </div>
                 </div>
             </div>
@@ -180,7 +180,7 @@
                     <div class="instagram-heading">
                         <div class="instagram-title">
                             <img src="img/kawa.png" alt="" aria-hidden="true">
-                            <h2>신전 인스타그램</h2>
+                            
                         </div>
                         <a class="instagram-more" href="#instagram" aria-label="인스타그램 더 보기"><img src="img/E.svg" alt="신전목록"></a>
                     </div>
@@ -237,16 +237,30 @@
             menuButtons.forEach((button) => button.setAttribute("aria-expanded", "false"));
         }
 
+        function openMegaMenu() {
+            megaMenu.hidden = false;
+            menuButtons.forEach((button) => button.setAttribute("aria-expanded", "true"));
+            menuColumns.forEach((column) => { column.hidden = false; });
+        }
+
+        // PC에서는 마우스를 올리면 하위 메뉴 표시
         menuButtons.forEach((button) => {
+            button.addEventListener("mouseenter", () => {
+                if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) openMegaMenu();
+            });
+
+            // 터치 기기에서는 탭으로 열고 닫기
             button.addEventListener("click", () => {
-                const wasOpen = button.getAttribute("aria-expanded") === "true";
-                closeMegaMenu();
-                if (!wasOpen) {
-                    megaMenu.hidden = false;
-                    button.setAttribute("aria-expanded", "true");
-                    menuColumns.forEach((column) => { column.hidden = false; });
+                if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+                    if (megaMenu.hidden) openMegaMenu();
+                    else closeMegaMenu();
                 }
             });
+        });
+
+        const siteHeader = document.querySelector(".site-header");
+        siteHeader.addEventListener("mouseleave", () => {
+            if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) closeMegaMenu();
         });
 
         document.addEventListener("click", (event) => {
