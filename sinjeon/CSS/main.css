@@ -511,7 +511,7 @@ button { font-family: inherit; }
     text-decoration: none;
 }
 
-.instagram-carousel { gap: 24px; }
+.instagram-carousel { gap: 72px; }
 
 .instagram-track {
     display: grid;
