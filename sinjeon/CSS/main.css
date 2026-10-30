@@ -179,20 +179,25 @@ button { font-family: inherit; }
 .hero-sec {
     position: relative;
     width: 100%;
+    height: 100dvh;
     overflow: hidden;
     background: #ffffff;
 }
 
 .hero-sec .visual {
+    display: flex;
     width: 100%;
+    height: 100%;
     margin-inline: auto;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
 }
 
 .hero-video {
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: contain;
     object-position: center;
 }
@@ -698,10 +703,12 @@ button { font-family: inherit; }
     .mega-menu-column { gap: 8px 10px; }
     .mega-menu-column a { font-size: 16px; }
 
+    .hero-sec { height: 100dvh; }
+
     .hero-sec .visual {
-        height: 52svh;
-        min-height: 260px;
-        max-height: 440px;
+        height: 100%;
+        min-height: 0;
+        max-height: none;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -765,7 +772,8 @@ button { font-family: inherit; }
     .site-header .gnb { gap: 10px; }
     .site-header .gnb-trigger { font-size: 14px; }
     .mega-menu-inner { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .hero-sec .visual { height: 48svh; min-height: 240px; }
+    .hero-sec { height: 100dvh; }
+    .hero-sec .visual { height: 100%; min-height: 0; }
     .menu-tab, .news-tab { font-size: 13px; }
     .news-heading { align-items: flex-start; flex-direction: column; }
 }
