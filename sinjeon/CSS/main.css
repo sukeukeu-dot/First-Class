@@ -116,7 +116,7 @@ button { font-family: inherit; }
     border: 0;
     background: transparent;
     color: var(--color-text-charcoal);
-    font: 600 14px/1.5 "Pretendard Variable", Pretendard, sans-serif;
+    font: 600 18px / 1.5 "Pretendard Variable", Pretendard, sans-serif;
     white-space: nowrap;
     cursor: pointer;
     transition: color 160ms ease;
@@ -579,6 +579,14 @@ button { font-family: inherit; }
     align-items: center;
     justify-content: space-between;
     gap: 22px;
+}
+
+.footer-company-info,
+.footer-contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
 }
 
 .footer-top p,
