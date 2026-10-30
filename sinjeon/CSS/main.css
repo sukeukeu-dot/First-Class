@@ -715,7 +715,7 @@ button { font-family: inherit; }
     .hero-video { width: 100%; height: 100%; object-fit: contain; }
 
     .inner-section { padding: 62px 16px 48px; }
-    .menu-tabs { justify-content: flex-start; gap: 14px; overflow-x: auto; margin-bottom: 22px; }
+    .menu-tabs { gap: 14px; overflow-x: auto; margin-bottom: 22px; }
     .menu-tab, .news-tab { font-size: 15px; }
     .menu-tabs > span, .news-tabs > span { height: 16px; flex: 0 0 1px; }
     .menu-carousel, .instagram-carousel { gap: 4px; }
