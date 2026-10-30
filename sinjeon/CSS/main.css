@@ -48,16 +48,18 @@ button { font-family: inherit; }
     inset: 0 0 auto;
     z-index: 20;
     width: 100%;
-    background: transparent;
+    background: rgba(255, 255, 255, 0.4);
+    padding: 8px 0;
     transition: background-color 180ms ease;
 }
 
 /* 하위 메뉴가 열리면 헤더 전체를 흰색으로 전환 */
 .site-header:has(.mega-menu:not([hidden])) {
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.4);
 }
 
 .site-header .header-inner {
+    position: relative;
     width: 100%;
     max-width: 100%;
 }
@@ -71,12 +73,12 @@ button { font-family: inherit; }
     align-items: center;
     justify-content: space-between;
     gap: clamp(36px, 5vw, 80px);
-    border-bottom: 1px solid transparent;
+    border-bottom: 0;
 }
 
-/* 상단 메뉴를 클릭해 하위 메뉴가 열렸을 때만 구분선 표시 */
-.site-header:has(.mega-menu:not([hidden])) .header-content {
-    border-bottom-color: var(--color-brand-green);
+/* 하위 메뉴가 열리면 화면 전체 너비로 구분선 표시 */
+.site-header:has(.mega-menu:not([hidden])) .mega-menu {
+    border-top: 1px solid var(--color-brand-green);
 }
 
 .site-header .brand-logo {
@@ -135,7 +137,7 @@ button { font-family: inherit; }
 
 .mega-menu {
     width: 100%;
-    background: rgba(255, 255, 255, 0.96);
+    background: rgba(255, 255, 255, 0.4);
     border: 0;
     box-shadow: none;
 }
@@ -143,9 +145,10 @@ button { font-family: inherit; }
 .mega-menu[hidden] { display: none; }
 
 .mega-menu-inner {
-    width: min(56%, 680px);
-    min-height: 152px;
-    margin: 0 max(calc((100% - var(--content-max-width)) / 2), 40px) 0 auto;
+    width: calc(100% - 80px);
+    max-width: var(--content-max-width);
+    min-height: 92px;
+    margin: 0 auto;
     padding: 18px 0 20px;
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
@@ -155,22 +158,15 @@ button { font-family: inherit; }
 
 .mega-menu-column {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
-}
-
-.mega-menu-column h2 {
-    margin: 0 0 2px;
-    color: var(--color-brand-green);
-    font-size: 11px;
-    font-weight: 500;
-    line-height: 1.5;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 14px;
 }
 
 .mega-menu-column a {
     color: #252525;
-    font-size: 11px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 1.5;
     text-decoration: none;
@@ -653,11 +649,11 @@ button { font-family: inherit; }
 
     .site-header .brand-logo img { width: 130px; }
     .site-header .gnb { gap: clamp(12px, 1.8vw, 22px); }
-    .site-header .gnb-trigger { font-size: 13px; }
+    .site-header .gnb-trigger { font-size: 16px; }
 
     .mega-menu-inner {
-        width: 62%;
-        margin-right: 24px;
+        width: calc(100% - 48px);
+        margin-inline: auto;
         column-gap: 12px;
     }
 
@@ -688,7 +684,7 @@ button { font-family: inherit; }
     .site-header nav { max-width: calc(100% - 100px); overflow-x: auto; scrollbar-width: none; }
     .site-header nav::-webkit-scrollbar { display: none; }
     .site-header .gnb { width: max-content; gap: 14px; }
-    .site-header .gnb-trigger { min-height: 58px; font-size: 12px; }
+    .site-header .gnb-trigger { min-height: 58px; font-size: 16px; }
 
     .mega-menu-inner {
         width: calc(100% - 32px);
@@ -699,8 +695,8 @@ button { font-family: inherit; }
         gap: 18px 12px;
     }
 
-    .mega-menu-column { gap: 6px; }
-    .mega-menu-column h2, .mega-menu-column a { font-size: 12px; }
+    .mega-menu-column { gap: 8px 10px; }
+    .mega-menu-column a { font-size: 16px; }
 
     .hero-sec .visual {
         height: 52svh;
@@ -767,7 +763,7 @@ button { font-family: inherit; }
     .site-header .brand-logo img { width: 72px; }
     .site-header nav { max-width: calc(100% - 82px); }
     .site-header .gnb { gap: 10px; }
-    .site-header .gnb-trigger { font-size: 11px; }
+    .site-header .gnb-trigger { font-size: 14px; }
     .mega-menu-inner { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .hero-sec .visual { height: 48svh; min-height: 240px; }
     .menu-tab, .news-tab { font-size: 13px; }
