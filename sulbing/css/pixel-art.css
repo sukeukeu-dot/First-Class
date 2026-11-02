@@ -212,7 +212,6 @@
 @media (prefers-reduced-motion: reduce) {
     .pixel-art .back_btn,
     .pixel-art .login_btn,
-    .pixel-art .sns_btn {
-        transition: none;
-    }
+    .pixel-art .sns_btn 
+    { transition: none; }
 }
