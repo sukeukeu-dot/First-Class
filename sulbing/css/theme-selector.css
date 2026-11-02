@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+/* THEME SELECTOR */
+.theme_switcher {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    width: min(100% - 40px, 402px);
+    margin: 0 auto;
+    padding: 22px 0 4px;
+    color: #54231f;
+    font-size: 14px;
+}
+.theme_switcher label { font-weight: 700; }
+.theme_switcher select {
+    min-width: 170px;
+    padding: 10px 34px 10px 12px;
+    border: 1px solid #c9a995;
+    border-radius: 8px;
+    background: #fffaf5;
+    color: #54231f;
+    font: inherit;
+    cursor: pointer;
+}
+.theme_switcher select:focus-visible {
+    outline: 2px solid #f18a50;
+    outline-offset: 3px;
+}
+@media (max-width: 390px) {
+    .theme_switcher { justify-content: center; }
+}
