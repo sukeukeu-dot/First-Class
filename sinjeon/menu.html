@@ -207,27 +207,36 @@
 <script>
     const menuButtons = document.querySelectorAll(".gnb-trigger");
     const megaMenu = document.querySelector("#mega-menu");
+    const menuColumns = document.querySelectorAll(".mega-menu-column");
 
     function closeMegaMenu() {
         megaMenu.hidden = true;
         menuButtons.forEach((button) => button.setAttribute("aria-expanded", "false"));
     }
 
-    function openMegaMenu() {
+    function openMegaMenu(menuName) {
         megaMenu.hidden = false;
-        menuButtons.forEach((button) => button.setAttribute("aria-expanded", "false"));
-        const activeButton = document.querySelector('.gnb-trigger[data-menu="menu"]');
-        if (activeButton) activeButton.setAttribute("aria-expanded", "true");
+        menuButtons.forEach((button) => {
+            button.setAttribute("aria-expanded", String(button.dataset.menu === menuName));
+        });
+        menuColumns.forEach((column) => {
+            column.hidden = column.dataset.column !== menuName;
+        });
     }
 
     menuButtons.forEach((button) => {
         button.addEventListener("mouseenter", () => {
-            if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) openMegaMenu();
+            if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+                openMegaMenu(button.dataset.menu);
+            }
         });
         button.addEventListener("click", () => {
             if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-                if (megaMenu.hidden) openMegaMenu();
-                else closeMegaMenu();
+                if (!megaMenu.hidden && button.getAttribute("aria-expanded") === "true") {
+                    closeMegaMenu();
+                } else {
+                    openMegaMenu(button.dataset.menu);
+                }
             }
         });
     });
