@@ -1,0 +1,322 @@
+/* 메뉴 소개 페이지 전용 스타일
+   공통 색상·폰트·헤더·푸터는 CSS/main.css의 디자인 시스템을 사용합니다.
+*/
+.menu-page {
+    background: var(--color-background-page);
+}
+
+/* 페이지 타이틀: 메인 히어로와 같은 헤더 오버레이 구조를 고려해 상단 여백 확보 */
+.menu-page-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 166px 20px 76px;
+    background: var(--color-background-page);
+}
+.menu-page-hero-inner {
+    position: relative;
+    min-height: 174px;
+}
+.menu-page-hero .section-kicker {
+    margin-bottom: 14px;
+}
+.menu-page-hero h1 {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    color: var(--color-brand-pink);
+    font-size: clamp(46px, 6vw, 78px);
+    font-weight: 700;
+    line-height: 1.08;
+}
+.menu-page-intro {
+    position: relative;
+    z-index: 1;
+    margin: 20px 0 0;
+    color: var(--color-text-secondary);
+    font-size: 18px;
+    line-height: 1.7;
+}
+.menu-hero-mark {
+    position: absolute;
+    right: 0;
+    bottom: -14px;
+    color: rgba(246, 135, 139, 0.10);
+    font-size: clamp(72px, 15vw, 210px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.06em;
+    user-select: none;
+}
+
+/* 카테고리 내비게이션 */
+.menu-category-nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-top: 1px solid rgba(246, 135, 139, 0.25);
+    border-bottom: 1px solid rgba(246, 135, 139, 0.25);
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(10px);
+}
+.menu-category-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(28px, 6vw, 88px);
+    min-height: 66px;
+}
+.menu-category-inner a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-height: 66px;
+    color: var(--color-text-primary);
+    font-size: 17px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 160ms ease;
+}
+.menu-category-inner a::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: var(--color-brand-pink);
+    content: "";
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 180ms ease;
+}
+.menu-category-inner a:hover,
+.menu-category-inner a:focus-visible {
+    color: var(--color-brand-pink);
+}
+.menu-category-inner a:hover::after,
+.menu-category-inner a:focus-visible::after {
+    transform: scaleX(1);
+}
+.menu-category-inner a:focus-visible {
+    outline: 2px solid var(--color-brand-green);
+    outline-offset: 3px;
+}
+
+/* 카테고리 콘텐츠 */
+.menu-list-section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    scroll-margin-top: 66px;
+    background: #ffffff;
+}
+.menu-list-section-alt {
+    background: var(--color-background-page);
+}
+.menu-section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 34px;
+}
+.menu-section-heading h2 {
+    margin: 0;
+    color: var(--color-brand-pink);
+    font-size: clamp(36px, 4.2vw, 58px);
+    font-weight: 700;
+    line-height: 1.12;
+}
+.menu-section-heading > p {
+    margin: 0 0 5px;
+    color: var(--color-text-secondary);
+    font-size: 15px;
+    line-height: 1.6;
+}
+.menu-product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(18px, 3vw, 44px);
+}
+.menu-product-card {
+    min-width: 0;
+}
+.menu-image-placeholder {
+    display: flex;
+    width: 100%;
+    aspect-ratio: 340 / 310;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px dashed rgba(246, 135, 139, 0.65);
+    border-radius: 4px;
+    background: #fff8f7;
+    color: var(--color-brand-pink);
+}
+.menu-image-placeholder span {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+}
+.menu-product-copy {
+    padding-top: 16px;
+}
+.menu-product-copy h3 {
+    margin: 0;
+    color: var(--color-brand-pink);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.45;
+}
+.menu-product-copy p {
+    margin: 7px 0 0;
+    color: var(--color-text-secondary);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* 신메뉴는 한 가지 대표 콘텐츠를 먼저 보여주는 강조 레이아웃 */
+.menu-feature-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    align-items: center;
+    gap: clamp(32px, 6vw, 88px);
+    padding: clamp(22px, 4vw, 56px);
+    background: #fff8f7;
+}
+.menu-feature-image {
+    aspect-ratio: 621 / 416;
+}
+.menu-feature-copy {
+    max-width: 600px;
+}
+.menu-feature-copy h3 {
+    margin: 0;
+    color: var(--color-brand-pink);
+    font-size: clamp(30px, 3.6vw, 48px);
+    font-weight: 700;
+    line-height: 1.2;
+    word-break: keep-all;
+}
+.menu-feature-copy > p:last-child {
+    margin: 20px 0 0;
+    color: var(--color-text-secondary);
+    font-size: 17px;
+    line-height: 1.8;
+    word-break: keep-all;
+}
+
+@media (max-width: 1100px) {
+    .menu-page-hero {
+        padding: 148px 24px 62px;
+    }
+    .menu-list-section {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+    .menu-product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 36px;
+    }
+    .menu-feature-card {
+        gap: 36px;
+        padding: 28px;
+    }
+}
+@media (max-width: 700px) {
+    .menu-page-hero {
+        padding: 132px 16px 48px;
+    }
+    .menu-page-hero-inner {
+        min-height: 150px;
+    }
+    .menu-page-hero h1 {
+        font-size: clamp(42px, 10vw, 58px);
+    }
+    .menu-page-intro {
+        max-width: 260px;
+        font-size: 15px;
+    }
+    .menu-hero-mark {
+        right: -8px;
+        bottom: -4px;
+        font-size: 84px;
+    }
+    .menu-category-inner {
+        justify-content: flex-start;
+        gap: 28px;
+        min-height: 58px;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+    .menu-category-inner::-webkit-scrollbar {
+        display: none;
+    }
+    .menu-category-inner a {
+        min-height: 58px;
+        font-size: 15px;
+    }
+    .menu-list-section {
+        padding: 62px 16px 56px;
+        scroll-margin-top: 58px;
+    }
+    .menu-section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 24px;
+    }
+    .menu-section-heading h2 {
+        font-size: clamp(36px, 9vw, 48px);
+    }
+    .menu-section-heading > p {
+        font-size: 13px;
+    }
+    .menu-product-grid {
+        gap: 28px 14px;
+    }
+    .menu-product-copy {
+        padding-top: 12px;
+    }
+    .menu-product-copy h3 {
+        font-size: 16px;
+    }
+    .menu-product-copy p {
+        font-size: 12px;
+    }
+    .menu-image-placeholder span {
+        font-size: 10px;
+    }
+    .menu-feature-card {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 16px;
+    }
+    .menu-feature-copy h3 {
+        font-size: 30px;
+    }
+    .menu-feature-copy > p:last-child {
+        margin-top: 12px;
+        font-size: 14px;
+        line-height: 1.7;
+    }
+}
+@media (max-width: 380px) {
+    .menu-category-inner {
+        gap: 22px;
+    }
+    .menu-category-inner a {
+        font-size: 14px;
+    }
+    .menu-product-grid {
+        gap: 24px 12px;
+    }
+    .menu-product-copy h3 {
+        font-size: 15px;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .menu-category-inner a,
+    .menu-category-inner a::after {
+        transition: none;
+    }
+}
