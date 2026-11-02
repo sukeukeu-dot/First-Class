@@ -1,0 +1,212 @@
+@charset "UTF-8";
+
+/* ========================================
+   SULBING NEO BRUTALISM THEME
+   기존 sulbing.css 뒤에 연결하는 추가 스타일
+======================================== */
+
+#wrap.neo-brutalism {
+    --neo-ink: #32130f;
+    --neo-orange: #f36f2c;
+    --neo-cream: #fff0d7;
+    --neo-yellow: #ffe36e;
+    --neo-pink: #ffb7a5;
+    --neo-white: #fffdf7;
+    color: var(--neo-ink);
+    background-color: var(--neo-cream);
+}
+
+/* 로고와 뒤로가기 */
+.neo-brutalism .back_btn {
+    border: 2px solid var(--neo-ink);
+    background: var(--neo-yellow);
+    box-shadow: 4px 4px 0 var(--neo-ink);
+    transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.neo-brutalism .back_btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--neo-ink);
+}
+
+.neo-brutalism .brand_area {
+    gap: 18px;
+}
+
+.neo-brutalism .brand_logo_en {
+    filter: drop-shadow(2px 2px 0 var(--neo-pink));
+}
+
+.neo-brutalism .brand_logo {
+    border: 3px solid var(--neo-ink);
+    box-shadow: 7px 7px 0 var(--neo-ink);
+}
+
+/* 로그인 입력 영역 */
+.neo-brutalism .login_content {
+    max-width: 402px;
+    padding: 26px;
+    border: 3px solid var(--neo-ink);
+    background: var(--neo-white);
+    box-shadow: 8px 8px 0 var(--neo-ink);
+}
+
+.neo-brutalism .input_group {
+    gap: 12px;
+}
+
+.neo-brutalism .input_group label {
+    color: var(--neo-ink);
+    font-weight: 800;
+}
+
+.neo-brutalism .input_group input {
+    border: 2px solid var(--neo-ink);
+    border-radius: 0;
+    background: #fff;
+    color: var(--neo-ink);
+    box-shadow: 3px 3px 0 var(--neo-ink);
+}
+
+.neo-brutalism .input_group input::placeholder {
+    color: rgba(50, 19, 15, 0.48);
+}
+
+.neo-brutalism .input_group input:focus {
+    outline: 3px solid var(--neo-orange);
+    outline-offset: 2px;
+    border-color: var(--neo-ink);
+}
+
+.neo-brutalism .password_actions {
+    right: 14px;
+}
+
+.neo-brutalism .check_item {
+    color: var(--neo-ink);
+    font-weight: 600;
+}
+
+.neo-brutalism .check_box {
+    border: 2px solid var(--neo-ink);
+    border-radius: 0;
+    background: var(--neo-yellow);
+    box-shadow: 2px 2px 0 var(--neo-ink);
+}
+
+.neo-brutalism .check_item input:checked + .check_box {
+    background-color: var(--neo-orange);
+}
+
+.neo-brutalism .check_item input:focus-visible + .check_box {
+    outline: 3px solid var(--neo-orange);
+    outline-offset: 3px;
+}
+
+/* 주요 CTA */
+.neo-brutalism .login_btn {
+    height: 50px;
+    border: 3px solid var(--neo-ink);
+    border-radius: 0;
+    background: var(--neo-orange);
+    color: #fff;
+    font-weight: 800;
+    box-shadow: 5px 5px 0 var(--neo-ink);
+    transition: transform 150ms ease, box-shadow 150ms ease, background 150ms ease;
+}
+
+.neo-brutalism .login_btn:not(:disabled):hover {
+    transform: translate(-2px, -2px);
+    background: #e85b1c;
+    box-shadow: 7px 7px 0 var(--neo-ink);
+}
+
+.neo-brutalism .login_btn:focus-visible,
+.neo-brutalism .account_links a:focus-visible,
+.neo-brutalism .eye_btn:focus-visible,
+.neo-brutalism .sns_btn:focus-visible {
+    outline: 3px solid var(--neo-orange);
+    outline-offset: 4px;
+}
+
+.neo-brutalism .login_btn:disabled {
+    opacity: 0.45;
+    box-shadow: 3px 3px 0 var(--neo-ink);
+}
+
+.neo-brutalism .account_links {
+    color: var(--neo-ink);
+    font-weight: 600;
+}
+
+.neo-brutalism .link_line {
+    width: 2px;
+    background: var(--neo-ink);
+    opacity: 0.7;
+}
+
+/* SNS 로그인 */
+.neo-brutalism .sns_login {
+    max-width: 402px;
+    margin-top: 64px;
+}
+
+.neo-brutalism .sns_title p {
+    padding: 7px 10px;
+    border: 2px solid var(--neo-ink);
+    background: var(--neo-yellow);
+    color: var(--neo-ink);
+    font-weight: 800;
+}
+
+.neo-brutalism .sns_line {
+    height: 3px;
+    background: var(--neo-ink);
+    opacity: 1;
+}
+
+.neo-brutalism .sns_list {
+    gap: 18px;
+}
+
+.neo-brutalism .sns_btn {
+    border: 2px solid var(--neo-ink);
+    background: var(--neo-white);
+    box-shadow: 4px 4px 0 var(--neo-ink);
+    transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.neo-brutalism .sns_btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.neo-brutalism .sns_btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--neo-ink);
+}
+
+/* 작은 화면 */
+@media (max-width: 390px) {
+    .neo-brutalism .login_content {
+        padding: 20px;
+        box-shadow: 6px 6px 0 var(--neo-ink);
+    }
+
+    .neo-brutalism .sns_login {
+        margin-top: 54px;
+    }
+
+    .neo-brutalism .sns_list {
+        gap: 14px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .neo-brutalism .back_btn,
+    .neo-brutalism .login_btn,
+    .neo-brutalism .sns_btn {
+        transition: none;
+    }
+}
