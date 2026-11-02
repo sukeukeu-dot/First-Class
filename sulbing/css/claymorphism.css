@@ -1,0 +1,231 @@
+@charset "UTF-8";
+
+/* ========================================
+   SULBING CLAYMORPHISM THEME
+   기존 sulbing.css 뒤에 연결하는 독립 테마
+======================================== */
+
+#wrap.claymorphism {
+    --clay-bg: #f7e8d7;
+    --clay-surface: #fff4e8;
+    --clay-orange: #f18a50;
+    --clay-brown: #873635;
+    --clay-dark: #54231f;
+    --clay-shadow-dark: #d8c1ad;
+    --clay-shadow-light: #ffffff;
+    color: var(--clay-brown);
+    background: var(--clay-bg);
+}
+
+/* 클레이모피즘의 핵심: 둥근 형태와 밝고 어두운 이중 그림자 */
+.claymorphism .back_btn,
+.claymorphism .login_content,
+.claymorphism .input_group input,
+.claymorphism .check_box,
+.claymorphism .login_btn,
+.claymorphism .sns_title p,
+.claymorphism .sns_btn {
+    border: 0;
+    border-radius: 18px;
+}
+
+.claymorphism .back_btn {
+    background: var(--clay-surface);
+    box-shadow:
+        6px 6px 12px var(--clay-shadow-dark),
+        -6px -6px 12px var(--clay-shadow-light);
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.claymorphism .back_btn:hover {
+    transform: translateY(-2px);
+}
+
+/* 브랜드 영역 */
+.claymorphism .brand_area {
+    gap: 18px;
+}
+
+.claymorphism .brand_logo_en {
+    filter: drop-shadow(3px 4px 3px rgba(135, 54, 53, 0.12));
+}
+
+.claymorphism .brand_logo {
+    border-radius: 50%;
+    box-shadow:
+        8px 8px 16px var(--clay-shadow-dark),
+        -8px -8px 16px var(--clay-shadow-light);
+}
+
+/* 로그인 카드 */
+.claymorphism .login_content {
+    max-width: 402px;
+    padding: 28px;
+    background: var(--clay-surface);
+    box-shadow:
+        10px 10px 22px var(--clay-shadow-dark),
+        -10px -10px 22px var(--clay-shadow-light);
+}
+
+.claymorphism .input_group {
+    gap: 12px;
+}
+
+.claymorphism .input_group label {
+    color: var(--clay-dark);
+    font-weight: 700;
+}
+
+.claymorphism .input_group input {
+    padding-left: 18px;
+    background: #f8eadd;
+    color: var(--clay-dark);
+    box-shadow:
+        inset 4px 4px 8px #dfcabb,
+        inset -4px -4px 8px #ffffff;
+}
+
+.claymorphism .input_group input::placeholder {
+    color: rgba(135, 54, 53, 0.55);
+}
+
+.claymorphism .input_group input:focus {
+    outline: 2px solid var(--clay-orange);
+    outline-offset: 3px;
+}
+
+.claymorphism .password_actions {
+    right: 14px;
+}
+
+.claymorphism .check_item {
+    color: var(--clay-brown);
+    font-weight: 600;
+}
+
+.claymorphism .check_box {
+    background: var(--clay-surface);
+    box-shadow:
+        3px 3px 7px var(--clay-shadow-dark),
+        -3px -3px 7px var(--clay-shadow-light);
+}
+
+.claymorphism .check_item input:checked + .check_box {
+    background: var(--clay-orange);
+    box-shadow:
+        inset 3px 3px 6px rgba(120, 48, 25, 0.2),
+        inset -3px -3px 6px rgba(255, 255, 255, 0.25);
+}
+
+.claymorphism .check_item input:focus-visible + .check_box {
+    outline: 2px solid var(--clay-orange);
+    outline-offset: 3px;
+}
+
+/* 로그인 버튼 */
+.claymorphism .login_btn {
+    height: 50px;
+    background: var(--clay-orange);
+    color: #fffaf5;
+    font-weight: 700;
+    box-shadow:
+        6px 6px 12px #d8b9a5,
+        -5px -5px 11px #ffffff;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.claymorphism .login_btn:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow:
+        8px 8px 14px #d8b9a5,
+        -6px -6px 12px #ffffff;
+}
+
+.claymorphism .login_btn:disabled {
+    opacity: 0.5;
+    box-shadow:
+        3px 3px 7px #d8b9a5,
+        -3px -3px 7px #ffffff;
+}
+
+.claymorphism .account_links {
+    color: var(--clay-brown);
+    font-weight: 500;
+}
+
+.claymorphism .link_line {
+    background: var(--clay-brown);
+    opacity: 0.35;
+}
+
+/* SNS 로그인 */
+.claymorphism .sns_login {
+    max-width: 402px;
+    margin-top: 64px;
+}
+
+.claymorphism .sns_title p {
+    padding: 8px 14px;
+    background: var(--clay-surface);
+    color: var(--clay-brown);
+    font-weight: 700;
+    box-shadow:
+        4px 4px 9px var(--clay-shadow-dark),
+        -4px -4px 9px var(--clay-shadow-light);
+}
+
+.claymorphism .sns_line {
+    height: 2px;
+    background: #c9a995;
+    opacity: 0.65;
+}
+
+.claymorphism .sns_list {
+    gap: 18px;
+}
+
+.claymorphism .sns_btn {
+    background: var(--clay-surface);
+    box-shadow:
+        5px 5px 10px var(--clay-shadow-dark),
+        -5px -5px 10px var(--clay-shadow-light);
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.claymorphism .sns_btn:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        7px 7px 13px var(--clay-shadow-dark),
+        -6px -6px 12px var(--clay-shadow-light);
+}
+
+.claymorphism .login_btn:focus-visible,
+.claymorphism .account_links a:focus-visible,
+.claymorphism .eye_btn:focus-visible,
+.claymorphism .sns_btn:focus-visible {
+    outline: 2px solid var(--clay-orange);
+    outline-offset: 4px;
+}
+
+/* 작은 화면 */
+@media (max-width: 390px) {
+    .claymorphism .login_content {
+        padding: 22px;
+    }
+
+    .claymorphism .sns_login {
+        margin-top: 54px;
+    }
+
+    .claymorphism .sns_list {
+        gap: 14px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .claymorphism .back_btn,
+    .claymorphism .login_btn,
+    .claymorphism .sns_btn {
+        transition: none;
+    }
+}
