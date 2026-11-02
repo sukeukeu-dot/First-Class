@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+/* GLASSMORPHISM */
+#wrap.glassmorphism {
+    --glass-text: #542b2b;
+    --glass-accent: #df8055;
+    color: var(--glass-text);
+    background:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,.9), transparent 32%),
+        radial-gradient(circle at 85% 70%, rgba(242,170,130,.45), transparent 30%),
+        linear-gradient(135deg, #f9e5d6, #f3cdb9 55%, #fff1df);
+}
+.glassmorphism .back_btn,
+.glassmorphism .login_content,
+.glassmorphism .input_group input,
+.glassmorphism .check_box,
+.glassmorphism .login_btn,
+.glassmorphism .sns_title p,
+.glassmorphism .sns_btn {
+    border: 1px solid rgba(255,255,255,.72);
+    background: rgba(255,255,255,.38);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+.glassmorphism .back_btn,
+.glassmorphism .login_content,
+.glassmorphism .input_group input,
+.glassmorphism .check_box,
+.glassmorphism .login_btn,
+.glassmorphism .sns_title p,
+.glassmorphism .sns_btn { border-radius: 18px; }
+.glassmorphism .back_btn {
+    box-shadow: 0 8px 24px rgba(111,65,48,.12);
+}
+.glassmorphism .brand_logo {
+    box-shadow: 0 12px 30px rgba(111,65,48,.18);
+}
+.glassmorphism .login_content {
+    max-width: 402px; padding: 28px;
+    background: rgba(255,255,255,.48);
+    box-shadow: 0 18px 45px rgba(111,65,48,.16);
+}
+.glassmorphism .input_group label,
+.glassmorphism .check_item { color: var(--glass-text); font-weight: 600; }
+.glassmorphism .input_group input {
+    background: rgba(255,255,255,.58); color: var(--glass-text);
+    box-shadow: inset 0 1px 3px rgba(111,65,48,.06);
+}
+.glassmorphism .input_group input:focus {
+    outline: 2px solid var(--glass-accent); outline-offset: 2px;
+}
+.glassmorphism .check_box {
+    box-shadow: 0 4px 12px rgba(111,65,48,.1);
+}
+.glassmorphism .check_item input:checked + .check_box { background: var(--glass-accent); }
+.glassmorphism .login_btn {
+    height: 50px; background: rgba(223,128,85,.88); color: #fff;
+    box-shadow: 0 8px 18px rgba(166,91,57,.22);
+}
+.glassmorphism .login_btn:disabled { opacity: .45; }
+.glassmorphism .account_links { color: var(--glass-text); }
+.glassmorphism .sns_login { max-width: 402px; margin-top: 64px; }
+.glassmorphism .sns_title p { padding: 8px 14px; color: var(--glass-text); }
+.glassmorphism .sns_line { height: 1px; background: rgba(84,43,43,.35); }
+.glassmorphism .sns_btn {
+    box-shadow: 0 8px 20px rgba(111,65,48,.12);
+}
+.glassmorphism .login_btn:focus-visible,
+.glassmorphism .account_links a:focus-visible,
+.glassmorphism .eye_btn:focus-visible,
+.glassmorphism .sns_btn:focus-visible { outline: 2px solid var(--glass-accent); outline-offset: 4px; }
+@supports not ((backdrop-filter: blur(1px))) {
+    .glassmorphism .login_content,
+    .glassmorphism .input_group input,
+    .glassmorphism .sns_btn { background: rgba(255,255,255,.88); }
+}
+@media (max-width: 390px) {
+    .glassmorphism .login_content { padding: 22px; }
+    .glassmorphism .sns_login { margin-top: 54px; }
+}
