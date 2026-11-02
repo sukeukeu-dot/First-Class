@@ -8,11 +8,21 @@
     <link rel="stylesheet" href="../font/css/NotoSansKR.css">
     <link rel="stylesheet" href="../css/pretendardvariable.css">
     <link rel="stylesheet" href="css/sulbing.css">
-    <link rel="stylesheet" href="css/claymorphism.css">
+    <link rel="stylesheet" href="css/theme-selector.css">
+    <link id="theme-style" rel="stylesheet" href="css/claymorphism.css">
 <title>설빙 로그인</title>
 </head>
 <body>
     <div id="wrap" class="claymorphism">
+        <div class="theme_switcher">
+            <label for="theme-select">디자인 테마</label>
+            <select id="theme-select" aria-label="디자인 테마 선택">
+                <option value="neo-brutalism">NEO Brutalism</option>
+                <option value="pixel-art">Pixel Art</option>
+                <option value="claymorphism" selected>Claymorphism</option>
+                <option value="glassmorphism">Glassmorphism</option>
+            </select>
+        </div>
         <header class="login_header">
             <button type="button" class="back_btn">
                 <img src="img/back.svg" alt="뒤로가기">
@@ -113,5 +123,16 @@
             </section>
         </main>
     </div>
+    <script>
+        const themeSelect = document.querySelector("#theme-select");
+        const themeStyle = document.querySelector("#theme-style");
+        const pageWrap = document.querySelector("#wrap");
+
+        themeSelect.addEventListener("change", function () {
+            const selectedTheme = this.value;
+            themeStyle.href = "css/" + selectedTheme + ".css";
+            pageWrap.className = selectedTheme;
+        });
+    </script>
 </body>
 </html>
