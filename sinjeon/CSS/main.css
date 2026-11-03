@@ -704,13 +704,17 @@ button { font-family: inherit; }
     .mega-menu-column a { font-size: 16px; }
 
     .inner-section { padding: 62px 16px 48px; }
+    .menu-section { padding-top: 110px; }
     .menu-tabs { gap: 14px; overflow-x: auto; margin-bottom: 22px; }
     .menu-tab, .news-tab { font-size: 15px; }
     .menu-tabs > span, .news-tabs > span { height: 16px; flex: 0 0 1px; }
     .menu-carousel, .instagram-carousel { gap: 4px; }
     .carousel-arrow { width: 26px; height: 46px; }
     .carousel-arrow span { font-size: 42px; }
-    .menu-track { grid-template-columns: repeat(4, minmax(72%, 1fr)); gap: 14px; }
+    .menu-track {
+        grid-template-columns: repeat(4, minmax(100%, 1fr));
+        gap: 14px;
+    }
     .menu-card h3 { margin-top: 12px; font-size: 16px; }
 
     .brand-layout {
