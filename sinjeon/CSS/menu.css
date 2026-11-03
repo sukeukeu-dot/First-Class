@@ -303,3 +303,9 @@
         transition: none;
     }
 }
+
+/* 세트메뉴 이미지 원형 영역을 살짝 줄여 여백 확보 */
+#set-menu .menu-image-placeholder {
+    width: 90%;
+    margin-inline: auto;
+}
