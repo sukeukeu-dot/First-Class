@@ -127,7 +127,8 @@ button { font-family: inherit; }
 .site-header .gnb-menu-link {
     text-decoration: none;
 }
-\n.site-header .gnb-trigger:hover,
+
+.site-header .gnb-trigger:hover,
 .site-header .gnb-trigger:focus-visible,
 .site-header .gnb-trigger[aria-expanded="true"] { color: var(--color-brand-green); }
 
