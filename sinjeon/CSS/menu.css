@@ -333,3 +333,77 @@
     border-radius: 50%;
     object-fit: contain;
 }
+
+
+/* 사이드 메뉴 슬라이더: 한 화면에 3개씩 표시 */
+.side-menu-slider {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr) 42px;
+    align-items: center;
+    gap: 14px;
+}
+.side-menu-viewport {
+    min-width: 0;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+.side-menu-track {
+    display: flex;
+    grid-template-columns: none;
+    gap: clamp(18px, 3vw, 44px);
+}
+.side-menu-track .menu-product-card {
+    flex: 0 0 calc((100% - 2 * clamp(18px, 3vw, 44px)) / 3);
+    min-width: 0;
+}
+.side-slider-arrow {
+    display: flex;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-border-light);
+    border-radius: 50%;
+    background: #ffffff;
+    color: var(--color-text-primary);
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 180ms ease, color 180ms ease, opacity 180ms ease;
+}
+.side-slider-arrow:hover:not(:disabled) {
+    border-color: var(--color-brand-pink);
+    background: var(--color-brand-pink);
+    color: #ffffff;
+}
+.side-slider-arrow:disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+.side-slider-arrow:focus-visible {
+    outline: 2px solid var(--color-brand-green);
+    outline-offset: 3px;
+}
+
+@media (max-width: 1100px) {
+    .side-menu-track .menu-product-card {
+        flex-basis: calc((100% - 24px) / 2);
+    }
+}
+@media (max-width: 700px) {
+    .side-menu-slider {
+        grid-template-columns: 30px minmax(0, 1fr) 30px;
+        gap: 8px;
+    }
+    .side-menu-track {
+        gap: 14px;
+    }
+    .side-menu-track .menu-product-card {
+        flex-basis: calc((100% - 14px) / 2);
+    }
+    .side-slider-arrow {
+        width: 30px;
+        height: 30px;
+        font-size: 23px;
+    }
+}
