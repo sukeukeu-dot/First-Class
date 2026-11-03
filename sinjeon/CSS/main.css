@@ -48,14 +48,14 @@ button { font-family: inherit; }
     inset: 0 0 auto;
     z-index: 20;
     width: 100%;
-    background: rgba(255, 255, 255, 0.4);
-    padding: 8px 0;
+    background: transparent;
+    padding: 0;
     transition: background-color 180ms ease;
 }
 
 /* 하위 메뉴가 열리면 헤더 전체를 흰색으로 전환 */
 .site-header:has(.mega-menu:not([hidden])) {
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.92);
 }
 
 .site-header .header-inner {
