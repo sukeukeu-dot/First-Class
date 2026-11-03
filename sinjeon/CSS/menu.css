@@ -309,3 +309,27 @@
     width: 90%;
     margin-inline: auto;
 }
+
+/* 세트메뉴 사진을 원형 프레임 안에 전체 표시 */
+#set-menu .menu-image-placeholder {
+    width: 90%;
+    max-width: 320px;
+    aspect-ratio: 1 / 1;
+    margin-inline: auto;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+#set-menu .menu-image-placeholder span {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#set-menu .menu-image-placeholder img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: contain;
+}
