@@ -179,30 +179,26 @@ button { font-family: inherit; }
 
 .mega-menu-column a:hover { color: var(--color-brand-green); }
 
-/* 메인 영상: PC는 원본 비율을 유지해 전체 화면 표시 */
+/* 메인 영상: 화면 너비에 맞추고 원본 비율을 유지해 잘림 방지 */
 .hero-sec {
     position: relative;
     width: 100%;
-    height: 100dvh;
-    overflow: hidden;
+    height: auto;
     background: #ffffff;
 }
 
 .hero-sec .visual {
-    display: flex;
+    display: block;
     width: 100%;
-    height: 100%;
+    height: auto;
     margin-inline: auto;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
 }
 
 .hero-video {
     display: block;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
     object-position: center;
 }
 
@@ -706,20 +702,6 @@ button { font-family: inherit; }
 
     .mega-menu-column { gap: 8px 10px; }
     .mega-menu-column a { font-size: 16px; }
-
-    .hero-sec { height: 100dvh; }
-
-    .hero-sec .visual {
-        height: 100%;
-        min-height: 0;
-        max-height: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #ffffff;
-    }
-
-    .hero-video { width: 100%; height: 100%; object-fit: cover; }
 
     .inner-section { padding: 62px 16px 48px; }
     .menu-tabs { gap: 14px; overflow-x: auto; margin-bottom: 22px; }
