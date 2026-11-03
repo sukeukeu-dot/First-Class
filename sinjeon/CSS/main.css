@@ -124,7 +124,10 @@ button { font-family: inherit; }
     transition: color 160ms ease;
 }
 
-.site-header .gnb-trigger:hover,
+.site-header .gnb-menu-link {
+    text-decoration: none;
+}
+\n.site-header .gnb-trigger:hover,
 .site-header .gnb-trigger:focus-visible,
 .site-header .gnb-trigger[aria-expanded="true"] { color: var(--color-brand-green); }
 
@@ -715,7 +718,7 @@ button { font-family: inherit; }
         background: #ffffff;
     }
 
-    .hero-video { width: 100%; height: 100%; object-fit: contain; }
+    .hero-video { width: 100%; height: 100%; object-fit: cover; }
 
     .inner-section { padding: 62px 16px 48px; }
     .menu-tabs { gap: 14px; overflow-x: auto; margin-bottom: 22px; }
