@@ -19,7 +19,7 @@
                     </a>
                     <nav aria-label="주요 메뉴">
                     <ul class="gnb">
-                        <li><button type="button" class="gnb-trigger" aria-expanded="false" aria-controls="mega-menu" data-menu="menu">메뉴</button></li>
+                        <li><a class="gnb-trigger gnb-menu-link" href="menu.html#all-menu" aria-expanded="false" aria-controls="mega-menu" data-menu="menu">메뉴</a></li>
                         <li><button type="button" class="gnb-trigger" aria-expanded="false" aria-controls="mega-menu" data-menu="store">매장 찾기</button></li>
                         <li><button type="button" class="gnb-trigger" aria-expanded="false" aria-controls="mega-menu" data-menu="brand">브랜드</button></li>
                         <li><button type="button" class="gnb-trigger" aria-expanded="false" aria-controls="mega-menu" data-menu="app">신전 APP</button></li>
@@ -32,7 +32,7 @@
             <div class="mega-menu" id="mega-menu" hidden>
                 <div class="mega-menu-inner">
                     <div class="mega-menu-column" data-column="menu">
-                        <a href="menu.html#all-menu">전체메뉴</a><a href="menu.html#all-menu">세트메뉴</a><a href="menu.html#all-menu">신메뉴</a><a href="menu.html#all-menu">사이드</a>
+                        <a href="menu.html#all-menu">전체메뉴</a><a href="menu.html#set-menu">세트메뉴</a><a href="menu.html#new-menu">신메뉴</a><a href="menu.html#side-menu">사이드</a>
                     </div>
                     <div class="mega-menu-column" data-column="store">
                         <a href="#news">국내 매장</a><a href="#news">해외 매장</a>
@@ -231,44 +231,58 @@
         const menuButtons = document.querySelectorAll(".gnb-trigger");
         const megaMenu = document.querySelector("#mega-menu");
         const menuColumns = document.querySelectorAll(".mega-menu-column");
+        const siteHeader = document.querySelector(".site-header");
+        const canHover = window.matchMedia("(hover: hover) and (pointer: fine)");
 
         function closeMegaMenu() {
             megaMenu.hidden = true;
             menuButtons.forEach((button) => button.setAttribute("aria-expanded", "false"));
         }
 
-        function openMegaMenu() {
+        function openMegaMenu(menuName) {
             megaMenu.hidden = false;
-            menuButtons.forEach((button) => button.setAttribute("aria-expanded", "true"));
-            menuColumns.forEach((column) => { column.hidden = false; });
+            menuButtons.forEach((button) => {
+                button.setAttribute("aria-expanded", String(button.dataset.menu === menuName));
+            });
+            menuColumns.forEach((column) => {
+                column.hidden = column.dataset.column !== menuName;
+            });
         }
 
-        // PC에서는 마우스를 올리면 하위 메뉴 표시
+        // 마우스를 올린 메뉴의 하위 항목만 표시
         menuButtons.forEach((button) => {
             button.addEventListener("mouseenter", () => {
-                if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) openMegaMenu();
+                if (canHover.matches) openMegaMenu(button.dataset.menu);
             });
 
-            // 터치 기기에서는 탭으로 열고 닫기
-            button.addEventListener("click", () => {
-                if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-                    if (megaMenu.hidden) openMegaMenu();
-                    else closeMegaMenu();
+            // 메뉴 링크는 클릭하면 바로 menu.html로 이동
+            // 나머지 메뉴는 터치 기기에서 탭으로 하위 메뉴를 열고 닫음
+            button.addEventListener("click", (event) => {
+                if (button.classList.contains("gnb-menu-link")) return;
+
+                if (!canHover.matches) {
+                    event.preventDefault();
+                    if (!megaMenu.hidden && button.getAttribute("aria-expanded") === "true") {
+                        closeMegaMenu();
+                    } else {
+                        openMegaMenu(button.dataset.menu);
+                    }
                 }
             });
         });
 
-        const siteHeader = document.querySelector(".site-header");
         siteHeader.addEventListener("mouseleave", () => {
-            if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) closeMegaMenu();
+            if (canHover.matches) closeMegaMenu();
         });
 
         document.addEventListener("click", (event) => {
             if (!event.target.closest(".site-header")) closeMegaMenu();
         });
+
         document.addEventListener("keydown", (event) => {
             if (event.key === "Escape") closeMegaMenu();
         });
+
         megaMenu.addEventListener("click", (event) => {
             if (event.target.closest("a")) closeMegaMenu();
         });
