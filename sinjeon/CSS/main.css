@@ -494,6 +494,13 @@ button { font-family: inherit; }
     gap: 24px;
 }
 
+.instagram-title img {
+    display: block;
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+}
+
 .instagram-title h2 {
     margin: 0;
     color: var(--color-brand-pink);
@@ -738,6 +745,7 @@ button { font-family: inherit; }
 
     .instagram-heading { margin: 0 0 24px; }
     .instagram-title { gap: 12px; }
+    .instagram-title img { width: 40px; height: 40px; }
     .instagram-title h2 { font-size: 20px; }
     .instagram-more { width: 42px; height: 42px; font-size: 22px; }
     .instagram-track { grid-template-columns: repeat(3, minmax(78%, 1fr)); gap: 12px; }
