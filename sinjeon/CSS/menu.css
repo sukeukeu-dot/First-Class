@@ -31,7 +31,7 @@
 .menu-breadcrumb {
     margin: 0;
     color: var(--color-text-secondary);
-    font-size: 12px;
+    font-size: 14px;
 }
 .menu-breadcrumb strong {
     color: var(--color-text-primary);
@@ -139,7 +139,7 @@
     color: var(--color-brand-pink);
 }
 .menu-image-placeholder span {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 600;
     letter-spacing: 0.12em;
 }
@@ -220,7 +220,7 @@
         font-size: 22px;
     }
     .menu-breadcrumb {
-        font-size: 10px;
+        font-size: 14px;
     }
     .menu-category-inner {
         justify-content: flex-start;
@@ -262,10 +262,10 @@
         font-size: 16px;
     }
     .menu-product-copy p {
-        font-size: 12px;
+        font-size: 14px;
     }
     .menu-image-placeholder span {
-        font-size: 10px;
+        font-size: 14px;
     }
     .menu-feature-card {
         grid-template-columns: 1fr;
