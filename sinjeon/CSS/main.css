@@ -167,8 +167,8 @@ button { font-family: inherit; }
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
-    justify-content: flex-start;
-    text-align: left;
+    justify-content: center;
+    text-align: center;
     gap: 8px 18px;
     white-space: nowrap;
 }
@@ -180,11 +180,6 @@ button { font-family: inherit; }
     line-height: 1.5;
     text-decoration: none;
     overflow-wrap: anywhere;
-}
-
-.mega-menu-column[data-column="menu"] {
-    justify-content: flex-end;
-    text-align: right;
 }
 
 .mega-menu-column a:hover { color: var(--color-brand-green); }
