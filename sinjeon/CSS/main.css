@@ -180,6 +180,11 @@ button { font-family: inherit; }
     overflow-wrap: anywhere;
 }
 
+.mega-menu-column[data-column="menu"] {
+    justify-content: flex-start;
+    text-align: left;
+}
+
 .mega-menu-column a:hover { color: var(--color-brand-green); }
 
 /* 메인 영상: 화면 너비에 맞추고 원본 비율을 유지해 잘림 방지 */
@@ -354,7 +359,6 @@ button { font-family: inherit; }
 .brand-image {
     overflow: hidden;
     border-radius: 4px;
-    box-shadow: 0 0 14px rgba(246, 135, 139, 0.2);
 }
 
 .brand-image img {
