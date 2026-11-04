@@ -47,28 +47,19 @@
 }
 .menu-category-inner {
     display: flex;
-    flex-wrap: nowrap;
     align-items: center;
-    justify-content: center;
-    gap: clamp(20px, 4vw, 32px);
-    min-height: 82px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    white-space: nowrap;
+    justify-content: flex-start;
+    gap: clamp(22px, 4vw, 58px);
+    min-height: 58px;
     border-bottom: 1px solid var(--color-border-light);
-    scrollbar-width: none;
-}
-.menu-category-inner::-webkit-scrollbar {
-    display: none;
 }
 .menu-category-inner a {
     position: relative;
     display: inline-flex;
     align-items: center;
-    flex: 0 0 auto;
-    min-height: 82px;
-    color: var(--color-text-primary);
-    font-size: 24px;
+    min-height: 58px;
+    color: var(--color-text-secondary);
+    font-size: 15px;
     font-weight: 500;
     text-decoration: none;
     white-space: nowrap;
@@ -79,7 +70,7 @@
     bottom: -1px;
     left: 0;
     height: 2px;
-    background: transparent;
+    background: var(--color-brand-pink);
     content: "";
     transform: scaleX(0);
     transition: transform 180ms ease;
@@ -87,7 +78,7 @@
 .menu-category-inner a:hover,
 .menu-category-inner a:focus-visible,
 .menu-category-inner a.is-active {
-    color: var(--color-brand-green);
+    color: var(--color-brand-pink);
 }
 .menu-category-inner a:hover::after,
 .menu-category-inner a:focus-visible::after,
@@ -235,19 +226,17 @@
     }
     .menu-category-inner {
         justify-content: flex-start;
-        flex-wrap: nowrap;
-        gap: 22px;
-        min-height: 64px;
+        gap: 24px;
+        min-height: 52px;
         overflow-x: auto;
-        white-space: nowrap;
+        scrollbar-width: none;
     }
     .menu-category-inner::-webkit-scrollbar {
         display: none;
     }
     .menu-category-inner a {
-        flex: 0 0 auto;
-        min-height: 64px;
-        font-size: 18px;
+        min-height: 52px;
+        font-size: 13px;
     }
     .menu-list-section {
         padding: 36px 16px 52px;
@@ -296,12 +285,10 @@
 }
 @media (max-width: 380px) {
     .menu-category-inner {
-        flex-wrap: nowrap;
-        gap: 18px;
+        gap: 22px;
     }
     .menu-category-inner a {
-        flex: 0 0 auto;
-        font-size: 16px;
+        font-size: 14px;
     }
     .menu-product-grid {
         gap: 24px 12px;
