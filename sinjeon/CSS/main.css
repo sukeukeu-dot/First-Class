@@ -163,12 +163,14 @@ button { font-family: inherit; }
 
 .mega-menu-column {
     display: flex;
+    grid-column: 1 / -1;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
-    justify-content: flex-end;
-    text-align: right;
-    gap: 8px 14px;
+    justify-content: flex-start;
+    text-align: left;
+    gap: 8px 18px;
+    white-space: nowrap;
 }
 
 .mega-menu-column a {
@@ -181,8 +183,8 @@ button { font-family: inherit; }
 }
 
 .mega-menu-column[data-column="menu"] {
-    justify-content: flex-start;
-    text-align: left;
+    justify-content: flex-end;
+    text-align: right;
 }
 
 .mega-menu-column a:hover { color: var(--color-brand-green); }
