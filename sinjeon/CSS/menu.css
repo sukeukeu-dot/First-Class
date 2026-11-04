@@ -76,13 +76,11 @@
     transition: transform 180ms ease;
 }
 .menu-category-inner a:hover,
-.menu-category-inner a:focus-visible,
-.menu-category-inner a.is-active {
+.menu-category-inner a:focus-visible {
     color: var(--color-brand-pink);
 }
 .menu-category-inner a:hover::after,
-.menu-category-inner a:focus-visible::after,
-.menu-category-inner a.is-active::after {
+.menu-category-inner a:focus-visible::after {
     transform: scaleX(1);
 }
 .menu-category-inner a:focus-visible {
