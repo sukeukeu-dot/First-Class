@@ -448,7 +448,6 @@ button { font-family: inherit; }
     width: 100%;
     padding: 10px;
     border-radius: 11px;
-    box-shadow: 0 0 7px rgba(0, 0, 0, 0.14);
     transition: transform 200ms ease;
 }
 
