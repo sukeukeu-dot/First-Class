@@ -61,6 +61,11 @@
             </div>
         </section>
 
+        <nav class="store-type-tabs store-container" aria-label="매장 유형 선택" role="tablist">
+            <button type="button" class="store-type-tab is-active" id="domestic-tab" role="tab" aria-selected="true" aria-controls="domestic-panel" data-store-type="domestic">국내 가맹점</button>
+            <button type="button" class="store-type-tab" id="overseas-tab" role="tab" aria-selected="false" aria-controls="overseas-panel" data-store-type="overseas" tabindex="-1">해외 가맹점</button>
+        </nav>
+        <div class="store-type-panel" id="domestic-panel" role="tabpanel" aria-labelledby="domestic-tab">
         <section class="store-finder store-container" id="store-list" aria-label="매장 검색 및 목록">
             <div class="store-map" aria-label="매장 위치 지도 예시">
                 <div class="map-block map-park"><span>어린이공원</span></div>
@@ -135,6 +140,62 @@
                     <p class="no-store-results" id="no-store-results" hidden>검색 조건에 맞는 매장이 없습니다.</p>
                 </div>
             </div>
+        </section>
+        </div>
+        <section class="overseas-panel store-container" id="overseas-panel" role="tabpanel" aria-labelledby="overseas-tab" hidden>
+            <div class="overseas-top">
+                <div class="overseas-map" aria-label="해외 매장 위치를 표시한 지도 일러스트">
+                    <div class="overseas-map-shape asia-shape"></div>
+                    <div class="overseas-map-shape australia-shape"></div>
+                    <span class="overseas-map-label map-korea">ASIA</span>
+                    <span class="overseas-map-label map-australia">OCEANIA</span>
+                    <span class="overseas-pin overseas-pin-one" aria-hidden="true"></span>
+                    <span class="overseas-pin overseas-pin-two" aria-hidden="true"></span>
+                    <span class="overseas-pin overseas-pin-three" aria-hidden="true"></span>
+                    <span class="overseas-pin overseas-pin-four" aria-hidden="true"></span>
+                    <span class="overseas-pin overseas-pin-five" aria-hidden="true"></span>
+                    <span class="overseas-pin overseas-pin-six" aria-hidden="true"></span>
+                    <p class="overseas-map-caption">OVERSEAS STORES</p>
+                </div>
+                <div class="overseas-country-area">
+                    <form class="overseas-search" id="overseas-search-form">
+                        <label class="visually-hidden" for="overseas-search-type">검색 기준</label>
+                        <select id="overseas-search-type">
+                            <option value="name">지점명</option>
+                            <option value="country">국가명</option>
+                        </select>
+                        <label class="visually-hidden" for="overseas-search-input">검색어</label>
+                        <input id="overseas-search-input" type="search" placeholder="검색어를 입력해 주세요.">
+                        <button type="submit">검색</button>
+                    </form>
+                    <p class="country-guide-title">국가별 지점안내</p>
+                    <div class="country-filter" role="group" aria-label="국가별 매장 필터">
+                        <button type="button" class="is-active" data-country="all" aria-pressed="true">전체</button>
+                        <button type="button" data-country="쿠웨이트" aria-pressed="false">쿠웨이트</button>
+                        <button type="button" data-country="호주" aria-pressed="false">호주</button>
+                        <button type="button" data-country="캐나다" aria-pressed="false">캐나다</button>
+                        <button type="button" data-country="일본" aria-pressed="false">일본</button>
+                        <button type="button" data-country="말레이시아" aria-pressed="false">말레이시아</button>
+                        <button type="button" data-country="필리핀" aria-pressed="false">필리핀</button>
+                    </div>
+                </div>
+            </div>
+            <div class="overseas-table-wrap">
+                <table class="overseas-table">
+                    <thead><tr><th scope="col">지역</th><th scope="col">매장명</th><th scope="col">주소</th></tr></thead>
+                    <tbody id="overseas-store-rows">
+                        <tr data-country="필리핀" data-name="필리핀 클락점"><td>필리핀</td><td>필리핀 클락점</td><td>Block 5 Lot 5, Rosewood Parkhomes, Friendship Highway, Cutcut, Angeles City, Philippines</td></tr>
+                        <tr data-country="일본" data-name="신오쿠보점"><td>일본</td><td>신오쿠보점</td><td>169-0073 Tokyo, Shinjuku City, Hyakunincho, 1 Chome-7-5 ビル 2</td></tr>
+                        <tr data-country="캐나다" data-name="로히드점"><td>캐나다</td><td>로히드점</td><td>329 North Rd Unit 455, Coquitlam, BC V3K 6Z8, Canada</td></tr>
+                        <tr data-country="쿠웨이트" data-name="쿠웨이트 1호점"><td>쿠웨이트</td><td>쿠웨이트 1호점</td><td>8WQM+XQW, Shuwaikh Industrial, Kuwait</td></tr>
+                        <tr data-country="캐나다" data-name="크리스티점"><td>캐나다</td><td>크리스티점</td><td>712 Bloor St W, Toronto, ON M6G 1L4, Canada</td></tr>
+                        <tr data-country="호주" data-name="멜버른 써머힐점"><td>호주</td><td>멜버른 써머힐점</td><td>Shop2, 850 Plenty Road, Summerhill Shopping Centre, RESERVOIR, VIC, 3073</td></tr>
+                        <tr data-country="호주" data-name="브리즈번 첨사이드점"><td>호주</td><td>브리즈번 첨사이드점</td><td>418 Hamilton Rd, Chermside QLD 4032</td></tr>
+                    </tbody>
+                </table>
+                <p class="overseas-empty" id="overseas-empty" hidden>검색 조건에 맞는 매장이 없습니다.</p>
+            </div>
+            <p class="overseas-data-note">※ 해외 매장명과 주소는 전달해 준 참고 이미지의 예시 데이터이며, 실제 운영 여부 및 주소는 별도 확인이 필요합니다.</p>
         </section>
     </main>
 
@@ -240,6 +301,60 @@
     document.querySelector("#current-location").addEventListener("click", () => {
         feedback.textContent = "현재 위치 검색은 실제 지도 서비스 및 위치 정보 연동 후 사용할 수 있습니다.";
     });
+    // 국내/해외 가맹점 탭 전환
+    const storeTypeTabs = document.querySelectorAll("[data-store-type]");
+    storeTypeTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+            const isDomestic = tab.dataset.storeType === "domestic";
+            storeTypeTabs.forEach((item) => {
+                const active = item === tab;
+                item.classList.toggle("is-active", active);
+                item.setAttribute("aria-selected", String(active));
+                item.tabIndex = active ? 0 : -1;
+            });
+            document.querySelector("#domestic-panel").hidden = !isDomestic;
+            document.querySelector("#overseas-panel").hidden = isDomestic;
+        });
+    });
+
+    // 해외 매장 국가 필터 및 검색
+    const overseasRows = [...document.querySelectorAll("#overseas-store-rows tr")];
+    const countryButtons = document.querySelectorAll("[data-country]");
+    const overseasForm = document.querySelector("#overseas-search-form");
+    const overseasSearchType = document.querySelector("#overseas-search-type");
+    const overseasSearchInput = document.querySelector("#overseas-search-input");
+    const overseasEmpty = document.querySelector("#overseas-empty");
+    let selectedCountry = "all";
+
+    function filterOverseasStores() {
+        const keyword = overseasSearchInput.value.trim().toLowerCase();
+        let count = 0;
+        overseasRows.forEach((row) => {
+            const matchesCountry = selectedCountry === "all" || row.dataset.country === selectedCountry;
+            const target = overseasSearchType.value === "country" ? row.dataset.country : row.dataset.name;
+            const matchesKeyword = !keyword || target.toLowerCase().includes(keyword) || row.textContent.toLowerCase().includes(keyword);
+            row.hidden = !(matchesCountry && matchesKeyword);
+            if (!row.hidden) count++;
+        });
+        overseasEmpty.hidden = count > 0;
+    }
+
+    countryButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            selectedCountry = button.dataset.country;
+            countryButtons.forEach((item) => {
+                const active = item === button;
+                item.classList.toggle("is-active", active);
+                item.setAttribute("aria-pressed", String(active));
+            });
+            filterOverseasStores();
+        });
+    });
+    overseasForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        filterOverseasStores();
+    });
+    overseasSearchInput.addEventListener("input", filterOverseasStores);
 </script>
 </body>
 </html>
