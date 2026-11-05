@@ -33,22 +33,22 @@
             <div class="mega-menu" id="mega-menu" hidden>
                 <div class="mega-menu-inner">
                     <div class="mega-menu-column" data-column="menu">
-                        <a href="menu.html#all-menu">전체메뉴</a><a href="menu.html#set-menu">세트메뉴</a><a href="menu.html#new-menu">신메뉴</a><a href="menu.html#side-menu">사이드</a>
+                        <a href="menu.html#all-menu">메뉴 페이지 바로가기</a>
                     </div>
                     <div class="mega-menu-column" data-column="store">
-                        <a href="store.html#store-list">국내 매장</a><a href="store.html#store-list">해외 매장</a>
+                        <a href="store.html">매장 찾기 바로가기</a>
                     </div>
                     <div class="mega-menu-column" data-column="brand">
-                        <a href="#brand-story">신전 소개</a><a href="#brand-story">신전의 특징</a><a href="#brand-story">회사 연혁</a><a href="#brand-story">신전 떡볶이체</a><a href="#brand-story">신전 캐릭터</a><a href="#brand-story">품질 안전</a>
+                        <a href="#brand-story">브랜드 소개 바로가기</a>
                     </div>
                     <div class="mega-menu-column" data-column="app">
-                        <a href="#instagram">APP 소개</a><a href="#instagram">혜택</a><a href="#instagram">APP 다운로드</a>
+                        <a href="#instagram">APP 소개 바로가기</a>
                     </div>
                     <div class="mega-menu-column" data-column="news">
-                        <a href="#news">SNS</a><a href="#news">이벤트</a><a href="#news">공지사항</a>
+                        <a href="#news">소식 페이지 바로가기</a>
                     </div>
                     <div class="mega-menu-column" data-column="customer">
-                        <a href="#footer">고객의 소리</a><a href="#footer">질문</a>
+                        <a href="#footer">고객센터 바로가기</a>
                     </div>
                 </div>
             </div>
@@ -245,7 +245,7 @@
             menuButtons.forEach((button) => button.setAttribute("aria-expanded", "false"));
         }
 
-        function openMegaMenu(menuName) {
+        function openMegaMenu(menuName, trigger) {
             megaMenu.hidden = false;
             menuButtons.forEach((button) => {
                 button.setAttribute("aria-expanded", String(button.dataset.menu === menuName));
@@ -253,12 +253,18 @@
             menuColumns.forEach((column) => {
                 column.hidden = column.dataset.column !== menuName;
             });
+
+            // 열린 서브메뉴를 해당 GNB 항목 바로 아래에 배치
+            const headerInner = document.querySelector(".site-header .header-inner");
+            const triggerRect = trigger.getBoundingClientRect();
+            const headerRect = headerInner.getBoundingClientRect();
+            megaMenu.style.left = `${triggerRect.left - headerRect.left}px`;
         }
 
         // 마우스를 올린 메뉴의 하위 항목만 표시
         menuButtons.forEach((button) => {
             button.addEventListener("mouseenter", () => {
-                if (canHover.matches) openMegaMenu(button.dataset.menu);
+                if (canHover.matches) openMegaMenu(button.dataset.menu, button);
             });
 
             // 메뉴 링크는 클릭하면 바로 menu.html로 이동
@@ -271,7 +277,7 @@
                     if (!megaMenu.hidden && button.getAttribute("aria-expanded") === "true") {
                         closeMegaMenu();
                     } else {
-                        openMegaMenu(button.dataset.menu);
+                        openMegaMenu(button.dataset.menu, button);
                     }
                 }
             });
