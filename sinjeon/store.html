@@ -32,7 +32,10 @@
         <div class="mega-menu" id="mega-menu" hidden>
             <div class="mega-menu-inner">
                 <div class="mega-menu-column" data-column="menu">
-                    <a href="menu.html#all-menu">전체메뉴</a><a href="menu.html#all-menu">메인메뉴</a><a href="menu.html#set-menu">세트메뉴</a><a href="menu.html#new-menu">신메뉴</a><a href="menu.html#side-menu">사이드</a>
+                    <a href="menu.html#main-menu">메인메뉴</a>
+                    <a href="menu.html#set-menu">세트메뉴</a>
+                    <a href="menu.html#new-menu">신메뉴</a>
+                    <a href="menu.html#side-menu">사이드</a>
                 </div>
                 <div class="mega-menu-column" data-column="store">
                     <a href="store.html#store-list">국내 매장</a><a href="store.html#store-list">해외 매장</a>
@@ -225,16 +228,22 @@
         megaMenu.hidden = true;
         menuButtons.forEach((button) => button.setAttribute("aria-expanded", "false"));
     }
-    function openMegaMenu(menuName) {
+    function openMegaMenu(menuName, trigger) {
         megaMenu.hidden = false;
         menuButtons.forEach((button) => {
             button.setAttribute("aria-expanded", String(button.dataset.menu === menuName));
         });
         menuColumns.forEach((column) => column.hidden = column.dataset.column !== menuName);
+
+        // 메가 메뉴를 현재 GNB 항목의 왼쪽 위치에 맞춰 헤더 바로 아래 표시
+        const headerInner = document.querySelector(".site-header .header-inner");
+        const triggerRect = trigger.getBoundingClientRect();
+        const headerRect = headerInner.getBoundingClientRect();
+        megaMenu.style.left = `${triggerRect.left - headerRect.left}px`;
     }
     menuButtons.forEach((button) => {
         button.addEventListener("mouseenter", () => {
-            if (canHover.matches) openMegaMenu(button.dataset.menu);
+            if (canHover.matches) openMegaMenu(button.dataset.menu, button);
         });
         button.addEventListener("click", (event) => {
             if (button.classList.contains("gnb-menu-link")) return;
