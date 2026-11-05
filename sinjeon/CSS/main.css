@@ -140,35 +140,35 @@ button { font-family: inherit; }
 }
 
 .mega-menu {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.4);
-    border: 0;
-    box-shadow: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 100;
+    width: max-content;
+    min-width: 170px;
+    background: rgba(255, 255, 255, 0.97);
+    border: 1px solid var(--color-border-light);
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
 .mega-menu[hidden] { display: none; }
 
 .mega-menu-inner {
-    width: calc(100% - 80px);
-    max-width: var(--content-max-width);
-    min-height: 92px;
-    margin: 0 auto;
-    padding: 18px 0 20px;
-    display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    column-gap: clamp(12px, 1.5vw, 24px);
-    align-items: start;
+    width: 100%;
+    min-height: 0;
+    margin: 0;
+    padding: 12px 16px;
+    display: block;
 }
 
 .mega-menu-column {
     display: flex;
-    grid-column: 1 / -1;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 8px 18px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0;
+    text-align: left;
     white-space: nowrap;
 }
 
@@ -176,9 +176,12 @@ button { font-family: inherit; }
 .mega-menu[hidden] { display: none !important; }
 
 .mega-menu-column a {
+    display: block;
+    width: 100%;
+    padding: 9px 4px;
     color: #252525;
-    font-size: 16px;
-    font-weight: 400;
+    font-size: 14px;
+    font-weight: 500;
     line-height: 1.5;
     text-decoration: none;
     overflow-wrap: anywhere;
@@ -700,17 +703,9 @@ button { font-family: inherit; }
     .site-header .gnb { width: max-content; gap: 14px; }
     .site-header .gnb-trigger { min-height: 58px; font-size: 16px; }
 
-    .mega-menu-inner {
-        width: calc(100% - 32px);
-        min-height: auto;
-        margin-inline: auto;
-        padding: 18px 0;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 18px 12px;
-    }
-
-    .mega-menu-column { gap: 8px 10px; }
-    .mega-menu-column a { font-size: 16px; }
+    .mega-menu { min-width: 150px; }
+    .mega-menu-inner { padding: 8px 12px; }
+    .mega-menu-column a { padding: 8px 2px; font-size: 14px; }
 
     .inner-section { padding: 62px 16px 48px; }
     .menu-section { padding-top: 110px; }
@@ -770,7 +765,6 @@ button { font-family: inherit; }
     .site-header nav { max-width: calc(100% - 82px); }
     .site-header .gnb { gap: 10px; }
     .site-header .gnb-trigger { font-size: 14px; }
-    .mega-menu-inner { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .hero-sec { height: 100dvh; }
     .hero-sec .visual { height: 100%; min-height: 0; }
     .menu-tab, .news-tab { font-size: 13px; }
