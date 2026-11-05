@@ -53,18 +53,22 @@
     min-height: 58px;
     border-bottom: 1px solid var(--color-border-light);
 }
-.menu-category-inner a {
+.menu-category-inner button {
     position: relative;
     display: inline-flex;
     align-items: center;
     min-height: 58px;
+    padding: 0;
+    border: 0;
+    background: transparent;
     color: var(--color-text-secondary);
+    font: inherit;
     font-size: 15px;
     font-weight: 500;
-    text-decoration: none;
     white-space: nowrap;
+    cursor: pointer;
 }
-.menu-category-inner a::after {
+.menu-category-inner button::after {
     position: absolute;
     right: 0;
     bottom: -1px;
@@ -75,15 +79,17 @@
     transform: scaleX(0);
     transition: transform 180ms ease;
 }
-.menu-category-inner a:hover,
-.menu-category-inner a:focus-visible {
+.menu-category-inner button:hover,
+.menu-category-inner button:focus-visible,
+.menu-category-inner button.is-active {
     color: var(--color-brand-pink);
 }
-.menu-category-inner a:hover::after,
-.menu-category-inner a:focus-visible::after {
+.menu-category-inner button:hover::after,
+.menu-category-inner button:focus-visible::after,
+.menu-category-inner button.is-active::after {
     transform: scaleX(1);
 }
-.menu-category-inner a:focus-visible {
+.menu-category-inner button:focus-visible {
     outline: 2px solid var(--color-brand-green);
     outline-offset: 3px;
 }
@@ -232,9 +238,9 @@
     .menu-category-inner::-webkit-scrollbar {
         display: none;
     }
-    .menu-category-inner a {
+    .menu-category-inner button {
         min-height: 52px;
-        font-size: 13px;
+        font-size: 14px;
     }
     .menu-list-section {
         padding: 36px 16px 52px;
@@ -285,7 +291,7 @@
     .menu-category-inner {
         gap: 22px;
     }
-    .menu-category-inner a {
+    .menu-category-inner button {
         font-size: 14px;
     }
     .menu-product-grid {
@@ -296,8 +302,8 @@
     }
 }
 @media (prefers-reduced-motion: reduce) {
-    .menu-category-inner a,
-    .menu-category-inner a::after {
+    .menu-category-inner button,
+    .menu-category-inner button::after {
         transition: none;
     }
 }
