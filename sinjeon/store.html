@@ -115,7 +115,7 @@
                     <article class="store-card" data-region="서울" data-district="송파구" data-name="가락점">
                         <div class="store-card-top">
                             <h2>가락점 <a href="tel:02-402-8592">02-402-8592</a></h2>
-                            <span class="store-status">영업중</span>
+                            <span class="store-status">영업중</span><button type="button" class="store-detail-button" aria-expanded="false">상세보기</button>
                         </div>
                         <p class="store-address">서울특별시 송파구 양재대로62길 16 (가락동) 1층</p>
                         <ul class="store-services"><li>홀</li><li>포장</li><li>배달</li></ul>
@@ -123,7 +123,7 @@
                     <article class="store-card" data-region="서울" data-district="구로구" data-name="가리봉점">
                         <div class="store-card-top">
                             <h2>가리봉점 <a href="tel:02-866-8591">02-866-8591</a></h2>
-                            <span class="store-status">영업중</span>
+                            <span class="store-status">영업중</span><button type="button" class="store-detail-button" aria-expanded="false">상세보기</button>
                         </div>
                         <p class="store-address">서울특별시 구로구 디지털로27길 52 (구로동) 2층</p>
                         <ul class="store-services"><li>홀</li><li>포장</li><li>배달</li></ul>
@@ -131,7 +131,7 @@
                     <article class="store-card" data-region="서울" data-district="강서구" data-name="가양점">
                         <div class="store-card-top">
                             <h2>가양점 <a href="tel:02-2659-8592">02-2659-8592</a></h2>
-                            <span class="store-status">영업중</span>
+                            <span class="store-status">영업중</span><button type="button" class="store-detail-button" aria-expanded="false">상세보기</button>
                         </div>
                         <p class="store-address">서울특별시 강서구 화곡로 416 (등촌동, 가양역더스카이밸리5차 지식산업센터) 118호</p>
                         <ul class="store-services"><li>홀</li><li>포장</li><li>배달</li></ul>
@@ -254,6 +254,16 @@
         if (event.key === "Escape") closeMegaMenu();
     });
     megaMenu.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMegaMenu));
+
+    // 모바일 매장 카드의 상세 정보 펼치기
+    document.querySelectorAll(".store-detail-button").forEach((button) => {
+        button.addEventListener("click", () => {
+            const card = button.closest(".store-card");
+            const expanded = card.classList.toggle("is-expanded");
+            button.setAttribute("aria-expanded", String(expanded));
+            button.textContent = expanded ? "접기" : "상세보기";
+        });
+    });
 
     const searchForm = document.querySelector("#store-search-form");
     const searchTabs = document.querySelectorAll("[data-search-mode]");
