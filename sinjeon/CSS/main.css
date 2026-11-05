@@ -173,6 +173,9 @@ button { font-family: inherit; }
     white-space: nowrap;
 }
 
+.mega-menu-column[hidden],
+.mega-menu[hidden] { display: none !important; }
+
 .mega-menu-column a {
     color: #252525;
     font-size: 16px;
@@ -214,7 +217,7 @@ button { font-family: inherit; }
 }
 
 .section-container {
-    width: 100%;
+    width: calc(100% - 8%);
     max-width: var(--content-max-width);
     margin-inline: auto;
 }
@@ -236,6 +239,9 @@ button { font-family: inherit; }
 
 /* 메인 메뉴 */
 .menu-section { background: #ffffff; }
+
+.section-heading { margin: 0 0 28px; }
+.menu-heading { margin-bottom: 26px; }
 
 .menu-tabs {
     min-height: 53px;
@@ -350,7 +356,7 @@ button { font-family: inherit; }
     grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
     align-items: center;
     gap: clamp(48px, 7vw, 120px);
-    padding: 0 4%;
+    padding: 0;
 }
 
 .brand-image {
@@ -367,8 +373,10 @@ button { font-family: inherit; }
 
 .brand-copy { max-width: 760px; }
 
+.section-heading h2,
 .brand-copy h2,
-.news-heading h2 {
+.news-heading h2,
+.instagram-title-copy h2 {
     margin: 0;
     color: var(--color-brand-pink);
     font-size: clamp(42px, 4.6vw, 72px);
@@ -481,14 +489,17 @@ button { font-family: inherit; }
     align-items: center;
     justify-content: space-between;
     gap: 24px;
-    margin: 0 3% 34px;
+    margin: 0 0 34px;
 }
 
 .instagram-title {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 18px;
 }
+
+.instagram-title-copy { display: flex; flex-direction: column; align-items: flex-start; }
+.instagram-title-copy .section-kicker { margin-bottom: 8px; }
 
 .instagram-title img {
     display: block;
@@ -497,12 +508,7 @@ button { font-family: inherit; }
     object-fit: contain;
 }
 
-.instagram-title h2 {
-    margin: 0;
-    color: var(--color-brand-pink);
-    font-size: 28px;
-    font-weight: 700;
-}
+.instagram-title-copy h2 { line-height: 1.1; }
 
 .instagram-more {
     display: inline-flex;
@@ -728,7 +734,7 @@ button { font-family: inherit; }
     }
 
     .brand-image { max-width: 620px; }
-    .brand-copy h2, .news-heading h2 { font-size: clamp(38px, 10vw, 54px); }
+    .section-heading h2, .brand-copy h2, .news-heading h2, .instagram-title-copy h2 { font-size: clamp(38px, 10vw, 54px); }
     .brand-description { margin: 22px 0 28px; font-size: 16px; line-height: 1.75; }
     .pill-link { min-height: 48px; padding: 13px 22px; font-size: 14px; }
 
@@ -742,7 +748,8 @@ button { font-family: inherit; }
     .instagram-heading { margin: 0 0 24px; }
     .instagram-title { gap: 12px; }
     .instagram-title img { width: 40px; height: 40px; }
-    .instagram-title h2 { font-size: 20px; }
+    .instagram-title-copy .section-kicker { font-size: 11px; }
+    .instagram-title-copy h2 { font-size: clamp(30px, 8vw, 42px); }
     .instagram-more { width: 42px; height: 42px; font-size: 22px; }
     .instagram-track { grid-template-columns: repeat(3, minmax(78%, 1fr)); gap: 12px; }
     .instagram-card { padding: 10px; }
