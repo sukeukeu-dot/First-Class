@@ -48,6 +48,7 @@
         repeating-linear-gradient(0deg, transparent 0 72px, rgba(210,210,205,.55) 73px 75px, transparent 76px 116px),
         repeating-linear-gradient(90deg, transparent 0 86px, rgba(210,210,205,.55) 87px 89px, transparent 90px 142px);
 }
+
 .map-road {
     position: absolute;
     z-index: -1;
