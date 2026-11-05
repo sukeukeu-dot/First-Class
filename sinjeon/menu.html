@@ -288,6 +288,9 @@
         categoryPanels.forEach((panel) => {
             panel.hidden = panel.id !== panelId;
         });
+        if (panelId === "side-menu" && typeof updateSideArrows === "function") {
+            updateSideArrows();
+        }
         if (breadcrumbCurrent) breadcrumbCurrent.textContent = tab.textContent.trim();
     }
 
