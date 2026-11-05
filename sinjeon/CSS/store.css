@@ -272,3 +272,196 @@
     .store-page * { scroll-behavior: auto; }
 }
 
+
+
+/* 국내/해외 가맹점 전환 탭 */
+.store-type-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 32px;
+    border: 1px solid #dedede;
+}
+.store-type-tab {
+    min-height: 54px;
+    border: 0;
+    background: #ffffff;
+    color: #555555;
+    font: inherit;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 180ms ease, color 180ms ease;
+}
+.store-type-tab + .store-type-tab { border-left: 1px solid #dedede; }
+.store-type-tab.is-active {
+    background: var(--color-brand-green, #009b68);
+    color: #ffffff;
+    font-weight: 700;
+}
+.store-type-panel[hidden], .overseas-panel[hidden] { display: none; }
+
+.overseas-panel { padding-bottom: 110px; }
+.overseas-top {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: 48px;
+    align-items: center;
+    min-height: 420px;
+    padding: 12px 0 34px;
+}
+.overseas-map {
+    position: relative;
+    min-height: 370px;
+    overflow: hidden;
+    background: #ffffff;
+    background-image: radial-gradient(#eeeeee 0.8px, transparent 0.8px);
+    background-size: 18px 18px;
+}
+.overseas-map-shape {
+    position: absolute;
+    background: #f1f1ef;
+    border: 2px solid #c9c9c6;
+    opacity: .95;
+}
+.asia-shape {
+    top: 12%;
+    left: 9%;
+    width: 70%;
+    height: 58%;
+    border-radius: 48% 34% 42% 28% / 35% 42% 45% 38%;
+    clip-path: polygon(0 10%, 18% 0, 31% 8%, 44% 2%, 55% 16%, 71% 10%, 88% 24%, 100% 42%, 84% 57%, 90% 76%, 70% 90%, 55% 78%, 43% 100%, 28% 80%, 15% 76%, 4% 53%);
+}
+.australia-shape {
+    right: 11%;
+    bottom: 8%;
+    width: 24%;
+    height: 24%;
+    border-radius: 48% 42% 45% 35%;
+    transform: rotate(-18deg);
+}
+.overseas-map-label {
+    position: absolute;
+    color: #9b9b98;
+    font-size: 12px;
+    letter-spacing: .12em;
+}
+.map-korea { top: 37%; right: 20%; }
+.map-australia { right: 12%; bottom: 6%; }
+.overseas-pin {
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    border: 2px solid #ffffff;
+    border-radius: 50% 50% 50% 0;
+    background: #d85a4e;
+    box-shadow: 0 0 0 1px #d85a4e;
+    transform: rotate(-45deg);
+}
+.overseas-pin-one { top: 30%; left: 63%; }
+.overseas-pin-two { top: 43%; left: 57%; }
+.overseas-pin-three { top: 49%; left: 61%; }
+.overseas-pin-four { top: 56%; left: 67%; }
+.overseas-pin-five { top: 71%; left: 78%; }
+.overseas-pin-six { top: 36%; left: 73%; }
+.overseas-map-caption {
+    position: absolute;
+    bottom: 4px;
+    left: 8px;
+    margin: 0;
+    color: #b0b0ad;
+    font-size: 10px;
+    letter-spacing: .18em;
+}
+.overseas-country-area { align-self: center; }
+.overseas-search {
+    display: grid;
+    grid-template-columns: 105px minmax(0, 1fr) 54px;
+    gap: 6px;
+    margin-bottom: 30px;
+}
+.overseas-search select, .overseas-search input {
+    min-width: 0;
+    height: 38px;
+    padding: 0 9px;
+    border: 1px solid #d9d9d9;
+    background: #ffffff;
+    color: #444444;
+    font: inherit;
+    font-size: 13px;
+}
+.overseas-search button {
+    border: 0;
+    background: var(--color-brand-pink, #f6878b);
+    color: #ffffff;
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+.country-guide-title {
+    margin: 0 0 10px;
+    color: #777777;
+    font-size: 14px;
+}
+.country-filter {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 4px;
+}
+.country-filter button {
+    min-height: 38px;
+    border: 1px solid #dddddd;
+    background: #f7f7f7;
+    color: #777777;
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+.country-filter button.is-active {
+    border-color: #333333;
+    background: #333333;
+    color: #ffffff;
+    font-weight: 600;
+}
+.overseas-table-wrap { width: 100%; overflow-x: auto; }
+.overseas-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #666666;
+    font-size: 14px;
+    text-align: center;
+}
+.overseas-table thead { background: #f5f5f5; }
+.overseas-table th {
+    padding: 12px 16px;
+    border-bottom: 1px solid #555555;
+    color: #333333;
+    font-weight: 600;
+}
+.overseas-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid #eeeeee;
+    line-height: 1.5;
+}
+.overseas-table th:first-child, .overseas-table td:first-child { width: 14%; }
+.overseas-table th:nth-child(2), .overseas-table td:nth-child(2) { width: 18%; }
+.overseas-table td:last-child { text-align: left; word-break: break-word; }
+.overseas-table tbody tr[hidden] { display: none; }
+.overseas-empty { padding: 28px; color: #888888; text-align: center; }
+.overseas-data-note { margin: 12px 0 0; color: #999999; font-size: 11px; line-height: 1.5; }
+
+@media (max-width: 900px) {
+    .overseas-top { grid-template-columns: 1fr; gap: 20px; }
+    .overseas-map { min-height: 300px; }
+}
+@media (max-width: 600px) {
+    .store-type-tabs { margin-bottom: 22px; }
+    .store-type-tab { min-height: 48px; font-size: 14px; }
+    .overseas-panel { padding-bottom: 70px; }
+    .overseas-top { padding-top: 0; }
+    .overseas-map { min-height: 230px; }
+    .overseas-search { grid-template-columns: 82px minmax(0, 1fr) 48px; gap: 4px; margin-bottom: 22px; }
+    .overseas-search select, .overseas-search input { padding-inline: 6px; font-size: 11px; }
+    .country-filter { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .country-filter button { min-height: 36px; font-size: 12px; }
+    .overseas-table { min-width: 640px; font-size: 12px; }
+    .overseas-table th, .overseas-table td { padding: 9px 10px; }
+}
