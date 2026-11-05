@@ -71,16 +71,16 @@
         </section>
 
         <nav class="menu-category-nav" aria-label="메뉴 카테고리">
-            <div class="section-container menu-category-inner">
-                <a class="is-active" href="#all-menu">전체메뉴</a>
-                <a href="#set-menu">세트메뉴</a>
-                <a href="#new-menu">신메뉴</a>
-                <a href="#side-menu">사이드</a>
+            <div class="section-container menu-category-inner" role="tablist" aria-label="메뉴 종류">
+                <button class="is-active" id="tab-all-menu" type="button" role="tab" aria-selected="true" aria-controls="all-menu" data-menu-tab="all-menu">전체메뉴</button>
+                <button id="tab-set-menu" type="button" role="tab" aria-selected="false" aria-controls="set-menu" data-menu-tab="set-menu" tabindex="-1">세트메뉴</button>
+                <button id="tab-new-menu" type="button" role="tab" aria-selected="false" aria-controls="new-menu" data-menu-tab="new-menu" tabindex="-1">신메뉴</button>
+                <button id="tab-side-menu" type="button" role="tab" aria-selected="false" aria-controls="side-menu" data-menu-tab="side-menu" tabindex="-1">사이드</button>
             </div>
         </nav>
 
         <div class="menu-content">
-            <section class="inner-section menu-list-section" id="all-menu">
+            <section class="inner-section menu-list-section" id="all-menu" role="tabpanel" aria-labelledby="tab-all-menu">
                 <div class="section-container">
                     <div class="menu-section-heading">
                         <div>
@@ -114,7 +114,7 @@
                 </div>
             </section>
 
-            <section class="inner-section menu-list-section menu-list-section-alt" id="set-menu">
+            <section class="inner-section menu-list-section menu-list-section-alt" id="set-menu" role="tabpanel" aria-labelledby="tab-set-menu" hidden>
                 <div class="section-container">
                     <div class="menu-section-heading">
                         <div><p class="section-kicker">SET MENU</p><h2>세트메뉴</h2></div>
@@ -145,7 +145,7 @@
                 </div>
             </section>
 
-            <section class="inner-section menu-list-section" id="new-menu">
+            <section class="inner-section menu-list-section" id="new-menu" role="tabpanel" aria-labelledby="tab-new-menu" hidden>
                 <div class="section-container">
                     <div class="menu-section-heading">
                         <div><p class="section-kicker">
@@ -164,7 +164,7 @@
                 </div>
             </section>
 
-            <section class="inner-section menu-list-section menu-list-section-alt" id="side-menu">
+            <section class="inner-section menu-list-section menu-list-section-alt" id="side-menu" role="tabpanel" aria-labelledby="tab-side-menu" hidden>
                 <div class="section-container">
                     <div class="menu-section-heading">
                         <div><p class="section-kicker">SIDE MENU</p><h2>사이드</h2></div>
@@ -271,6 +271,38 @@
         if (event.key === "Escape") closeMegaMenu();
     });
     megaMenu.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMegaMenu));
+
+    // 메뉴 카테고리 탭: 선택한 카테고리 콘텐츠만 표시
+    const categoryTabs = document.querySelectorAll("[data-menu-tab]");
+    const categoryPanels = document.querySelectorAll(".menu-list-section");
+    const breadcrumbCurrent = document.querySelector(".menu-breadcrumb strong");
+
+    function activateMenuTab(tab) {
+        const panelId = tab.dataset.menuTab;
+        categoryTabs.forEach((item) => {
+            const isActive = item === tab;
+            item.classList.toggle("is-active", isActive);
+            item.setAttribute("aria-selected", String(isActive));
+            item.tabIndex = isActive ? 0 : -1;
+        });
+        categoryPanels.forEach((panel) => {
+            panel.hidden = panel.id !== panelId;
+        });
+        if (breadcrumbCurrent) breadcrumbCurrent.textContent = tab.textContent.trim();
+    }
+
+    categoryTabs.forEach((tab, index) => {
+        tab.addEventListener("click", () => activateMenuTab(tab));
+        tab.addEventListener("keydown", (event) => {
+            if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
+                event.preventDefault();
+                const direction = event.key === "ArrowRight" ? 1 : -1;
+                const nextTab = categoryTabs[(index + direction + categoryTabs.length) % categoryTabs.length];
+                activateMenuTab(nextTab);
+                nextTab.focus();
+            }
+        });
+    });
 
     // 사이드 메뉴 슬라이더: 화살표로 한 화면씩 이동
     const sideViewport = document.querySelector(".side-menu-viewport");
