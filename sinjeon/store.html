@@ -106,7 +106,7 @@
                     <p class="search-feedback" id="search-feedback" aria-live="polite"></p>
                 </form>
 
-                <div class="store-list" id="store-list-items">
+                <div class="store-list" id="store-list-items">\n                    <p class="store-data-note">※ 매장 정보는 디자인 시안용 예시이며 실제 운영 정보와 다를 수 있습니다.</p>
                     <article class="store-card" data-region="서울" data-district="송파구" data-name="가락점">
                         <div class="store-card-top">
                             <h2>가락점 <a href="tel:02-402-8592">02-402-8592</a></h2>
@@ -165,7 +165,9 @@
     }
     function openMegaMenu(menuName) {
         megaMenu.hidden = false;
-        menuButtons.forEach((button) => button.setAttribute("aria-expanded", String(button.dataset.menu === menuName));
+        menuButtons.forEach((button) => {
+            button.setAttribute("aria-expanded", String(button.dataset.menu === menuName));
+        });
         menuColumns.forEach((column) => column.hidden = column.dataset.column !== menuName);
     }
     menuButtons.forEach((button) => {
