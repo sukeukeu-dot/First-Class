@@ -72,7 +72,8 @@
 
         <nav class="menu-category-nav" aria-label="메뉴 카테고리">
             <div class="section-container menu-category-inner" role="tablist" aria-label="메뉴 종류">
-                <button class="is-active" id="tab-all-menu" type="button" role="tab" aria-selected="true" aria-controls="all-menu" data-menu-tab="all-menu">전체메뉴</button>
+                <button class="is-active" id="tab-all-menu" type="button" role="tab" aria-selected="true" aria-controls="menu-content" data-menu-tab="all">전체메뉴</button>
+                <button id="tab-main-menu" type="button" role="tab" aria-selected="false" aria-controls="all-menu" data-menu-tab="all-menu" tabindex="-1">메인메뉴</button>
                 <button id="tab-set-menu" type="button" role="tab" aria-selected="false" aria-controls="set-menu" data-menu-tab="set-menu" tabindex="-1">세트메뉴</button>
                 <button id="tab-new-menu" type="button" role="tab" aria-selected="false" aria-controls="new-menu" data-menu-tab="new-menu" tabindex="-1">신메뉴</button>
                 <button id="tab-side-menu" type="button" role="tab" aria-selected="false" aria-controls="side-menu" data-menu-tab="side-menu" tabindex="-1">사이드</button>
@@ -296,7 +297,7 @@
     });
     megaMenu.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMegaMenu));
 
-    // 메뉴 카테고리 탭: 선택한 카테고리 콘텐츠만 표시
+    // 메뉴 카테고리 탭: 전체메뉴는 모든 영역, 개별 탭은 해당 영역만 표시
     const categoryTabs = document.querySelectorAll("[data-menu-tab]");
     const categoryPanels = document.querySelectorAll(".menu-list-section");
     const breadcrumbCurrent = document.querySelector(".menu-breadcrumb strong");
@@ -310,7 +311,8 @@
             item.tabIndex = isActive ? 0 : -1;
         });
         categoryPanels.forEach((panel) => {
-            panel.hidden = panel.id !== panelId;
+            // 전체메뉴는 모든 영역을 보여주고, 개별 탭은 해당 영역만 보여줍니다.
+            panel.hidden = panelId !== "all" && panel.id !== panelId;
         });
         if (breadcrumbCurrent) breadcrumbCurrent.textContent = tab.textContent.trim();
     }
