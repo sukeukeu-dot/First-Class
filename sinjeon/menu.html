@@ -40,7 +40,7 @@
                     <a href="menu.html#side-menu">사이드</a>
                 </div>
                 <div class="mega-menu-column" data-column="store">
-                    <a href="store.html#store-list">국내 매장</a><a href="store.html#store-list">해외 매장</a>
+                    <a href="store.html#domestic-panel">국내 가맹점</a><a href="store.html#overseas-panel">해외 가맹점</a>
                 </div>
                 <div class="mega-menu-column" data-column="brand">
                     <a href="index.html#brand-story">신전 소개</a><a href="index.html#brand-story">신전의 특징</a>
@@ -250,9 +250,11 @@
 </div>
 
 <script>
-    const menuButtons = document.querySelectorAll(".gnb-trigger");
+        const menuButtons = document.querySelectorAll(".gnb-trigger");
     const megaMenu = document.querySelector("#mega-menu");
     const menuColumns = document.querySelectorAll(".mega-menu-column");
+    const siteHeader = document.querySelector(".site-header");
+    const canHover = window.matchMedia("(hover: hover) and (pointer: fine)");
 
     function closeMegaMenu() {
         megaMenu.hidden = true;
@@ -268,35 +270,29 @@
             column.hidden = column.dataset.column !== menuName;
         });
 
-        // 메가 메뉴를 현재 GNB 항목의 왼쪽 위치에 맞춰 헤더 바로 아래 표시
-        const headerInner = document.querySelector(".site-header .header-inner");
+        // 드롭다운은 site-header를 기준으로 계산해 모든 페이지에서 같은 위치에 표시
+        const headerRect = siteHeader.getBoundingClientRect();
         const triggerRect = trigger.getBoundingClientRect();
-        const headerRect = headerInner.getBoundingClientRect();
         megaMenu.style.left = `${triggerRect.left - headerRect.left}px`;
     }
 
     menuButtons.forEach((button) => {
         button.addEventListener("mouseenter", () => {
-            if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-                openMegaMenu(button.dataset.menu, button);
-            }
+            if (canHover.matches) openMegaMenu(button.dataset.menu, button);
         });
         button.addEventListener("click", (event) => {
-            // 실제 페이지로 이동하는 링크는 메가 메뉴를 열지 않고 바로 이동합니다.
-            if (button.classList.contains("gnb-menu-link")) return;
-
-            if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-                if (!megaMenu.hidden && button.getAttribute("aria-expanded") === "true") {
-                    closeMegaMenu();
-                } else {
-                    openMegaMenu(button.dataset.menu);
-                }
+            if (canHover.matches) return;
+            event.preventDefault();
+            if (!megaMenu.hidden && button.getAttribute("aria-expanded") === "true") {
+                closeMegaMenu();
+            } else {
+                openMegaMenu(button.dataset.menu, button);
             }
         });
     });
 
-    document.querySelector(".site-header").addEventListener("mouseleave", () => {
-        if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) closeMegaMenu();
+    siteHeader.addEventListener("mouseleave", () => {
+        if (canHover.matches) closeMegaMenu();
     });
     document.addEventListener("click", (event) => {
         if (!event.target.closest(".site-header")) closeMegaMenu();
@@ -304,9 +300,11 @@
     document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") closeMegaMenu();
     });
-    megaMenu.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMegaMenu));
+    megaMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeMegaMenu);
+    });
 
-    // 메뉴 카테고리 탭: 전체메뉴는 모든 영역, 개별 탭은 해당 영역만 표시
+// 메뉴 카테고리 탭: 전체메뉴는 모든 영역, 개별 탭은 해당 영역만 표시
     const categoryTabs = document.querySelectorAll("[data-menu-tab]");
     const categoryPanels = document.querySelectorAll(".menu-list-section");
     const breadcrumbCurrent = document.querySelector(".menu-breadcrumb strong");
