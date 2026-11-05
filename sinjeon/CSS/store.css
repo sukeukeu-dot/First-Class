@@ -489,7 +489,7 @@
     }
     .store-page .store-type-tab {
         min-height: 50px;
-        border-radius: 0;
+        border-radius: 10px;
         background: #ed72b0;
         color: #ffffff;
         font-weight: 700;
@@ -526,7 +526,7 @@
     }
     .store-page .search-tab {
         min-height: 48px;
-        border-radius: 0;
+        border-radius: 10px 10px 0 0;
         background: #ed72b0;
         color: #ffffff;
         font-size: 14px;
@@ -618,7 +618,7 @@
         line-height: 1.4;
     }
     .store-page .store-card h2::before {
-        content: "♧";
+        content: "▤";
         display: inline-grid;
         flex: 0 0 24px;
         width: 24px;
