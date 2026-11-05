@@ -170,12 +170,7 @@
                         <div><p class="section-kicker">SIDE MENU</p><h2>사이드</h2></div>
                         <p>다양한 사이드 메뉴를 만나보세요.</p>
                     </div>
-                    <div class="side-menu-slider">
-                        <button class="side-slider-arrow side-slider-prev" type="button" aria-label="이전 사이드 메뉴" disabled>
-                            <span aria-hidden="true">‹</span>
-                        </button>
-                        <div class="side-menu-viewport">
-                            <div class="menu-product-grid side-menu-track">
+                    <div class="menu-product-grid side-menu-track">
                                 <article class="menu-product-card">
                                     <div class="menu-image-placeholder"><span>SIDE IMAGE</span></div>
                                     <div class="menu-product-copy"><h3>메뉴명 입력 예정</h3><p>메뉴 설명을 입력해 주세요.</p></div>
@@ -192,11 +187,6 @@
                                     <div class="menu-image-placeholder"><span>SIDE IMAGE</span></div>
                                     <div class="menu-product-copy"><h3>메뉴명 입력 예정</h3><p>메뉴 설명을 입력해 주세요.</p></div>
                                 </article>
-                            </div>
-                        </div>
-                        <button class="side-slider-arrow side-slider-next" type="button" aria-label="다음 사이드 메뉴">
-                            <span aria-hidden="true">›</span>
-                        </button>
                     </div>
                 </div>
             </section>
@@ -288,9 +278,6 @@
         categoryPanels.forEach((panel) => {
             panel.hidden = panel.id !== panelId;
         });
-        if (panelId === "side-menu" && typeof updateSideArrows === "function") {
-            updateSideArrows();
-        }
         if (breadcrumbCurrent) breadcrumbCurrent.textContent = tab.textContent.trim();
     }
 
@@ -307,29 +294,6 @@
         });
     });
 
-    // 사이드 메뉴 슬라이더: 화살표로 한 화면씩 이동
-    const sideViewport = document.querySelector(".side-menu-viewport");
-    const sideTrack = document.querySelector(".side-menu-track");
-    const sidePrev = document.querySelector(".side-slider-prev");
-    const sideNext = document.querySelector(".side-slider-next");
-
-    if (sideViewport && sideTrack && sidePrev && sideNext) {
-        const updateSideArrows = () => {
-            const maxScroll = sideViewport.scrollWidth - sideViewport.clientWidth;
-            sidePrev.disabled = sideViewport.scrollLeft <= 2;
-            sideNext.disabled = sideViewport.scrollLeft >= maxScroll - 2;
-        };
-
-        sidePrev.addEventListener("click", () => {
-            sideViewport.scrollBy({ left: -sideViewport.clientWidth, behavior: "smooth" });
-        });
-        sideNext.addEventListener("click", () => {
-            sideViewport.scrollBy({ left: sideViewport.clientWidth, behavior: "smooth" });
-        });
-        sideViewport.addEventListener("scroll", updateSideArrows);
-        window.addEventListener("resize", updateSideArrows);
-        updateSideArrows();
-    }
 </script>
 </body>
 </html>
