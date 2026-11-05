@@ -275,7 +275,10 @@
                 openMegaMenu(button.dataset.menu);
             }
         });
-        button.addEventListener("click", () => {
+        button.addEventListener("click", (event) => {
+            // 실제 페이지로 이동하는 링크는 메가 메뉴를 열지 않고 바로 이동합니다.
+            if (button.classList.contains("gnb-menu-link")) return;
+
             if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
                 if (!megaMenu.hidden && button.getAttribute("aria-expanded") === "true") {
                     closeMegaMenu();
