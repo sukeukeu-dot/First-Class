@@ -749,7 +749,6 @@ button { font-family: inherit; }
     .instagram-title { gap: 12px; }
     .instagram-title img { width: 40px; height: 40px; }
     .instagram-title-copy .section-kicker { font-size: 11px; }
-    .instagram-title-copy h2 { font-size: clamp(30px, 8vw, 42px); }
     .instagram-more { width: 42px; height: 42px; font-size: 22px; }
     .instagram-track { grid-template-columns: repeat(3, minmax(78%, 1fr)); gap: 12px; }
     .instagram-card { padding: 10px; }
