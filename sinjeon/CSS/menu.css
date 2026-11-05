@@ -97,7 +97,7 @@
 /* 카테고리 콘텐츠 */
 .menu-list-section {
     padding-top: 44px;
-    padding-bottom: 76px;
+    padding-bottom: 110px;
     scroll-margin-top: 66px;
     background: #ffffff;
 }
@@ -127,6 +127,7 @@
 .menu-product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, 340px);
+    justify-content: center;
     gap: clamp(18px, 3vw, 36px);
 }
 .menu-product-card {
@@ -208,7 +209,7 @@
     }
     .menu-list-section {
         padding-top: 38px;
-        padding-bottom: 64px;
+        padding-bottom: 110px;
     }
     .menu-product-grid {
         grid-template-columns: repeat(auto-fit, minmax(0, 340px));
@@ -248,7 +249,7 @@
         font-size: 14px;
     }
     .menu-list-section {
-        padding: 36px 16px 52px;
+        padding: 36px 16px 110px;
         scroll-margin-top: 58px;
     }
     .menu-section-heading {
