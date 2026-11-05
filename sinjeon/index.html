@@ -13,49 +13,51 @@
 <body>
     <div id="wrap" class="neo-brutalism">
         <header class="site-header">
-            <div class="header-inner">
-                <div class="header-content">
-                    <a class="brand-logo" href="#" aria-label="신전떡볶이 홈">
-                        <img src="img/LOGO.svg" alt="신전떡볶이">
-                    </a>
-                    <nav aria-label="주요 메뉴">
+        <div class="header-inner">
+            <div class="header-content">
+                <a class="brand-logo" href="#" aria-label="신전떡볶이 홈">
+                    <img src="img/LOGO.svg" alt="신전떡볶이">
+                </a>
+                <nav aria-label="주요 메뉴">
                     <ul class="gnb">
-                        <li><a class="gnb-trigger gnb-menu-link" href="menu.html#all-menu" aria-expanded="false" aria-controls="mega-menu" data-menu="menu">메뉴</a></li>
+                        <li><button type="button" class="gnb-trigger" aria-expanded="false" aria-controls="mega-menu" data-menu="menu">메뉴</button></li>
                         <li><a class="gnb-trigger gnb-menu-link" href="store.html" aria-expanded="false" aria-controls="mega-menu" data-menu="store">매장 찾기</a></li>
                         <li><button type="button" class="gnb-trigger" aria-expanded="false" aria-controls="mega-menu" data-menu="brand">브랜드</button></li>
                         <li><button type="button" class="gnb-trigger" aria-expanded="false" aria-controls="mega-menu" data-menu="app">신전 APP</button></li>
                         <li><button type="button" class="gnb-trigger" aria-expanded="false" aria-controls="mega-menu" data-menu="news">소식</button></li>
                         <li><button type="button" class="gnb-trigger" aria-expanded="false" aria-controls="mega-menu" data-menu="customer">고객센터</button></li>
                     </ul>
-                    </nav>
-                </div>
+                </nav>
             </div>
-            <div class="mega-menu" id="mega-menu" hidden>
-                <div class="mega-menu-inner">
-                    <div class="mega-menu-column" data-column="menu">
+        </div>
+        <div class="mega-menu" id="mega-menu" hidden>
+            <div class="mega-menu-inner">
+                <div class="mega-menu-column" data-column="menu">
                     <a href="menu.html#all-menu">메인메뉴</a>
                     <a href="menu.html#set-menu">세트메뉴</a>
                     <a href="menu.html#new-menu">신메뉴</a>
                     <a href="menu.html#side-menu">사이드</a>
                 </div>
-                    <div class="mega-menu-column" data-column="store">
-                        <a href="store.html">매장 찾기 바로가기</a>
-                    </div>
-                    <div class="mega-menu-column" data-column="brand">
-                        <a href="#brand-story">브랜드 소개 바로가기</a>
-                    </div>
-                    <div class="mega-menu-column" data-column="app">
-                        <a href="#instagram">APP 소개 바로가기</a>
-                    </div>
-                    <div class="mega-menu-column" data-column="news">
-                        <a href="#news">소식 페이지 바로가기</a>
-                    </div>
-                    <div class="mega-menu-column" data-column="customer">
-                        <a href="#footer">고객센터 바로가기</a>
-                    </div>
+                <div class="mega-menu-column" data-column="store">
+                    <a href="store.html#domestic-panel">국내 가맹점</a><a href="store.html#overseas-panel">해외 가맹점</a>
+                </div>
+                <div class="mega-menu-column" data-column="brand">
+                    <a href="index.html#brand-story">신전 소개</a><a href="index.html#brand-story">신전의 특징</a>
+                    <a href="index.html#brand-story">회사 연혁</a><a href="index.html#brand-story">신전 떡볶이체</a>
+                    <a href="index.html#brand-story">신전 캐릭터</a><a href="index.html#brand-story">품질 안전</a>
+                </div>
+                <div class="mega-menu-column" data-column="app">
+                    <a href="index.html#instagram">APP 소개</a><a href="index.html#instagram">혜택</a><a href="index.html#instagram">APP 다운로드</a>
+                </div>
+                <div class="mega-menu-column" data-column="news">
+                    <a href="index.html#news">SNS</a><a href="index.html#news">이벤트</a><a href="index.html#news">공지사항</a>
+                </div>
+                <div class="mega-menu-column" data-column="customer">
+                    <a href="index.html#footer">고객의 소리</a><a href="index.html#footer">질문</a>
                 </div>
             </div>
-        </header>
+        </div>
+    </header>
 
         <main>
             <section class="hero-sec" aria-label="신전떡볶이 메인 영상">
@@ -236,72 +238,61 @@
     </div>
 
     <script>
-        const menuButtons = document.querySelectorAll(".gnb-trigger");
-        const megaMenu = document.querySelector("#mega-menu");
-        const menuColumns = document.querySelectorAll(".mega-menu-column");
-        const siteHeader = document.querySelector(".site-header");
-        const canHover = window.matchMedia("(hover: hover) and (pointer: fine)");
+            const menuButtons = document.querySelectorAll(".gnb-trigger");
+    const megaMenu = document.querySelector("#mega-menu");
+    const menuColumns = document.querySelectorAll(".mega-menu-column");
+    const siteHeader = document.querySelector(".site-header");
+    const canHover = window.matchMedia("(hover: hover) and (pointer: fine)");
 
-        function closeMegaMenu() {
-            megaMenu.hidden = true;
-            menuButtons.forEach((button) => button.setAttribute("aria-expanded", "false"));
-        }
+    function closeMegaMenu() {
+        megaMenu.hidden = true;
+        menuButtons.forEach((button) => button.setAttribute("aria-expanded", "false"));
+    }
 
-        function openMegaMenu(menuName, trigger) {
-            megaMenu.hidden = false;
-            menuButtons.forEach((button) => {
-                button.setAttribute("aria-expanded", String(button.dataset.menu === menuName));
-            });
-            menuColumns.forEach((column) => {
-                column.hidden = column.dataset.column !== menuName;
-            });
-
-            // 열린 서브메뉴를 해당 GNB 항목 바로 아래에 배치
-            const headerInner = document.querySelector(".site-header .header-inner");
-            const triggerRect = trigger.getBoundingClientRect();
-            const headerRect = headerInner.getBoundingClientRect();
-            megaMenu.style.left = `${triggerRect.left - headerRect.left}px`;
-        }
-
-        // 마우스를 올린 메뉴의 하위 항목만 표시
+    function openMegaMenu(menuName, trigger) {
+        megaMenu.hidden = false;
         menuButtons.forEach((button) => {
-            button.addEventListener("mouseenter", () => {
-                if (canHover.matches) openMegaMenu(button.dataset.menu, button);
-            });
-
-            // 메뉴 링크는 클릭하면 바로 menu.html로 이동
-            // 나머지 메뉴는 터치 기기에서 탭으로 하위 메뉴를 열고 닫음
-            button.addEventListener("click", (event) => {
-                if (button.classList.contains("gnb-menu-link")) return;
-
-                if (!canHover.matches) {
-                    event.preventDefault();
-                    if (!megaMenu.hidden && button.getAttribute("aria-expanded") === "true") {
-                        closeMegaMenu();
-                    } else {
-                        openMegaMenu(button.dataset.menu, button);
-                    }
-                }
-            });
+            button.setAttribute("aria-expanded", String(button.dataset.menu === menuName));
+        });
+        menuColumns.forEach((column) => {
+            column.hidden = column.dataset.column !== menuName;
         });
 
-        siteHeader.addEventListener("mouseleave", () => {
-            if (canHover.matches) closeMegaMenu();
-        });
+        // 드롭다운은 site-header를 기준으로 계산해 모든 페이지에서 같은 위치에 표시
+        const headerRect = siteHeader.getBoundingClientRect();
+        const triggerRect = trigger.getBoundingClientRect();
+        megaMenu.style.left = `${triggerRect.left - headerRect.left}px`;
+    }
 
-        document.addEventListener("click", (event) => {
-            if (!event.target.closest(".site-header")) closeMegaMenu();
+    menuButtons.forEach((button) => {
+        button.addEventListener("mouseenter", () => {
+            if (canHover.matches) openMegaMenu(button.dataset.menu, button);
         });
-
-        document.addEventListener("keydown", (event) => {
-            if (event.key === "Escape") closeMegaMenu();
+        button.addEventListener("click", (event) => {
+            if (canHover.matches) return;
+            event.preventDefault();
+            if (!megaMenu.hidden && button.getAttribute("aria-expanded") === "true") {
+                closeMegaMenu();
+            } else {
+                openMegaMenu(button.dataset.menu, button);
+            }
         });
+    });
 
-        megaMenu.addEventListener("click", (event) => {
-            if (event.target.closest("a")) closeMegaMenu();
-        });
+    siteHeader.addEventListener("mouseleave", () => {
+        if (canHover.matches) closeMegaMenu();
+    });
+    document.addEventListener("click", (event) => {
+        if (!event.target.closest(".site-header")) closeMegaMenu();
+    });
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeMegaMenu();
+    });
+    megaMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeMegaMenu);
+    });
 
-        document.querySelectorAll("[data-menu-filter]").forEach((button) => {
+document.querySelectorAll("[data-menu-filter]").forEach((button) => {
             button.addEventListener("click", () => {
                 document.querySelectorAll("[data-menu-filter]").forEach((tab) => tab.classList.toggle("is-active", tab === button));
                 const filter = button.dataset.menuFilter;
