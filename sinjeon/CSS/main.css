@@ -587,6 +587,14 @@ button { font-family: inherit; }
     overflow: hidden;
 }
 
+/* PC 인스타그램 카드 크기 */
+@media (min-width: 1101px) {
+    .instagram-swiper .instagram-card {
+        width: 310px;
+        flex: 0 0 310px;
+    }
+}
+
 
 
 .instagram-card {
