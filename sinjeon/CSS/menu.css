@@ -370,9 +370,9 @@
 }
 
 
-/* 세트메뉴 이미지와 텍스트 왼쪽 정렬 */
+/* 세트메뉴: 카드 묶음은 중앙 정렬하고, 카드 안의 이미지와 텍스트는 왼쪽 기준으로 정렬 */
 #set-menu .menu-product-grid {
-    justify-content: start;
+    justify-content: center;
 }
 
 #set-menu .menu-product-card {
@@ -384,6 +384,8 @@
     justify-content: flex-start;
     margin-inline: 0;
     text-align: left;
+    overflow: hidden;
+    border-radius: 20px;
 }
 
 #set-menu .menu-image-placeholder img {
