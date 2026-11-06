@@ -368,3 +368,29 @@
          font-size: 23px;
     }
 }
+
+
+/* 세트메뉴 이미지와 텍스트 왼쪽 정렬 */
+#set-menu .menu-product-grid {
+    justify-content: start;
+}
+
+#set-menu .menu-product-card {
+    margin-inline: 0;
+    text-align: left;
+}
+
+#set-menu .menu-image-placeholder {
+    justify-content: flex-start;
+    margin-inline: 0;
+    text-align: left;
+}
+
+#set-menu .menu-image-placeholder img {
+    object-position: left center;
+    border-radius: 20px;
+}
+
+#set-menu .menu-product-copy {
+    text-align: left;
+}
