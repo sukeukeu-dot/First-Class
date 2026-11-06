@@ -578,26 +578,53 @@ button { font-family: inherit; }
     text-decoration: none;
 }
 
-.instagram-carousel { gap: 72px; }
+.instagram-carousel {
+    width: 100%;
+    position: relative;
+}
 
-.instagram-track {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: calc((100% - 2 * clamp(18px, 4vw, 70px)) / 3);
-    gap: clamp(18px, 4vw, 70px);
-    flex: 1;
-    min-width: 0;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
+.instagram-swiper {
+    width: 100%;
+    padding: 0 54px 42px;
+    overflow: hidden;
 }
 
 .instagram-card {
     min-width: 0;
+    height: auto;
     padding: 22px;
     background: #ffffff;
-    scroll-snap-align: start;
+}
+
+.instagram-swiper .swiper-button-prev,
+.instagram-swiper .swiper-button-next {
+    top: calc(50% - 21px);
+    width: 38px;
+    height: 54px;
+    margin-top: 0;
+    color: var(--color-text-primary);
+}
+
+.instagram-swiper .swiper-button-prev { left: 0; }
+.instagram-swiper .swiper-button-next { right: 0; }
+
+.instagram-swiper .swiper-button-prev::after,
+.instagram-swiper .swiper-button-next::after {
+    font-size: 34px;
+    font-weight: 300;
+}
+
+.instagram-swiper .swiper-button-prev:hover,
+.instagram-swiper .swiper-button-next:hover {
+    color: var(--color-brand-pink);
+}
+
+.instagram-pagination {
+    bottom: 8px !important;
+}
+
+.instagram-pagination .swiper-pagination-bullet-active {
+    background: var(--color-brand-pink);
 }
 
 .instagram-card > img {
@@ -801,11 +828,15 @@ button { font-family: inherit; }
     .instagram-title > img { flex-basis: 100px; width: 100px; height: 100px; }
     .instagram-title-copy .section-kicker { font-size: 11px; }
     .instagram-more { width: 42px; height: 42px; font-size: 22px; }
-    .instagram-track {
-        grid-auto-columns: calc((100% - 24px) / 3);
-        gap: 12px;
-    }
+    .instagram-swiper { padding: 0 30px 36px; }
     .instagram-card { padding: 10px; }
+    .instagram-swiper .swiper-button-prev,
+    .instagram-swiper .swiper-button-next {
+        width: 24px;
+        height: 40px;
+    }
+    .instagram-swiper .swiper-button-prev::after,
+    .instagram-swiper .swiper-button-next::after { font-size: 24px; }
     .instagram-card > img { aspect-ratio: 280 / 348; }
     .social-actions { gap: 8px; font-size: 20px; }
 
