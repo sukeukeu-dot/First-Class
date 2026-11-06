@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/pretendardvariable.css">
     <link rel="stylesheet" href="CSS/main.css">
     <link rel="stylesheet" href="CSS/neo-brutalism.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
 <body>
     <div id="wrap" class="neo-brutalism">
@@ -319,27 +320,29 @@
                         </div>
                     </div>
                     <div class="instagram-carousel">
-                        <button class="carousel-arrow insta-prev" type="button" aria-label="이전 인스타그램 게시물"><span aria-hidden="true">‹</span></button>
-                        <div class="instagram-track" id="instagram-track">
-                            <article class="instagram-card"><img src="img/leJoto.png" alt="신전 인스타그램 게시물 이미지"><div class="social-actions" aria-hidden="true"><span>
-                                <img src="img/heart.svg" alt="신전게시물하트"></span><span><img src="img/mal.svg" alt="신전게시물말풍선"></span><span><img src="img/share.svg" alt="신전게시물공유"></span><span>
-                                    <img src="img/chak.svg" alt="신전게시물책갈피"></span></div></article>
-                            <article class="instagram-card"><img src="img/potato.png" alt="신전 인스타그램 게시물 이미지"><div class="social-actions" aria-hidden="true"><span>
-                                <img src="img/heart.svg" alt="신전게시물하트"></span><span><img src="img/mal.svg" alt="신전게시물말풍선"></span><span><img src="img/share.svg" alt="신전게시물공유"></span><span>
-                                    <img src="img/chak.svg" alt="신전게시물책갈피"></span></div></article>
-                            <article class="instagram-card">
-                                <img src="img/Conbetter.png" alt="신전 인스타그램 게시물 이미지">
-                                <div class="social-actions" aria-hidden="true"><span>
-                                    <img src="img/heart.svg" alt="신전게시물하트"></span><span><img src="img/mal.svg" alt="신전게시물말풍선"></span><span>
-                                        <img src="img/share.svg" alt="신전게시물공유"></span><span><img src="img/chak.svg" alt="신전게시물책갈피"></span></div></article>
-                                                    <article class="instagram-card">
-                                <img src="img/inster.png" alt="신전 인스타그램 추가 게시물 이미지">
-                                <div class="social-actions" aria-hidden="true"><span>
-                                    <img src="img/heart.svg" alt=""></span><span><img src="img/mal.svg" alt=""></span><span>
-                                        <img src="img/share.svg" alt=""></span><span><img src="img/chak.svg" alt=""></span></div>
-                            </article>
-</div>
-                        <button class="carousel-arrow insta-next" type="button" aria-label="다음 인스타그램 게시물"><span aria-hidden="true">›</span></button>
+                        <div class="swiper instagram-swiper">
+                            <div class="swiper-wrapper">
+                                <article class="swiper-slide instagram-card">
+                                    <img src="img/leJoto.png" alt="신전 인스타그램 게시물 이미지">
+                                    <div class="social-actions" aria-hidden="true"><span><img src="img/heart.svg" alt=""></span><span><img src="img/mal.svg" alt=""></span><span><img src="img/share.svg" alt=""></span><span><img src="img/chak.svg" alt=""></span></div>
+                                </article>
+                                <article class="swiper-slide instagram-card">
+                                    <img src="img/potato.png" alt="신전 인스타그램 게시물 이미지">
+                                    <div class="social-actions" aria-hidden="true"><span><img src="img/heart.svg" alt=""></span><span><img src="img/mal.svg" alt=""></span><span><img src="img/share.svg" alt=""></span><span><img src="img/chak.svg" alt=""></span></div>
+                                </article>
+                                <article class="swiper-slide instagram-card">
+                                    <img src="img/Conbetter.png" alt="신전 인스타그램 게시물 이미지">
+                                    <div class="social-actions" aria-hidden="true"><span><img src="img/heart.svg" alt=""></span><span><img src="img/mal.svg" alt=""></span><span><img src="img/share.svg" alt=""></span><span><img src="img/chak.svg" alt=""></span></div>
+                                </article>
+                                <article class="swiper-slide instagram-card">
+                                    <img src="img/inster.png" alt="신전 인스타그램 추가 게시물 이미지">
+                                    <div class="social-actions" aria-hidden="true"><span><img src="img/heart.svg" alt=""></span><span><img src="img/mal.svg" alt=""></span><span><img src="img/share.svg" alt=""></span><span><img src="img/chak.svg" alt=""></span></div>
+                                </article>
+                            </div>
+                            <div class="swiper-pagination instagram-pagination"></div>
+                            <button class="swiper-button-prev insta-prev" type="button" aria-label="이전 인스타그램 게시물"></button>
+                            <button class="swiper-button-next insta-next" type="button" aria-label="다음 인스타그램 게시물"></button>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -367,6 +370,7 @@
         </footer>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
             const menuButtons = document.querySelectorAll(".gnb-trigger");
     const megaMenu = document.querySelector("#mega-menu");
@@ -455,7 +459,30 @@ document.querySelectorAll("[data-menu-filter]").forEach((button) => {
             next.addEventListener("click", () => track.scrollBy({ left: distance(), behavior: "smooth" }));
         }
         connectCarousel("#menu-track", ".menu-prev", ".menu-next");
-        connectCarousel("#instagram-track", ".insta-prev", ".insta-next");
+        const instagramSwiper = new Swiper(".instagram-swiper", {
+            slidesPerView: 3,
+            spaceBetween: 28,
+            loop: true,
+            speed: 700,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true
+            },
+            navigation: {
+                nextEl: ".insta-next",
+                prevEl: ".insta-prev"
+            },
+            pagination: {
+                el: ".instagram-pagination",
+                clickable: true
+            },
+            breakpoints: {
+                0: { slidesPerView: 1, spaceBetween: 12 },
+                701: { slidesPerView: 2, spaceBetween: 18 },
+                1101: { slidesPerView: 3, spaceBetween: 28 }
+            }
+        });
     </script>
 </body>
 </html>
