@@ -582,12 +582,14 @@ button { font-family: inherit; }
 
 .instagram-track {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% - 2 * clamp(18px, 4vw, 70px)) / 3);
     gap: clamp(18px, 4vw, 70px);
     flex: 1;
     min-width: 0;
     overflow-x: auto;
     scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
     scrollbar-width: none;
 }
 
@@ -595,6 +597,7 @@ button { font-family: inherit; }
     min-width: 0;
     padding: 22px;
     background: #ffffff;
+    scroll-snap-align: start;
 }
 
 .instagram-card > img {
@@ -798,7 +801,10 @@ button { font-family: inherit; }
     .instagram-title > img { flex-basis: 100px; width: 100px; height: 100px; }
     .instagram-title-copy .section-kicker { font-size: 11px; }
     .instagram-more { width: 42px; height: 42px; font-size: 22px; }
-    .instagram-track { grid-template-columns: repeat(3, minmax(78%, 1fr)); gap: 12px; }
+    .instagram-track {
+        grid-auto-columns: calc((100% - 24px) / 3);
+        gap: 12px;
+    }
     .instagram-card { padding: 10px; }
     .instagram-card > img { aspect-ratio: 280 / 348; }
     .social-actions { gap: 8px; font-size: 20px; }
