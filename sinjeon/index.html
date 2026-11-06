@@ -392,10 +392,13 @@
             column.hidden = column.dataset.column !== menuName;
         });
 
-        // 드롭다운은 site-header를 기준으로 계산해 모든 페이지에서 같은 위치에 표시
+        // 드롭다운의 중앙을 현재 GNB 버튼(li)의 중앙에 맞춤
         const headerRect = siteHeader.getBoundingClientRect();
-        const triggerRect = trigger.getBoundingClientRect();
-        megaMenu.style.left = `${triggerRect.left - headerRect.left}px`;
+        const triggerRect = trigger.closest("li").getBoundingClientRect();
+        const menuWidth = megaMenu.offsetWidth;
+        const centeredLeft = triggerRect.left + triggerRect.width / 2 - headerRect.left - menuWidth / 2;
+        const maxLeft = headerRect.width - menuWidth;
+        megaMenu.style.left = `${Math.max(0, Math.min(centeredLeft, maxLeft))}px`;
     }
 
     menuButtons.forEach((button) => {
