@@ -588,10 +588,11 @@ button { font-family: inherit; }
     overflow: hidden;
 }
 
-/* PC에서는 인스타그램 카드 너비를 310px로 제한 */
+/* PC에서는 카드 크기를 310px로 고정하고 Swiper가 가로로 넘기도록 설정 */
 @media (min-width: 1101px) {
     .instagram-swiper .swiper-slide {
         width: 310px;
+        flex-shrink: 0;
     }
 }
 
