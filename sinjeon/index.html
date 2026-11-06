@@ -464,6 +464,7 @@ document.querySelectorAll("[data-menu-filter]").forEach((button) => {
         connectCarousel("#menu-track", ".menu-prev", ".menu-next");
         const instagramSwiper = new Swiper(".instagram-swiper", {
             slidesPerView: 3,
+            slidesPerGroup: 1,
             spaceBetween: 28,
             loop: true,
             speed: 700,
@@ -481,9 +482,9 @@ document.querySelectorAll("[data-menu-filter]").forEach((button) => {
                 clickable: true
             },
             breakpoints: {
-                0: { slidesPerView: 1, spaceBetween: 12 },
-                701: { slidesPerView: 2, spaceBetween: 18 },
-                1101: { slidesPerView: "auto", spaceBetween: 28 }
+                0: { slidesPerView: 1, slidesPerGroup: 1, spaceBetween: 12 },
+                701: { slidesPerView: 2, slidesPerGroup: 1, spaceBetween: 18 },
+                1101: { slidesPerView: 3, slidesPerGroup: 1, spaceBetween: 28 }
             }
         });
     </script>
