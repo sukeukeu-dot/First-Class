@@ -385,12 +385,12 @@
     margin-inline: 0;
     text-align: left;
     overflow: hidden;
-    border-radius: 20px;
+    border-radius: 0;
 }
 
 #set-menu .menu-image-placeholder img {
     object-position: left center;
-    border-radius: 20px;
+    border-radius: 0;
 }
 
 #set-menu .menu-product-copy {
