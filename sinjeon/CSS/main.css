@@ -864,3 +864,13 @@ button { font-family: inherit; }
     html { scroll-behavior: auto; }
     .site-header .gnb-trigger, .menu-card img, .pill-link, .news-card img { transition: none; }
 }
+
+
+/* 포트폴리오 안내 문구 */
+.portfolio-notice {
+    margin: 8px 0 0;
+    font-size: 12px;
+    line-height: 1.6;
+    color: inherit;
+    opacity: 0.85;
+}
