@@ -337,6 +337,25 @@ button { font-family: inherit; }
     text-align: center;
 }
 
+/* 실제 이미지가 들어간 카드에서는 placeholder 테두리와 배경 제거 */
+.menu-card-image-placeholder:has(img) {
+    border: 0;
+    background: transparent;
+}
+
+.menu-card-image-placeholder:has(img) span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+
+.menu-card-image-placeholder:has(img) img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .menu-card-placeholder h3 {
     min-height: 32px;
 }
