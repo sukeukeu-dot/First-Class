@@ -1,5 +1,7 @@
 /* 브랜드 소개 페이지 */
 .brand-page { background:#fff; }
+/* 상단 공통 헤더(로고/GNB)가 겹치지 않도록 브랜드 콘텐츠를 헤더 아래에서 시작 */
+.brand-main { padding-top:80px; }
 .brand-page-hero { padding:120px 20px 80px; text-align:center; }
 .brand-eyebrow,.brand-history-heading>p { color:var(--color-brand-pink); font-size:13px; font-weight:700; letter-spacing:.18em; }
 .brand-page-hero h1 { margin:18px 0 14px; font-size:clamp(30px,4vw,48px); line-height:1.2; font-weight:750; color:var(--color-text-primary); }
