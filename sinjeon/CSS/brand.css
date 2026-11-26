@@ -1,5 +1,8 @@
 /* 브랜드 소개 페이지 */
 .brand-page { background:#fff; }
+/* 공통 GNB와 메가메뉴가 브랜드 카테고리 탭 위에 표시되도록 레이어 우선순위 */
+.brand-page .site-header { z-index: 1000; }
+.brand-page .mega-menu { z-index: 1001; }
 /* 상단 공통 헤더(로고/GNB)가 겹치지 않도록 브랜드 콘텐츠를 헤더 아래에서 시작 */
 .brand-main { padding-top:80px; }
 .brand-page-hero { padding:120px 20px 80px; text-align:center; }
