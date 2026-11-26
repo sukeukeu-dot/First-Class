@@ -24,9 +24,12 @@
 @media(max-width:900px){.brand-page-hero{padding:95px 20px 55px}.brand-history-heading{margin-bottom:75px}.brand-history-row{gap:28px;padding-bottom:75px}.brand-history-visual{min-height:280px}}
 @media(max-width:650px){.brand-history-section{padding-inline:20px}.brand-history-heading h2{font-size:28px}.brand-history-row{grid-template-columns:1fr;gap:24px;padding-bottom:65px}.brand-history-copy h3{font-size:72px}.brand-history-visual{min-height:260px;padding:28px}.visual-stamp{width:78px;height:78px;right:24px;top:24px;font-size:10px}}
 /* 브랜드 페이지 내 세부 카테고리 */
-.brand-subnav{display:flex;flex-wrap:wrap;gap:clamp(18px,4vw,54px);justify-content:center;border-block:1px solid #e5e5e5;padding:20px;margin:0 auto 70px;max-width:1440px}
-.brand-subnav a{color:#333;text-decoration:none;font-size:15px;white-space:nowrap}
+.brand-subnav{position:sticky;top:0;z-index:20;display:flex;flex-wrap:wrap;gap:clamp(18px,4vw,54px);justify-content:center;border-block:1px solid #e5e5e5;padding:20px;background:#fff;margin:0 auto 70px;max-width:1440px}
+.brand-subnav a{position:relative;color:#333;text-decoration:none;font-size:15px;white-space:nowrap;padding:6px 0;transition:color .2s ease}
+.brand-subnav a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--color-brand-pink);transform:scaleX(0);transform-origin:left center;transition:transform .25s ease}
 .brand-subnav a:hover,.brand-subnav a:focus-visible{color:var(--color-brand-pink)}
+.brand-subnav a:hover::after,.brand-subnav a:focus-visible::after{transform:scaleX(1)}
+.brand-subnav a:active::after{transform:scaleX(1)}
 .brand-detail-section{max-width:1440px;margin:0 auto;padding:75px 28px;scroll-margin-top:100px}
 .brand-detail-label{font-size:13px;font-weight:700;letter-spacing:.18em;color:var(--color-brand-pink)}
 .brand-detail-section h2{font-size:clamp(28px,4vw,42px);margin:12px 0 20px}
