@@ -613,13 +613,10 @@ button { font-family: inherit; }
     background: #ffffff;
 }
 
+/* 인스타그램 슬라이더 좌우 화살표 숨김 */
 .instagram-swiper .swiper-button-prev,
 .instagram-swiper .swiper-button-next {
-    top: calc(50% - 21px);
-    width: 38px;
-    height: 54px;
-    margin-top: 0;
-    color: var(--color-text-primary);
+    display: none;
 }
 
 .instagram-swiper .swiper-button-prev { left: 0; }
