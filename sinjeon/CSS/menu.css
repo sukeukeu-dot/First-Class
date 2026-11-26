@@ -373,3 +373,22 @@
 #set-menu .menu-product-copy {
     text-align: left;
 }
+
+
+/* 메뉴 서브페이지 최소 글자 크기: 18px */
+.menu-page .menu-breadcrumb,
+.menu-page .menu-category-inner button,
+.menu-page .menu-section-heading > p,
+.menu-page .menu-product-copy h3,
+.menu-page .menu-product-copy p,
+.menu-page .menu-image-placeholder span,
+.menu-page .side-slider-arrow,
+.menu-page .site-header .gnb-trigger,
+.menu-page .mega-menu-column a,
+.menu-page .footer-top p,
+.menu-page .footer-bottom p,
+.menu-page .footer-top nav a,
+.menu-page .copyright,
+.menu-page .portfolio-notice {
+    font-size: 18px;
+}
