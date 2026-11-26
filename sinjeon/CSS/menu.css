@@ -392,3 +392,9 @@
 .menu-page .portfolio-notice {
     font-size: 18px;
 }
+
+
+/* 메뉴 소개 페이지 카테고리 탭 글씨 크기 */
+.menu-page .menu-category-nav .menu-category-inner button {
+    font-size: 18px;
+}
