@@ -23,3 +23,19 @@
 .visual-2025 { background:linear-gradient(135deg,#e57c43,#b93e25); } .visual-2020 { background:linear-gradient(135deg,#373b35,#879079); } .visual-2016 { background:linear-gradient(135deg,#168657,#074d36); } .visual-2015 { background:linear-gradient(135deg,#203c6e,#5a86be); } .visual-2013 { background:linear-gradient(135deg,#e3b916,#b98709); } .visual-2004 { background:linear-gradient(135deg,#272727,#4c3b31); }
 @media(max-width:900px){.brand-page-hero{padding:95px 20px 55px}.brand-history-heading{margin-bottom:75px}.brand-history-row{gap:28px;padding-bottom:75px}.brand-history-visual{min-height:280px}}
 @media(max-width:650px){.brand-history-section{padding-inline:20px}.brand-history-heading h2{font-size:28px}.brand-history-row{grid-template-columns:1fr;gap:24px;padding-bottom:65px}.brand-history-copy h3{font-size:72px}.brand-history-visual{min-height:260px;padding:28px}.visual-stamp{width:78px;height:78px;right:24px;top:24px;font-size:10px}}
+/* 브랜드 페이지 내 세부 카테고리 */
+.brand-subnav{display:flex;flex-wrap:wrap;gap:clamp(18px,4vw,54px);justify-content:center;border-block:1px solid #e5e5e5;padding:20px;margin:0 auto 70px;max-width:1440px}
+.brand-subnav a{color:#333;text-decoration:none;font-size:15px;white-space:nowrap}
+.brand-subnav a:hover,.brand-subnav a:focus-visible{color:var(--color-brand-pink)}
+.brand-detail-section{max-width:1440px;margin:0 auto;padding:75px 28px;scroll-margin-top:100px}
+.brand-detail-label{font-size:13px;font-weight:700;letter-spacing:.18em;color:var(--color-brand-pink)}
+.brand-detail-section h2{font-size:clamp(28px,4vw,42px);margin:12px 0 20px}
+.brand-detail-section>p:not(.brand-detail-label){line-height:1.8;color:#555}
+.brand-detail-alt{background:#fff8f8}
+.brand-feature-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:35px}
+.brand-feature-cards article{padding:28px;background:#fff;border:1px solid #eee}
+.brand-feature-cards strong{font-size:20px}.brand-feature-cards p{color:#666;line-height:1.6}
+.brand-font-sample{margin-top:28px;padding:40px;background:#252525;color:#fff;font-size:clamp(32px,6vw,70px);font-weight:800;line-height:1.3}
+.brand-character-placeholder{margin-top:30px;min-height:250px;display:grid;place-items:center;background:#fff;border:1px dashed #f6878b;color:#f6878b}
+.brand-safety-points{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}.brand-safety-points span{padding:14px 22px;background:#f7f7f7;border-radius:30px}
+@media(max-width:650px){.brand-subnav{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding:16px 20px;margin-bottom:45px}.brand-detail-section{padding:55px 20px}.brand-feature-cards{grid-template-columns:1fr}.brand-font-sample{padding:25px}}
