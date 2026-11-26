@@ -44,4 +44,10 @@ siteHeader.addEventListener("mouseleave",()=>{if(canHover.matches)closeMegaMenu(
 document.addEventListener("click",event=>{if(!event.target.closest(".site-header"))closeMegaMenu()});
 document.addEventListener("keydown",event=>{if(event.key==="Escape")closeMegaMenu()});
 megaMenu.querySelectorAll("a").forEach(link=>link.addEventListener("click",closeMegaMenu));
+const currentPage=location.pathname.split("/").pop()||"brand.html";
+document.querySelectorAll(".brand-subnav a").forEach(tab=>{
+ const isCurrent=tab.getAttribute("href")===currentPage;
+ tab.classList.toggle("is-active",isCurrent);
+ if(isCurrent)tab.setAttribute("aria-current","page");
+});
 </script></div></body></html>
