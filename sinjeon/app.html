@@ -67,21 +67,21 @@
     const menu = document.querySelector("#mega-menu");
     const triggers = [...document.querySelectorAll(".gnb-trigger")];
     const columns = [...document.querySelectorAll(".mega-menu-column")];
+    function openMenu() {
+        menu.hidden = false;
+        columns.forEach(col => col.hidden = false);
+        triggers.forEach(btn => btn.setAttribute("aria-expanded", "true"));
+    }
     function closeMenu() {
         menu.hidden = true;
-        columns.forEach(col => col.hidden = true);
         triggers.forEach(btn => btn.setAttribute("aria-expanded", "false"));
     }
-    triggers.forEach(btn => btn.addEventListener("click", () => {
-        const wasOpen = btn.getAttribute("aria-expanded") === "true";
-        closeMenu();
-        if (!wasOpen) {
-            menu.hidden = false;
-            const target = menu.querySelector('[data-column="' + btn.dataset.menu + '"]');
-            if (target) target.hidden = false;
-            btn.setAttribute("aria-expanded", "true");
-        }
-    }));
+    triggers.forEach(btn => {
+        btn.addEventListener("mouseenter", openMenu);
+        btn.addEventListener("focus", openMenu);
+        btn.addEventListener("click", openMenu);
+    });
+    header.addEventListener("mouseleave", closeMenu);
     document.addEventListener("click", event => {
         if (!header.contains(event.target)) closeMenu();
     });
