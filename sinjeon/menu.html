@@ -275,6 +275,7 @@
         button.addEventListener("mouseenter", () => {
             if (canHover.matches) openMegaMenu(button.dataset.menu, button);
         });
+        button.addEventListener("click", () => { window.location.href = button.href; });
 
     });
 
