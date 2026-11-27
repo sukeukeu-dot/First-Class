@@ -667,3 +667,44 @@
     .store-page .no-store-results { margin: 0; background: #f7f7f7; }
     .store-page .store-type-panel[hidden] { display: none; }
 }
+
+
+/* 매장 찾기 서브페이지: 18px 미만 텍스트만 18px로 조정 */
+.store-page .store-breadcrumb,
+.store-page .map-block,
+.store-page .map-label,
+.store-page .map-note,
+.store-page .search-tab,
+.store-page .search-fields select,
+.store-page .search-fields input,
+.store-page .current-location,
+.store-page .search-feedback,
+.store-page .store-card h2,
+.store-page .store-card h2 a,
+.store-page .store-status,
+.store-page .store-address,
+.store-page .store-services li,
+.store-page .no-store-results,
+.store-page .store-type-tab,
+.store-page .overseas-map-label,
+.store-page .overseas-map-caption,
+.store-page .overseas-search select,
+.store-page .overseas-search input,
+.store-page .overseas-search button,
+.store-page .country-guide-title,
+.store-page .country-filter button,
+.store-page .overseas-table,
+.store-page .overseas-table th,
+.store-page .overseas-table td,
+.store-page .overseas-empty,
+.store-page .overseas-data-note,
+.store-page .store-detail-button,
+.store-page .site-header .gnb-trigger,
+.store-page .mega-menu-column a,
+.store-page .footer-top p,
+.store-page .footer-bottom p,
+.store-page .footer-top nav a,
+.store-page .copyright,
+.store-page .portfolio-notice {
+    font-size: 18px;
+}
