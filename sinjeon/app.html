@@ -38,9 +38,18 @@
     <section class="app-page-title" id="app-intro"><div class="section-container app-title-inner">
         <div class="app-title-row"><h1>신전 APP</h1><p class="app-breadcrumb">HOME &gt; 신전 APP &gt; <strong>APP 소개</strong></p></div>
     </div></section>
-    <section class="app-banner app-banner-first" aria-label="신전 APP 소개"><img src="https://www.figma.com/api/mcp/asset/08b6edea-a4ec-4a74-888e-6d22b4cabdeb/5ce9d.png" alt="신전 APP 주문 및 이용 소개 배너"></section>
-    <section class="app-banner app-banner-second" id="app-benefit" aria-label="신전 APP 혜택"><img src="https://www.figma.com/api/mcp/asset/08b6edea-a4ec-4a74-888e-6d22b4cabdeb/1f639.png" alt="신전 APP 이용 혜택 안내 배너"></section>
-    <section class="app-banner app-banner-third" id="app-download" aria-label="신전 APP 고객 소통과 혜택"><img src="https://www.figma.com/api/mcp/asset/08b6edea-a4ec-4a74-888e-6d22b4cabdeb/dbcff.png" alt="신전 APP 고객 소통과 적립 안내 배너"></section>
+    <section class="app-rolling" aria-label="신전 APP 소개 롤링 배너">
+        <div class="app-rolling-track">
+            <article class="app-rolling-slide is-active" id="app-intro-slide" aria-label="신전 APP 소개 배너 1"><div class="app-image-placeholder"><span>첫 번째 배너 이미지 넣는 공간</span></div></article>
+            <article class="app-rolling-slide" id="app-benefit" aria-label="신전 APP 혜택 배너 2"><div class="app-image-placeholder"><span>두 번째 배너 이미지 넣는 공간</span></div></article>
+            <article class="app-rolling-slide" id="app-download" aria-label="신전 APP 다운로드 배너 3"><div class="app-image-placeholder"><span>세 번째 배너 이미지 넣는 공간</span></div></article>
+        </div>
+        <div class="app-rolling-controls">
+            <button class="app-rolling-prev" type="button" aria-label="이전 배너">‹</button>
+            <div class="app-rolling-dots" aria-label="배너 페이지 선택"><button type="button" class="is-active" aria-label="1번 배너 보기"></button><button type="button" aria-label="2번 배너 보기"></button><button type="button" aria-label="3번 배너 보기"></button></div>
+            <button class="app-rolling-next" type="button" aria-label="다음 배너">›</button>
+        </div>
+    </section>
 </main>
 <footer class="site-footer" id="footer"><div class="footer-inner">
     <img class="footer-logo" src="img/Foodsys.png" alt="신전떡볶이">
@@ -75,6 +84,19 @@
     document.addEventListener("click", event => {
         if (!header.contains(event.target)) closeMenu();
     });
+})();
+</script>
+<script>
+(() => {
+ const slides=[...document.querySelectorAll(".app-rolling-slide")], dots=[...document.querySelectorAll(".app-rolling-dots button")], prev=document.querySelector(".app-rolling-prev"), next=document.querySelector(".app-rolling-next"), rolling=document.querySelector(".app-rolling");
+ let current=0,timer;
+ function showSlide(i){current=(i+slides.length)%slides.length;slides.forEach((s,n)=>s.classList.toggle("is-active",n===current));dots.forEach((d,n)=>d.classList.toggle("is-active",n===current));}
+ function restart(){clearInterval(timer);timer=setInterval(()=>showSlide(current+1),4500);}
+ prev.addEventListener("click",()=>{showSlide(current-1);restart();});
+ next.addEventListener("click",()=>{showSlide(current+1);restart();});
+ dots.forEach((d,i)=>d.addEventListener("click",()=>{showSlide(i);restart();}));
+ rolling.addEventListener("mouseenter",()=>clearInterval(timer));rolling.addEventListener("mouseleave",restart);
+ showSlide(0);restart();
 })();
 </script>
 </body>
