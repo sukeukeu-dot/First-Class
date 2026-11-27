@@ -20,7 +20,8 @@
 .app-rolling-dots button.is-active { width:26px; border-radius:8px; background:#d71920; }
 .app-page .site-footer { margin-top:0; }
 @keyframes appSlideFade { from { opacity:.4; } to { opacity:1; } }
-@media(max-width:700px) {
+@media(max-width:700px)
+{
     .app-page-title { padding:88px 16px 16px; }
     .app-title-inner { width:100%; }
     .app-title-row { align-items:flex-end; gap:12px; padding-bottom:14px; }
