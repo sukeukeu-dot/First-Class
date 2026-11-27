@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <title>고객센터 | 신전떡볶이 리뉴얼</title>
+    <link rel="stylesheet" href="../css/default.css">
+    <link rel="stylesheet" href="../css/pretendardvariable.css">
+    <link rel="stylesheet" href="CSS/main.css">
+    <link rel="stylesheet" href="CSS/customer.css">
+</head>
+<body>
+<div id="wrap" class="customer-page">
+<header class="site-header">
+    <div class="header-inner"><div class="header-content">
+        <a class="brand-logo" href="index.html" aria-label="신전떡볶이 홈"><img src="img/LOGO.svg" alt="신전떡볶이"></a>
+        <nav aria-label="주요 메뉴"><ul class="gnb">
+            <li><a class="gnb-trigger" href="menu.html" data-menu="menu">메뉴</a></li>
+            <li><a class="gnb-trigger" href="store.html" data-menu="store">매장 찾기</a></li>
+            <li><a class="gnb-trigger" href="brand.html" data-menu="brand">브랜드</a></li>
+            <li><a class="gnb-trigger" href="app.html" data-menu="app">신전 APP</a></li>
+            <li><a class="gnb-trigger" href="news.html" data-menu="news">소식</a></li>
+            <li><a class="gnb-trigger" href="customer.html" data-menu="customer">고객센터</a></li>
+        </ul></nav>
+    </div></div>
+    <div class="mega-menu" id="mega-menu" hidden><div class="mega-menu-inner">
+        <div class="mega-menu-column" data-column="menu"><a href="menu.html#all-menu">메인메뉴</a><a href="menu.html#set-menu">세트메뉴</a><a href="menu.html#new-menu">신메뉴</a><a href="menu.html#side-menu">사이드</a></div>
+        <div class="mega-menu-column" data-column="store"><a href="store.html#domestic-panel">국내 가맹점</a><a href="store.html#overseas-panel">해외 가맹점</a></div>
+        <div class="mega-menu-column" data-column="brand"><a href="brand.html#brand-intro">신전 소개</a><a href="brand.html#brand-features">신전의 특징</a><a href="brand.html#brand-history">회사 연혁</a><a href="brand.html#brand-font">신전 떡볶이체</a><a href="brand.html#brand-character">신전 캐릭터</a><a href="brand.html#brand-safety">품질 안전</a></div>
+        <div class="mega-menu-column" data-column="app"><a href="app.html#app-intro">APP 소개</a><a href="app.html#app-benefit">혜택</a><a href="app.html#app-download">APP 다운로드</a></div>
+        <div class="mega-menu-column" data-column="news"><a href="news.html#news-tabs">공지사항</a><a href="news.html#news-tabs">이벤트</a><a href="news.html#news-tabs">SNS</a></div>
+        <div class="mega-menu-column" data-column="customer"><a href="customer.html#customer-tabs">고객의 소리</a><a href="customer.html#customer-tabs">자주 묻는 질문</a><a href="customer.html#customer-tabs">가맹 문의</a></div>
+    </div></div>
+</header>
+<main>
+    <section class="customer-page-head"><div class="section-container customer-title-row">
+        <h1>고객센터</h1><p class="customer-breadcrumb">HOME &gt; 고객센터 &gt; <strong>고객센터</strong></p>
+    </div></section>
+    <nav class="customer-category-nav" id="customer-tabs" aria-label="고객센터 카테고리">
+        <div class="section-container customer-tabs" role="tablist">
+            <button type="button" class="is-active" role="tab" aria-selected="true" aria-controls="customer-voice" id="voice-tab" data-customer-tab="voice">고객의 소리</button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="customer-faq" id="faq-tab" data-customer-tab="faq">자주 묻는 질문</button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="customer-franchise" id="franchise-tab" data-customer-tab="franchise">가맹 문의</button>
+        </div>
+    </nav>
+    <section class="customer-content section-container">
+        <article class="customer-panel is-active" id="customer-voice" role="tabpanel" aria-labelledby="voice-tab" data-customer-panel="voice">
+            <h2>고객의 소리</h2>
+            <p class="customer-lead">신전떡볶이를 이용하며 느끼신 의견과 문의 사항을 전달해 주세요.</p>
+            <div class="customer-text-block">
+                <p>매장 이용에 대한 의견, 서비스 관련 문의, 제품에 대한 궁금한 점 등 고객님의 소중한 의견을 기다립니다.</p>
+                <p>문의 내용을 확인한 후 담당 부서에서 안내해 드릴 수 있도록 준비하고 있습니다.</p>
+                <p class="customer-note">※ 본 페이지는 리뉴얼 포트폴리오 시안으로, 실제 문의 접수 기능은 연결되어 있지 않습니다.</p>
+            </div>
+            <div class="customer-contact-line"><span>이메일 문의</span><a href="mailto:sinjeon@sinjeon.co.kr">sinjeon@sinjeon.co.kr</a></div>
+        </article>
+        <article class="customer-panel" id="customer-faq" role="tabpanel" aria-labelledby="faq-tab" data-customer-panel="faq" hidden>
+            <h2>자주 묻는 질문</h2>
+            <p class="customer-lead">고객님들이 자주 궁금해하시는 내용을 안내합니다.</p>
+            <div class="customer-faq-list">
+                <div><h3>Q. 가까운 매장은 어떻게 찾을 수 있나요?</h3><p>상단 메뉴의 ‘매장 찾기’에서 지역 또는 매장명을 기준으로 매장을 확인할 수 있도록 구성되어 있습니다.</p></div>
+                <div><h3>Q. 메뉴와 가격은 어디에서 확인하나요?</h3><p>상단 메뉴의 ‘메뉴’ 페이지에서 메뉴 종류별 정보를 확인할 수 있습니다.</p></div>
+                <div><h3>Q. 신전 APP 관련 정보는 어디에서 볼 수 있나요?</h3><p>‘신전 APP’ 페이지에서 앱 소개와 이용 혜택, 다운로드 안내를 확인할 수 있습니다.</p></div>
+            </div>
+        </article>
+        <article class="customer-panel" id="customer-franchise" role="tabpanel" aria-labelledby="franchise-tab" data-customer-panel="franchise" hidden>
+            <h2>가맹 문의</h2>
+            <p class="customer-lead">신전떡볶이 가맹 사업에 관심이 있으신 분들을 위한 안내입니다.</p>
+            <div class="customer-text-block">
+                <p>가맹 관련 상담을 원하시면 아래 이메일을 통해 문의 내용을 전달해 주세요.</p>
+                <p>가맹 희망 지역과 연락 가능한 정보, 궁금하신 내용을 함께 작성하시면 상담에 도움이 됩니다.</p>
+                <p class="customer-note">※ 본 페이지는 리뉴얼 포트폴리오 시안으로, 실제 가맹 신청 및 상담 접수 기능은 연결되어 있지 않습니다.</p>
+            </div>
+            <div class="customer-contact-line"><span>가맹 관련 이메일</span><a href="mailto:sinjeon@sinjeon.co.kr">sinjeon@sinjeon.co.kr</a></div>
+        </article>
+    </section>
+</main>
+<footer class="site-footer" id="footer"><div class="footer-inner">
+    <img class="footer-logo" src="img/Foodsys.png" alt="신전떡볶이">
+    <div class="footer-top"><div class="footer-company-info"><p>사업자등록번호 : 504-22-36813</p><p>대표: 하성호</p></div>
+        <nav aria-label="푸터 메뉴"><a href="#footer">개인정보 처리방침</a><i></i><a href="#footer">서비스 이용약관</a><i></i><a href="#footer">찾아오시는 길</a><i></i><a href="brand.html">브랜드</a></nav>
+    </div>
+    <div class="footer-bottom"><div class="footer-contact-info"><p>우)41448 대구광역시 북구 관음로 43</p><p>E-mail: sinjeon@sinjeon.co.kr</p></div><div class="footer-social"><img src="img/image%20206.svg" alt="SNS"><img src="img/image%20207.svg" alt="SNS"><img src="img/image%20208.svg" alt="SNS"></div></div>
+    <p class="copyright">copyright©SINJEON FOOD SYS all rights reserved.</p><p class="portfolio-notice">본 사이트는 포트폴리오용으로 제작된 리뉴얼 시안이며, 신전떡볶이의 공식 웹사이트가 아닙니다.</p>
+</div></footer>
+</div>
+<script>
+const menuButtons=document.querySelectorAll(".gnb-trigger"),megaMenu=document.querySelector("#mega-menu"),menuColumns=document.querySelectorAll(".mega-menu-column"),siteHeader=document.querySelector(".site-header"),canHover=window.matchMedia("(hover: hover) and (pointer: fine)");
+function closeMegaMenu(){megaMenu.hidden=true;menuButtons.forEach(button=>button.setAttribute("aria-expanded","false"))}
+function openMegaMenu(menuName,trigger){megaMenu.hidden=false;menuButtons.forEach(button=>button.setAttribute("aria-expanded",String(button.dataset.menu===menuName)));menuColumns.forEach(column=>column.hidden=column.dataset.column!==menuName);const headerRect=siteHeader.getBoundingClientRect(),triggerRect=trigger.closest("li").getBoundingClientRect(),menuWidth=megaMenu.offsetWidth,centeredLeft=triggerRect.left+triggerRect.width/2-headerRect.left-menuWidth/2,maxLeft=headerRect.width-menuWidth;megaMenu.style.left=Math.max(0,Math.min(centeredLeft,maxLeft))+"px"}
+menuButtons.forEach(button=>{button.addEventListener("mouseenter",()=>{if(canHover.matches)openMegaMenu(button.dataset.menu,button)});button.addEventListener("click",()=>{window.location.href=button.href});});
+siteHeader.addEventListener("mouseleave",()=>{if(canHover.matches)closeMegaMenu()});document.addEventListener("click",event=>{if(!event.target.closest(".site-header"))closeMegaMenu()});document.addEventListener("keydown",event=>{if(event.key==="Escape")closeMegaMenu()});megaMenu.querySelectorAll("a").forEach(link=>link.addEventListener("click",closeMegaMenu));
+document.querySelectorAll("[data-customer-tab]").forEach(tab=>tab.addEventListener("click",()=>{document.querySelectorAll("[data-customer-tab]").forEach(button=>{button.classList.toggle("is-active",button===tab);button.setAttribute("aria-selected",String(button===tab));button.tabIndex=button===tab?0:-1});document.querySelectorAll("[data-customer-panel]").forEach(panel=>{const active=panel.dataset.customerPanel===tab.dataset.customerTab;panel.hidden=!active;panel.classList.toggle("is-active",active)});}));
+</script>
+</body>
+</html>
