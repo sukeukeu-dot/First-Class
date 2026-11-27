@@ -13,12 +13,12 @@
                 </a>
                 <nav aria-label="주요 메뉴">
                     <ul class="gnb">
-                        <li><button type="button" class="gnb-trigger" aria-expanded="false" aria-controls="mega-menu" data-menu="menu">메뉴</button></li>
-                        <li><button type="button" class="gnb-trigger" aria-expanded="false" aria-controls="mega-menu" data-menu="store">매장 찾기</button></li>
-                        <li><button type="button" class="gnb-trigger" aria-expanded="false" aria-controls="mega-menu" data-menu="brand">브랜드</button></li>
-                        <li><button type="button" class="gnb-trigger" aria-expanded="false" aria-controls="mega-menu" data-menu="app">신전 APP</button></li>
-                        <li><button type="button" class="gnb-trigger" aria-expanded="false" aria-controls="mega-menu" data-menu="news">소식</button></li>
-                        <li><button type="button" class="gnb-trigger" aria-expanded="false" aria-controls="mega-menu" data-menu="customer">고객센터</button></li>
+                        <li><a class="gnb-trigger" href="menu.html" data-menu="menu">메뉴</a></li>
+                        <li><a class="gnb-trigger" href="store.html" data-menu="store">매장 찾기</a></li>
+                        <li><a class="gnb-trigger" href="brand.html" data-menu="brand">브랜드</a></li>
+                        <li><a class="gnb-trigger" href="app.html" data-menu="app">신전 APP</a></li>
+                        <li><a class="gnb-trigger" href="news.html" data-menu="news">소식</a></li>
+                        <li><a class="gnb-trigger" href="index.html#footer" data-menu="customer">고객센터</a></li>
                     </ul>
                 </nav>
             </div>
@@ -99,7 +99,7 @@
 const menuButtons=document.querySelectorAll(".gnb-trigger"),megaMenu=document.querySelector("#mega-menu"),menuColumns=document.querySelectorAll(".mega-menu-column"),siteHeader=document.querySelector(".site-header"),canHover=window.matchMedia("(hover: hover) and (pointer: fine)");
 function closeMegaMenu(){megaMenu.hidden=true;menuButtons.forEach(button=>button.setAttribute("aria-expanded","false"))}
 function openMegaMenu(menuName,trigger){megaMenu.hidden=false;menuButtons.forEach(button=>button.setAttribute("aria-expanded",String(button.dataset.menu===menuName)));menuColumns.forEach(column=>column.hidden=column.dataset.column!==menuName);const headerRect=siteHeader.getBoundingClientRect(),triggerRect=trigger.closest("li").getBoundingClientRect(),menuWidth=megaMenu.offsetWidth,centeredLeft=triggerRect.left+triggerRect.width/2-headerRect.left-menuWidth/2,maxLeft=headerRect.width-menuWidth;megaMenu.style.left=Math.max(0,Math.min(centeredLeft,maxLeft))+"px"}
-menuButtons.forEach(button=>{button.addEventListener("mouseenter",()=>{if(canHover.matches)openMegaMenu(button.dataset.menu,button)});button.addEventListener("click",event=>{if(canHover.matches)return;event.preventDefault();if(!megaMenu.hidden&&button.getAttribute("aria-expanded")==="true")closeMegaMenu();else openMegaMenu(button.dataset.menu,button)})});
+menuButtons.forEach(button=>{button.addEventListener("mouseenter",()=>{if(canHover.matches)openMegaMenu(button.dataset.menu,button)});});
 siteHeader.addEventListener("mouseleave",()=>{if(canHover.matches)closeMegaMenu()});document.addEventListener("click",event=>{if(!event.target.closest(".site-header"))closeMegaMenu()});document.addEventListener("keydown",event=>{if(event.key==="Escape")closeMegaMenu()});megaMenu.querySelectorAll("a").forEach(link=>link.addEventListener("click",closeMegaMenu));
 document.querySelectorAll("[data-news-tab]").forEach(tab=>tab.addEventListener("click",()=>{document.querySelectorAll("[data-news-tab]").forEach(button=>{button.classList.toggle("is-active",button===tab);button.setAttribute("aria-selected",String(button===tab))});document.querySelectorAll(".news-item").forEach(card=>card.hidden=card.dataset.newsCategory!==tab.dataset.newsTab);document.querySelector("[data-news-more]").dataset.category=tab.dataset.newsTab;document.querySelector("[data-news-more]").classList.remove("is-expanded");document.querySelector("[data-news-more]").innerHTML='더보기'}));
 const moreButton=document.querySelector("[data-news-more]");moreButton.dataset.category="notice";moreButton.addEventListener("click",()=>{const category=moreButton.dataset.category;const extras=[...document.querySelectorAll("[data-news-extra][data-news-category='"+category+"']")];if(!extras.length)return;const expanded=moreButton.classList.toggle("is-expanded");extras.forEach(card=>card.hidden=!expanded);moreButton.innerHTML=expanded?'접기':'더보기';});
