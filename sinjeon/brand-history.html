@@ -41,7 +41,7 @@
 const menuButtons=document.querySelectorAll(".gnb-trigger"),megaMenu=document.querySelector("#mega-menu"),menuColumns=document.querySelectorAll(".mega-menu-column"),siteHeader=document.querySelector(".site-header"),canHover=window.matchMedia("(hover: hover) and (pointer: fine)");
 function closeMegaMenu(){megaMenu.hidden=true;menuButtons.forEach(b=>b.setAttribute("aria-expanded","false"))}
 function openMegaMenu(menuName,trigger){megaMenu.hidden=false;menuButtons.forEach(b=>b.setAttribute("aria-expanded",String(b.dataset.menu===menuName)));menuColumns.forEach(c=>c.hidden=c.dataset.column!==menuName);const h=siteHeader.getBoundingClientRect(),t=trigger.getBoundingClientRect();megaMenu.style.left=`${t.left-h.left}px`}
-menuButtons.forEach(button=>{button.addEventListener("mouseenter",()=>{if(canHover.matches)openMegaMenu(button.dataset.menu,button)});});
+menuButtons.forEach(button=>{button.addEventListener("mouseenter",()=>{if(canHover.matches)openMegaMenu(button.dataset.menu,button)});button.addEventListener("click",()=>{window.location.href=button.href});});
 siteHeader.addEventListener("mouseleave",()=>{if(canHover.matches)closeMegaMenu()});
 document.addEventListener("click",event=>{if(!event.target.closest(".site-header"))closeMegaMenu()});
 document.addEventListener("keydown",event=>{if(event.key==="Escape")closeMegaMenu()});
