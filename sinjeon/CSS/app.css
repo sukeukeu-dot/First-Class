@@ -12,10 +12,9 @@
 .app-rolling-slide.is-active { display:block; animation:appSlideFade .45s ease; }
 .app-image-placeholder { width:100%; aspect-ratio:1920 / 760; min-height:260px; display:flex; align-items:center; justify-content:center; background:#f0f0f0; border:1px dashed #bdbdbd; color:#777; font-size:20px; line-height:1.5; }
 .app-image-placeholder span { padding:12px 24px; border:1px solid #c9c9c9; background:rgba(255,255,255,.7); }
-.app-rolling-controls { display:flex; align-items:center; justify-content:center; gap:22px; padding:18px 0 26px; background:#fff; }
-.app-rolling-controls button { cursor:pointer; }
-.app-rolling-prev, .app-rolling-next { width:38px; height:38px; border:1px solid #ddd; border-radius:50%; background:#fff; color:#222; font-size:26px; line-height:1; }
+.app-rolling-controls { display:flex; align-items:center; justify-content:center; padding:18px 0 26px; background:#fff; }
 .app-rolling-dots { display:flex; align-items:center; gap:10px; }
+.app-rolling-dots button { cursor:pointer; }
 .app-rolling-dots button { width:10px; height:10px; padding:0; border:0; border-radius:50%; background:#c8c8c8; }
 .app-rolling-dots button.is-active { width:26px; border-radius:8px; background:#d71920; }
 .app-page .site-footer { margin-top:0; }
@@ -28,5 +27,5 @@
     .app-title-row h1 { font-size:22px; }
     .app-breadcrumb { font-size:14px; white-space:nowrap; }
     .app-image-placeholder { aspect-ratio:4 / 3; min-height:220px; font-size:16px; }
-    .app-rolling-controls { padding:14px 0 20px; gap:16px; }
+    .app-rolling-controls { padding:14px 0 20px; }
 }
