@@ -63,27 +63,58 @@
 </div>
 <script>
 (() => {
-    const header = document.querySelector(".site-header");
-    const menu = document.querySelector("#mega-menu");
-    const triggers = [...document.querySelectorAll(".gnb-trigger")];
-    const columns = [...document.querySelectorAll(".mega-menu-column")];
-    function openMenu() {
-        menu.hidden = false;
-        columns.forEach(col => col.hidden = false);
-        triggers.forEach(btn => btn.setAttribute("aria-expanded", "true"));
+    const menuButtons = document.querySelectorAll(".gnb-trigger");
+    const megaMenu = document.querySelector("#mega-menu");
+    const menuColumns = document.querySelectorAll(".mega-menu-column");
+    const siteHeader = document.querySelector(".site-header");
+    const canHover = window.matchMedia("(hover: hover) and (pointer: fine)");
+
+    function closeMegaMenu() {
+        megaMenu.hidden = true;
+        menuButtons.forEach((button) => button.setAttribute("aria-expanded", "false"));
     }
-    function closeMenu() {
-        menu.hidden = true;
-        triggers.forEach(btn => btn.setAttribute("aria-expanded", "false"));
+
+    function openMegaMenu(menuName, trigger) {
+        megaMenu.hidden = false;
+        menuButtons.forEach((button) => {
+            button.setAttribute("aria-expanded", String(button.dataset.menu === menuName));
+        });
+        menuColumns.forEach((column) => {
+            column.hidden = column.dataset.column !== menuName;
+        });
+
+        // 메뉴 서브페이지와 동일하게 hover한 GNB 바로 아래에 표시
+        const headerRect = siteHeader.getBoundingClientRect();
+        const triggerRect = trigger.getBoundingClientRect();
+        megaMenu.style.left = `${triggerRect.left - headerRect.left}px`;
     }
-    triggers.forEach(btn => {
-        btn.addEventListener("mouseenter", openMenu);
-        btn.addEventListener("focus", openMenu);
-        btn.addEventListener("click", openMenu);
+
+    menuButtons.forEach((button) => {
+        button.addEventListener("mouseenter", () => {
+            if (canHover.matches) openMegaMenu(button.dataset.menu, button);
+        });
+        button.addEventListener("click", (event) => {
+            if (canHover.matches) return;
+            event.preventDefault();
+            if (!megaMenu.hidden && button.getAttribute("aria-expanded") === "true") {
+                closeMegaMenu();
+            } else {
+                openMegaMenu(button.dataset.menu, button);
+            }
+        });
     });
-    header.addEventListener("mouseleave", closeMenu);
-    document.addEventListener("click", event => {
-        if (!header.contains(event.target)) closeMenu();
+
+    siteHeader.addEventListener("mouseleave", () => {
+        if (canHover.matches) closeMegaMenu();
+    });
+    document.addEventListener("click", (event) => {
+        if (!event.target.closest(".site-header")) closeMegaMenu();
+    });
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeMegaMenu();
+    });
+    megaMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeMegaMenu);
     });
 })();
 </script>
