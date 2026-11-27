@@ -1,0 +1,20 @@
+/* 신전 APP 서브페이지 */
+.app-page { background:#fff; }
+.app-page-title { padding:104px 20px 22px; background:#fff; }
+.app-title-inner { width:calc(100% - 8%); max-width:var(--content-max-width); margin:0 auto; }
+.app-title-row { display:flex; align-items:center; justify-content:space-between; gap:20px; padding-bottom:20px; border-bottom:1px solid var(--color-border-light); }
+.app-title-row h1 { margin:0; color:var(--color-text-primary); font-size:26px; font-weight:700; line-height:1.3; }
+.app-breadcrumb { margin:0; color:var(--color-text-secondary); font-size:18px; }
+.app-breadcrumb strong { color:var(--color-text-primary); font-weight:600; }
+.app-banner { width:100%; line-height:0; background:#fff; }
+.app-banner img { display:block; width:100%; height:auto; object-fit:contain; }
+.app-banner-first { padding-top:0; }
+.app-banner-second, .app-banner-third { margin:0; }
+.app-page .site-footer { margin-top:0; }
+@media(max-width:700px) {
+    .app-page-title { padding:88px 16px 16px; }
+    .app-title-inner { width:100%; }
+    .app-title-row { align-items:flex-end; gap:12px; padding-bottom:14px; }
+    .app-title-row h1 { font-size:22px; }
+    .app-breadcrumb { font-size:14px; white-space:nowrap; }
+}
