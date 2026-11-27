@@ -121,7 +121,7 @@
  const slides=[...document.querySelectorAll(".app-rolling-slide")], dots=[...document.querySelectorAll(".app-rolling-dots button")], rolling=document.querySelector(".app-rolling");
  let current=0,timer,touchStartX=0,touchStartY=0;
  function showSlide(i){current=(i+slides.length)%slides.length;slides.forEach((s,n)=>s.classList.toggle("is-active",n===current));dots.forEach((d,n)=>d.classList.toggle("is-active",n===current));}
- function restart(){clearInterval(timer);timer=setInterval(()=>showSlide(current+1),4500);}
+ function restart(){clearInterval(timer);timer=setInterval(()=>showSlide(current+1),2000);}
  dots.forEach((d,i)=>d.addEventListener("click",()=>{showSlide(i);restart();}));
  rolling.addEventListener("touchstart",(event)=>{const touch=event.changedTouches[0];touchStartX=touch.clientX;touchStartY=touch.clientY;},{passive:true});
  rolling.addEventListener("touchend",(event)=>{const touch=event.changedTouches[0];const dx=touch.clientX-touchStartX;const dy=touch.clientY-touchStartY;if(Math.abs(dx)>45 && Math.abs(dx)>Math.abs(dy)){showSlide(current+(dx<0?1:-1));restart();}},{passive:true});
