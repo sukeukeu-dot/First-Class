@@ -46,9 +46,7 @@
             <article class="app-rolling-slide" id="app-download" aria-label="신전 APP 다운로드 배너 3"><div class="app-image-placeholder"><span>세 번째 배너 이미지 넣는 공간</span></div></article>
         </div>
         <div class="app-rolling-controls">
-            <button class="app-rolling-prev" type="button" aria-label="이전 배너">‹</button>
             <div class="app-rolling-dots" aria-label="배너 페이지 선택"><button type="button" class="is-active" aria-label="1번 배너 보기"></button><button type="button" aria-label="2번 배너 보기"></button><button type="button" aria-label="3번 배너 보기"></button></div>
-            <button class="app-rolling-next" type="button" aria-label="다음 배너">›</button>
         </div>
     </section>
 </main>
@@ -120,13 +118,13 @@
 </script>
 <script>
 (() => {
- const slides=[...document.querySelectorAll(".app-rolling-slide")], dots=[...document.querySelectorAll(".app-rolling-dots button")], prev=document.querySelector(".app-rolling-prev"), next=document.querySelector(".app-rolling-next"), rolling=document.querySelector(".app-rolling");
- let current=0,timer;
+ const slides=[...document.querySelectorAll(".app-rolling-slide")], dots=[...document.querySelectorAll(".app-rolling-dots button")], rolling=document.querySelector(".app-rolling");
+ let current=0,timer,touchStartX=0,touchStartY=0;
  function showSlide(i){current=(i+slides.length)%slides.length;slides.forEach((s,n)=>s.classList.toggle("is-active",n===current));dots.forEach((d,n)=>d.classList.toggle("is-active",n===current));}
  function restart(){clearInterval(timer);timer=setInterval(()=>showSlide(current+1),4500);}
- prev.addEventListener("click",()=>{showSlide(current-1);restart();});
- next.addEventListener("click",()=>{showSlide(current+1);restart();});
  dots.forEach((d,i)=>d.addEventListener("click",()=>{showSlide(i);restart();}));
+ rolling.addEventListener("touchstart",(event)=>{const touch=event.changedTouches[0];touchStartX=touch.clientX;touchStartY=touch.clientY;},{passive:true});
+ rolling.addEventListener("touchend",(event)=>{const touch=event.changedTouches[0];const dx=touch.clientX-touchStartX;const dy=touch.clientY-touchStartY;if(Math.abs(dx)>45 && Math.abs(dx)>Math.abs(dy)){showSlide(current+(dx<0?1:-1));restart();}},{passive:true});
  rolling.addEventListener("mouseenter",()=>clearInterval(timer));rolling.addEventListener("mouseleave",restart);
  showSlide(0);restart();
 })();
